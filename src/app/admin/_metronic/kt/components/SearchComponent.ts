@@ -8,7 +8,7 @@ import {
   getViewPort,
   isVisibleElement,
   throttle,
-} from '../_utils'
+} from '../_utils/index'
 
 import {MenuComponent, defaultMenuOptions} from './MenuComponent'
 
