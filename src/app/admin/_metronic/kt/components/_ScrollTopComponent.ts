@@ -7,7 +7,7 @@ import {
   getUniqueIdWithPrefix,
   DataUtil,
   ElementAnimateUtil,
-} from '../_utils'
+} from '../_utils/index'
 
 export interface IScrollTopOptions {
   offset: number

@@ -1,34 +1,85 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from './modules/auth/services/auth.guard';
+import { RouterModule, Routes } from '@angular/router';
+import { LayoutComponent } from './_metronic/layout/layout.component';
 
-export const routes: Routes = [
+const routes: Routes = [
   {
-    path: 'admin',
+    path: '',
+    component: LayoutComponent,
     children: [
       {
-        path: 'auth',
-        loadChildren: () =>
-          import('./modules/auth/auth.module').then((m) => m.AuthModule),
-      },
-      {
-        path: 'error',
-        loadChildren: () =>
-          import('./modules/errors/errors.module').then((m) => m.ErrorsModule),
-      },
-      {
         path: '',
-        canActivate: [AuthGuard],
-        loadChildren: () =>
-          import('./_metronic/layout/layout.module').then((m) => m.LayoutModule),
+        children: [
+          {
+            path: '',
+            redirectTo: 'dashboard',
+            pathMatch: 'full',
+          },
+          {
+            path: 'dashboard',
+            loadChildren: () =>
+              import('./pages/dashboard/dashboard.module').then(
+                (m) => m.DashboardModule
+              ),
+          },
+          {
+            path: 'builder',
+            loadChildren: () =>
+              import('./pages/builder/builder.module').then(
+                (m) => m.BuilderModule
+              ),
+          },
+          {
+            path: 'crafted/pages/profile',
+            loadChildren: () =>
+              import('./modules/profile/profile.module').then(
+                (m) => m.ProfileModule
+              ),
+          },
+          {
+            path: 'crafted/account',
+            loadChildren: () =>
+              import('./modules/account/account.module').then(
+                (m) => m.AccountModule
+              ),
+          },
+          {
+            path: 'crafted/pages/wizards',
+            loadChildren: () =>
+              import('./modules/wizards/wizards.module').then(
+                (m) => m.WizardsModule
+              ),
+          },
+          {
+            path: 'crafted/widgets',
+            loadChildren: () =>
+              import('./modules/widgets-examples/widgets-examples.module').then(
+                (m) => m.WidgetsExamplesModule
+              ),
+          },
+          {
+            path: 'apps/chat',
+            loadChildren: () =>
+              import('./modules/apps/chat/chat.module').then(
+                (m) => m.ChatModule
+              ),
+          },
+
+        ],
       },
-      { path: '**', redirectTo: 'error/404' },
-    ]
-  }
+    ],
+  },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./modules/errors/errors.module').then(
+        (m) => m.ErrorsModule
+      ),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class AdminRoutingModule {}

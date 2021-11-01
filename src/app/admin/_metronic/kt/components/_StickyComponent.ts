@@ -10,7 +10,7 @@ import {
   ElementAnimateUtil,
   ElementStyleUtil,
   EventHandlerUtil,
-} from '../_utils'
+} from '../_utils/index'
 
 export interface StickyOptions {
   offset: number

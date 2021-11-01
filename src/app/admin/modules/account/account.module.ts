@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { InlineSVGModule } from 'ng-inline-svg';
 
 import { AccountRoutingModule } from './account-routing.module';
-import { AccountComponent } from './account.component';
+import { AccountComponent } from '../account/account.component';
 import { OverviewComponent } from './overview/overview.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProfileDetailsComponent } from './settings/forms/profile-details/profile-details.component';

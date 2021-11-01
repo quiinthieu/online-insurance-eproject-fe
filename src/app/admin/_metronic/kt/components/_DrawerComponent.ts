@@ -9,7 +9,7 @@ import {
   getCSS,
   DOMEventHandlerUtil,
   ElementStyleUtil,
-} from '../_utils'
+} from '../_utils/index'
 
 export interface DrawerOptions {
   overlay: boolean
