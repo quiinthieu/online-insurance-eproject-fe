@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  BASE_URL:'https://localhost:44391/',
   appVersion: 'v8.0.27',
   USERDATA_KEY: 'authf649fc9a5f55',
   isMockEnabled: true,
