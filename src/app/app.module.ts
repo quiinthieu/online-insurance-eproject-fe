@@ -13,6 +13,7 @@ import { FakeAPIService } from './admin/_fake';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PreloaderComponent } from './user/elements/preloader/preloader.component';
+import {InsuranceTypeService} from "./services/insurance-type.service";
 
 
 function appInitializer(authService: AuthService) {
@@ -44,6 +45,7 @@ function appInitializer(authService: AuthService) {
     NgbModule,
   ],
   providers: [
+    InsuranceTypeService,
     {
       provide: APP_INITIALIZER,
       useFactory: appInitializer,

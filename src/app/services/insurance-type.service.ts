@@ -5,21 +5,21 @@ import { InsuranceType } from '../entities/insurance-type.entity';
 
 @Injectable()
 export class InsuranceTypeService {
-  private BASE_URL:string =  environment.BASE_URL + 'InsuranceType/' ;
+  private BASE_URL:string =  environment.BASE_URL + '/insurance-type/' ;
 
   constructor(private httpClient: HttpClient) {}
 
 
   details(id: number) {
     return this.httpClient
-      .get(this.BASE_URL + 'insuranceType-details/' + id)
+      .get(this.BASE_URL + 'insurance-type-details/' + id)
       .toPromise()
       .then((res) => res as InsuranceType);
   }
 
   findAll() {
     return this.httpClient
-      .get(this.BASE_URL + 'all-insuranceTypes')
+      .get(this.BASE_URL + 'all-insurance-types')
       .toPromise()
       .then((res) => res as InsuranceType[]);
   }

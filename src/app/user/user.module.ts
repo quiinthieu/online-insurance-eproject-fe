@@ -29,6 +29,7 @@ import { OurHistoryComponent } from './elements/our-history/our-history.componen
 import { OurTeam1Component } from './elements/our-team1/our-team1.component';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
+import {InsuranceTypeService} from "../services/insurance-type.service";
 
 @NgModule({
   declarations: [
@@ -57,13 +58,13 @@ import { UserComponent } from './user.component';
     ContactUsHeaderComponent,
     ContactUsFormComponent,
     NotFoundComponent,
-    FaqComponent,
+    FaqComponent
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
   bootstrap:[UserComponent]
 })
