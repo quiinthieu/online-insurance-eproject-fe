@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PreloaderComponent } from './user/elements/preloader/preloader.component';
 import {InsuranceTypeService} from "./services/insurance-type.service";
+import {MessageService} from "./services/message.service";
+import {SubscriptionService} from "./services/subscription.service";
 
 
 function appInitializer(authService: AuthService) {
@@ -46,6 +48,8 @@ function appInitializer(authService: AuthService) {
   ],
   providers: [
     InsuranceTypeService,
+    MessageService,
+    SubscriptionService,
     {
       provide: APP_INITIALIZER,
       useFactory: appInitializer,
