@@ -37,7 +37,6 @@
               "src/styles.scss",
               "src/assets/user/css/lib/bootstrap.css",
               "src/assets/user/css/lib/font-awesome.min.css",
-              "src/assets/user/css/custom/home-3.css" ,
               "src/assets/user/css/custom/style.css"
             ],
             "scripts": [
