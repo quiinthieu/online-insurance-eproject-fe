@@ -1,6 +1,10 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NavigationStart, Router, RouterEvent } from '@angular/router';
-
+declare global {
+  interface Window {
+    grecaptcha: any
+  }
+}
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'body[root]',

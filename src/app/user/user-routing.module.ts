@@ -10,6 +10,9 @@ import { LifeInsuranceComponent } from './components/life-insurance/life-insuran
 import { HealthInsuranceComponent } from './components/health-insurance/health-insurance.component';
 import { MotorInsuranceComponent } from './components/motor-insurance/motor-insurance.component';
 import { HomeComponent } from './components/home/home.component';
+import { CustomerGuard } from '../services/guard/customer.guard';
+import { LoginGuard } from '../services/guard/login.guard';
+import { ActivateAccountComponent } from './components/activate-account/activate-account.component';
 
 const routes: Routes = [
   {
@@ -21,11 +24,20 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
+        path: 'customer',
+        canActivate: [CustomerGuard],
+        loadChildren: () =>
+          import('./customer/customer.module').then(
+            (m) => m.CustomerModule
+          ),
+      },
+      {
         path: 'about-us',
         component: AboutUsComponent,
       },
       {
         path: 'login',
+        canActivate: [LoginGuard],
         component: LoginComponent,
       },
       {
@@ -48,6 +60,12 @@ const routes: Routes = [
         path: 'motor-insurance',
         component: MotorInsuranceComponent,
       },
+      {
+        path: 'activate-account',
+        component: ActivateAccountComponent,
+      },
+
+
       { path: '**', component: ErrorComponent },
     ],
   },
@@ -57,4 +75,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class UserRoutingModule {}
+export class UserRoutingModule { }

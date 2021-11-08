@@ -12,10 +12,12 @@ import { AuthService } from './admin/modules/auth';
 import { FakeAPIService } from './admin/_fake';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CredentialService } from './services/credential.service';
+import { HttpObservablesService } from './services/http-method/http-observables.service';
+import { InsuranceTypeService } from "./services/insurance-type.service";
+import { MessageService } from "./services/message.service";
+import { SubscriptionService } from "./services/subscription.service";
 import { PreloaderComponent } from './user/elements/preloader/preloader.component';
-import {InsuranceTypeService} from "./services/insurance-type.service";
-import {MessageService} from "./services/message.service";
-import {SubscriptionService} from "./services/subscription.service";
 
 
 function appInitializer(authService: AuthService) {
@@ -38,16 +40,18 @@ function appInitializer(authService: AuthService) {
     // #fake-start#
     environment.isMockEnabled
       ? HttpClientInMemoryWebApiModule.forRoot(FakeAPIService, {
-          passThruUnknownUrl: true,
-          dataEncapsulation: false,
-        })
+        passThruUnknownUrl: true,
+        dataEncapsulation: false,
+      })
       : [],
     // #fake-end#
     InlineSVGModule.forRoot(),
     NgbModule,
   ],
   providers: [
+    HttpObservablesService,
     InsuranceTypeService,
+    CredentialService,
     MessageService,
     SubscriptionService,
     {
@@ -59,4 +63,4 @@ function appInitializer(authService: AuthService) {
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

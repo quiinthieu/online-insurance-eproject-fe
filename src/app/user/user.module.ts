@@ -1,8 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CaptchaModule } from 'primeng/captcha';
+import { CustomerGuard } from '../services/guard/customer.guard';
+import { LoginGuard } from '../services/guard/login.guard';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ActivateAccountComponent } from './components/activate-account/activate-account.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ErrorComponent } from './components/error/error.component';
 import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
@@ -29,8 +33,6 @@ import { OurHistoryComponent } from './elements/our-history/our-history.componen
 import { OurTeam1Component } from './elements/our-team1/our-team1.component';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
-import {InsuranceTypeService} from "../services/insurance-type.service";
-
 @NgModule({
   declarations: [
     UserComponent,
@@ -58,14 +60,23 @@ import {InsuranceTypeService} from "../services/insurance-type.service";
     ContactUsHeaderComponent,
     ContactUsFormComponent,
     NotFoundComponent,
-    FaqComponent
+    FaqComponent,
+    ActivateAccountComponent,
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+
+    CaptchaModule,
+
   ],
-  bootstrap:[UserComponent]
+  providers: [
+    CustomerGuard,
+    LoginGuard
+  ],
+  bootstrap: [UserComponent]
 })
-export class UserModule {}
+export class UserModule { }
