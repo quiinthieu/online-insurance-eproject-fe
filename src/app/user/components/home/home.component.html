@@ -12,7 +12,7 @@
             <h5 class="mb-0 text-uppercase">pick your insurance policy today</h5>
             <h1 class="mb-4 text-uppercase">you're in good hands</h1>
             <p class="mb-5 mx-auto">At VRocket, you can get the best insurance coverage at lower cost as quickly as possible.</p>
-            <a href="#" class="th-btn">Get Started</a>
+            <a [routerLink]="['life-insurance']" class="th-btn">Get Started</a>
           </div>
         </div>
       </div>
@@ -29,20 +29,18 @@
         <div class="row text-xl-left text-center justify-content-xl-start justify-content-center">
           <!-- col -->
           <div class="col-xl-2 mb-xl-0 mb-4">
-            <h3>Search Your Domain Now!</h3>
+            <h3>Search Your Insurance Policy Now!</h3>
           </div>
           <!-- col -->
           <div class="col-xl-8 col-12 mb-xl-0 mb-4">
             <input type="search" name="domain_name" class="th-input w-100 mb-3" id="domain_name"
-                   placeholder="Enter your domain name" autocomplete="off">
-            <ul class="w-100 list-unstyled d-flex flex-wrap align-items-center justify-content-center mb-0">
-              <li>.com<span>($5.99)</span></li>
-              <li>.net<span>($5.99)</span></li>
-              <li>.org<span>($5.99)</span></li>
-              <li>.in<span>($5.99)</span></li>
-              <li>.global<span>($5.99)</span></li>
-              <li>.edu<span>($5.99)</span></li>
-            </ul>
+                   placeholder="Enter the insurance type you're looking for" autocomplete="off">
+            <!--<ul class="w-100 list-unstyled d-flex flex-wrap align-items-center justify-content-center mb-0">
+              <li>life insurance<span>($5.99)</span></li>
+              <li>health insurance<span>($5.99)</span></li>
+              <li>motor insurance<span>($5.99)</span></li>
+              <li>home insurance<span>($5.99)</span></li>
+            </ul>-->
           </div>
           <!-- col -->
           <div class="col-xl-2">
@@ -58,12 +56,11 @@
     <div class="container">
       <!-- Head -->
       <div class="section-head">
-        <h2>Why Choose VRocket Services</h2>
+        <h2>Why Choose VRocket</h2>
         <div class="lines">
           <span></span>
         </div>
-        <p>Leave your system management to the experts so that you can focus your energy on what you do
-          best.</p>
+        <p>Get the insurance policy you want with minimum fuss.</p>
       </div>
       <!-- row -->
       <div class="row child-mb-30">
@@ -75,12 +72,8 @@
             <img src="../../../../assets/user/images//icons/blue/rocket.svg" class="img-fluid mr-4" alt="image">
             <!-- text contain -->
             <div class="t-c">
-              <h4 class="mb-3">Level up!</h4>
-              <p class="mb-0">It’s hard to believe anyone would want to harm your website, but they do.
-                Thankfully, our
-                security team is on the job 24/7 to meticulously monitor, thwart suspicious activity and
-                deflect DDoS
-                attacks.</p>
+              <h4 class="mb-3">Great Coverage</h4>
+              <p class="mb-0">We offer insurance policies with high coverage at low cost.</p>
             </div>
           </div>
         </div>
@@ -91,29 +84,26 @@
             <img src="../../../../assets/user/images/icons/blue/trophy.svg" class="img-fluid mr-4" alt="image">
             <!-- text contain -->
             <div class="t-c">
-              <h4 class="mb-3">Award-winning security</h4>
-              <p class="mb-0">It’s hard to believe anyone would want to harm your website, but they do.
-                Thankfully, our security team is on the job 24/7 to meticulously monitor, thwart
-                suspicious activity
-                and deflect DDoS attacks.</p>
+              <h4 class="mb-3">No Hidden Fees</h4>
+              <p class="mb-0">We guarantee that there would be no additional fees for any insurance policy.</p>
             </div>
           </div>
         </div>
         <!-- col -->
-        <div class="col-xl-4 col-lg-6 col-12">
-          <!-- box -->
+        <!--<div class="col-xl-4 col-lg-6 col-12">
+          &lt;!&ndash; box &ndash;&gt;
           <div class="box d-flex align-items-start">
             <img src="../../../../assets/user/images/icons/blue/computing-cloud.svg" class="img-fluid mr-4" alt="image">
-            <!-- text contain -->
+            &lt;!&ndash; text contain &ndash;&gt;
             <div class="t-c">
-              <h4 class="mb-3">What is hosting?</h4>
+              <h4 class="mb-3">Only Pay For What You Need</h4>
               <p class="mb-0">It’s hard to believe anyone would want to harm your website, but they do.
                 Thankfully, our security team is on the job 24/7 to meticulously monitor, thwart
                 suspicious activity
                 and deflect DDoS attacks.</p>
             </div>
           </div>
-        </div>
+        </div>-->
         <!-- col -->
         <div class="col-xl-4 col-lg-6 col-12">
           <!-- box -->
@@ -121,21 +111,18 @@
             <img src="../../../../assets/user/images/icons/blue/wealth.svg" class="img-fluid mr-4" alt="image">
             <!-- text contain -->
             <div class="t-c">
-              <h4 class="mb-3">Upgrade Management</h4>
-              <p class="mb-0">It’s hard to believe anyone would want to harm your website, but they do.
-                Thankfully, our security team is on the job 24/7 to meticulously monitor, thwart
-                suspicious activity
-                and deflect DDoS attacks.</p>
+              <h4 class="mb-3">Investment Opportunity</h4>
+              <p class="mb-0">Each insurance policy comes with an appealing interest rate.</p>
             </div>
           </div>
         </div>
         <!-- col -->
-        <div class="col-xl-4 col-lg-6 col-12">
-          <!-- box -->
+        <!--<div class="col-xl-4 col-lg-6 col-12">
+          &lt;!&ndash; box &ndash;&gt;
           <div class="box d-flex align-items-start">
             <img src="../../../../assets/user/images/icons/blue/customer-service.svg" class="img-fluid mr-4" alt="image"
             >
-            <!-- text contain -->
+            &lt;!&ndash; text contain &ndash;&gt;
             <div class="t-c">
               <h4 class="mb-3">Priority Support</h4>
               <p class="mb-0">It’s hard to believe anyone would want to harm your website, but they do.
@@ -144,22 +131,22 @@
                 and deflect DDoS attacks.</p>
             </div>
           </div>
-        </div>
+        </div>-->
         <!-- col -->
-        <div class="col-xl-4 col-lg-6 col-12">
-          <!-- box -->
+        <!--<div class="col-xl-4 col-lg-6 col-12">
+          &lt;!&ndash; box &ndash;&gt;
           <div class="box d-flex align-items-start">
             <img src="../../../../assets/user/images/icons/blue/mail-box.svg" class="img-fluid mr-4" alt="image">
-            <!-- text contain -->
+            &lt;!&ndash; text contain &ndash;&gt;
             <div class="t-c">
-              <h4 class="mb-3">Email Service</h4>
+              <h4 class="mb-3">Instance Approval</h4>
               <p class="mb-0">It’s hard to believe anyone would want to harm your website, but they do.
                 Thankfully, our security team is on the job 24/7 to meticulously monitor, thwart
                 suspicious activity
                 and deflect DDoS attacks.</p>
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
       <div class="collapse-items collapse" id="collapse-items-2">
         <!-- row -->
@@ -171,12 +158,8 @@
               <img src="../../../../assets/user/images/icons/blue/tool-box.svg" class="img-fluid mr-4" alt="image">
               <!-- text contain -->
               <div class="t-c">
-                <h4 class="mb-3">Bug Fix Guarantee</h4>
-                <p class="mb-0">It’s hard to believe anyone would want to harm your website, but they
-                  do.
-                  Thankfully, our security team is on the job 24/7 to meticulously monitor, thwart
-                  suspicious activity
-                  and deflect DDoS attacks.</p>
+                <h4 class="mb-3">24/7 Support</h4>
+                <p class="mb-0">Our customer support team is on the job 24/7 to assist you with any requests.</p>
               </div>
             </div>
           </div>
@@ -187,12 +170,8 @@
               <img src="../../../../assets/user/images/icons/blue/settings.svg" class="img-fluid mr-4" alt="image">
               <!-- text contain -->
               <div class="t-c">
-                <h4 class="mb-3">Configuration Support</h4>
-                <p class="mb-0">It’s hard to believe anyone would want to harm your website, but they
-                  do.
-                  Thankfully, our security team is on the job 24/7 to meticulously monitor, thwart
-                  suspicious activity
-                  and deflect DDoS attacks.</p>
+                <h4 class="mb-3">Instant Approval</h4>
+                <p class="mb-0">No need to wait for days to get your application . With VRocket, you can get instant approval.</p>
               </div>
             </div>
           </div>

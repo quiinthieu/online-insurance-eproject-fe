@@ -129,7 +129,7 @@ nav .top-bar .news a::after {
   right: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -217,7 +217,7 @@ nav li.nav-item > .dropdown-menu {
   border: 1px solid var(--thBorderColor);
   box-shadow: 0 4px 9px 0 rgba(67, 65, 79, 0.1);
   -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
 }
 
 nav li.nav-item > .dropdown-menu::before {
@@ -228,7 +228,7 @@ nav li.nav-item > .dropdown-menu::before {
   width: 17px;
   height: 17px;
   -webkit-transform: translate(-50%, 0) rotate(-315deg);
-          transform: translate(-50%, 0) rotate(-315deg);
+  transform: translate(-50%, 0) rotate(-315deg);
   border-radius: 3px;
   background-color: white;
 }
@@ -422,9 +422,9 @@ footer .copyright ul li i {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   border-radius: 50%;
   font-size: 16px;
   color: #1c2331;
@@ -449,7 +449,7 @@ footer .copyright .language-menu button {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   font-size: 18px;
   outline: none;
   cursor: pointer;
@@ -523,7 +523,7 @@ footer .copyright .language-menu .menu a i {
   top: 50%;
   color: var(--thGreen);
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   display: none;
 }
 
@@ -643,7 +643,7 @@ input.th-input:focus {
   width: 200px;
   height: 1px;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   -webkit-transition: all 0.5s linear;
   transition: all 0.5s linear;
 }
@@ -659,7 +659,7 @@ input.th-input:focus {
   border-radius: 50%;
   z-index: 2;
   -webkit-transform: translate(-50%, -50%) rotate(45deg);
-          transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .section-head p {
@@ -720,9 +720,9 @@ input.th-input:focus {
   display: -webkit-inline-box;
   display: inline-flex;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   text-align: center;
   border: 0;
 }
@@ -748,9 +748,9 @@ input.th-input:focus {
   display: -webkit-inline-box;
   display: inline-flex;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   text-align: center;
   border: 0;
 }
@@ -773,9 +773,9 @@ input.th-input:focus {
   display: -webkit-inline-box;
   display: inline-flex;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   text-align: center;
   border: 0;
 }
@@ -790,9 +790,9 @@ input.th-input:focus {
   display: -webkit-inline-box;
   display: inline-flex;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   text-align: center;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -827,9 +827,9 @@ input.th-input:focus {
   display: -webkit-inline-box;
   display: inline-flex;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   text-align: center;
   border: 1px solid var(--thBlue);
 }
@@ -873,9 +873,9 @@ input.th-input:focus {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   -webkit-box-pack: space-evenly;
-          justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 .m-b .contain img {
@@ -903,6 +903,7 @@ input.th-input:focus {
   min-width: 50px;
   width: 50px;
 }
+
 .features .box .t-c h4 {
   font-size: 20px;
   color: var(--typeColor);
@@ -968,9 +969,9 @@ input.th-input:focus {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .loading .main .lds-ring {
@@ -990,46 +991,46 @@ input.th-input:focus {
   border: 4px solid #fff;
   border-radius: 50%;
   -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-          animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #fff transparent transparent transparent;
 }
 
 .loading .main .lds-ring div:nth-child(1) {
   -webkit-animation-delay: -0.45s;
-          animation-delay: -0.45s;
+  animation-delay: -0.45s;
 }
 
 .loading .main .lds-ring div:nth-child(2) {
   -webkit-animation-delay: -0.3s;
-          animation-delay: -0.3s;
+  animation-delay: -0.3s;
 }
 
 .loading .main .lds-ring div:nth-child(3) {
   -webkit-animation-delay: -0.15s;
-          animation-delay: -0.15s;
+  animation-delay: -0.15s;
 }
 
 @-webkit-keyframes lds-ring {
   0% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes lds-ring {
   0% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -1127,16 +1128,16 @@ input.th-input:focus {
     right: 0;
     top: 50%;
     -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
     width: 24px;
     height: 24px;
     background: var(--thBorderColor);
     display: -webkit-inline-box;
     display: inline-flex;
     -webkit-box-align: center;
-            align-items: center;
+    align-items: center;
     -webkit-box-pack: center;
-            justify-content: center;
+    justify-content: center;
     float: right;
   }
 
@@ -1153,7 +1154,7 @@ input.th-input:focus {
     top: 0;
     left: auto;
     -webkit-transform: none;
-            transform: none;
+    transform: none;
     box-shadow: none;
     border: 0;
     padding: 5px 0 5px 10px;
@@ -1265,24 +1266,24 @@ input.th-input:focus {
 
   nav .navbar-toggler.collapsed span:nth-child(1) {
     -webkit-animation: span-first-off 0.5s ease-in-out;
-            animation: span-first-off 0.5s ease-in-out;
+    animation: span-first-off 0.5s ease-in-out;
     -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
     top: 40%;
   }
 
   nav .navbar-toggler.collapsed span:nth-child(2) {
     -webkit-animation: span-second-off 0.5s ease-in-out;
-            animation: span-second-off 0.5s ease-in-out;
+    animation: span-second-off 0.5s ease-in-out;
     -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
   }
 
   nav .navbar-toggler.collapsed span:nth-child(3) {
     -webkit-animation: span-third-off 0.5s ease-in-out;
-            animation: span-third-off 0.5s ease-in-out;
+    animation: span-third-off 0.5s ease-in-out;
     -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
     top: 60%;
   }
 
@@ -1294,99 +1295,99 @@ input.th-input:focus {
 
   nav .navbar-toggler span:nth-child(1) {
     -webkit-animation: span-first-on 0.5s ease-in-out;
-            animation: span-first-on 0.5s ease-in-out;
+    animation: span-first-on 0.5s ease-in-out;
     -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
     top: 50%;
   }
 
   nav .navbar-toggler span:nth-child(2) {
     -webkit-animation: span-second-on 0.5s ease-in-out;
-            animation: span-second-on 0.5s ease-in-out;
+    animation: span-second-on 0.5s ease-in-out;
     -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
   }
 
   nav .navbar-toggler span:nth-child(3) {
     -webkit-animation: span-third-on 0.5s ease-in-out;
-            animation: span-third-on 0.5s ease-in-out;
+    animation: span-third-on 0.5s ease-in-out;
     -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
     top: 50%;
   }
 
   @-webkit-keyframes span-first-on {
     0% {
       -webkit-transform: translate(-50%, -300%);
-              transform: translate(-50%, -300%);
+      transform: translate(-50%, -300%);
     }
 
     30% {
       -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
     }
 
     100% {
       -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-              transform: translate(-50%, -50%) rotate(-45deg);
+      transform: translate(-50%, -50%) rotate(-45deg);
     }
   }
 
   @keyframes span-first-on {
     0% {
       -webkit-transform: translate(-50%, -300%);
-              transform: translate(-50%, -300%);
+      transform: translate(-50%, -300%);
     }
 
     30% {
       -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
     }
 
     100% {
       -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-              transform: translate(-50%, -50%) rotate(-45deg);
+      transform: translate(-50%, -50%) rotate(-45deg);
     }
   }
 
   @-webkit-keyframes span-first-off {
     0% {
       -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-              transform: translate(-50%, -50%) rotate(-45deg);
+      transform: translate(-50%, -50%) rotate(-45deg);
     }
 
     30% {
       -webkit-transform: translate(-50%, -50%) rotate(0deg);
-              transform: translate(-50%, -50%) rotate(0deg);
+      transform: translate(-50%, -50%) rotate(0deg);
     }
 
     100% {
       -webkit-transform: translate(-50%, -300%);
-              transform: translate(-50%, -300%);
+      transform: translate(-50%, -300%);
     }
   }
 
   @keyframes span-first-off {
     0% {
       -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-              transform: translate(-50%, -50%) rotate(-45deg);
+      transform: translate(-50%, -50%) rotate(-45deg);
     }
 
     30% {
       -webkit-transform: translate(-50%, -50%) rotate(0deg);
-              transform: translate(-50%, -50%) rotate(0deg);
+      transform: translate(-50%, -50%) rotate(0deg);
     }
 
     100% {
       -webkit-transform: translate(-50%, -300%);
-              transform: translate(-50%, -300%);
+      transform: translate(-50%, -300%);
     }
   }
 
   @-webkit-keyframes span-second-on {
     0% {
       -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
     }
 
     25% {
@@ -1395,19 +1396,19 @@ input.th-input:focus {
 
     50% {
       -webkit-transform: translate(-50%, -50%) scale(1);
-              transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -50%) scale(1);
     }
 
     100% {
       -webkit-transform: translate(-150%, -50%) scale(0);
-              transform: translate(-150%, -50%) scale(0);
+      transform: translate(-150%, -50%) scale(0);
     }
   }
 
   @keyframes span-second-on {
     0% {
       -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
     }
 
     25% {
@@ -1416,19 +1417,19 @@ input.th-input:focus {
 
     50% {
       -webkit-transform: translate(-50%, -50%) scale(1);
-              transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -50%) scale(1);
     }
 
     100% {
       -webkit-transform: translate(-150%, -50%) scale(0);
-              transform: translate(-150%, -50%) scale(0);
+      transform: translate(-150%, -50%) scale(0);
     }
   }
 
   @-webkit-keyframes span-second-off {
     0% {
       -webkit-transform: translate(-150%, -50%) scale(0);
-              transform: translate(-150%, -50%) scale(0);
+      transform: translate(-150%, -50%) scale(0);
     }
 
     25% {
@@ -1437,19 +1438,19 @@ input.th-input:focus {
 
     50% {
       -webkit-transform: translate(-50%, -50%) scale(1);
-              transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -50%) scale(1);
     }
 
     100% {
       -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
     }
   }
 
   @keyframes span-second-off {
     0% {
       -webkit-transform: translate(-150%, -50%) scale(0);
-              transform: translate(-150%, -50%) scale(0);
+      transform: translate(-150%, -50%) scale(0);
     }
 
     25% {
@@ -1458,80 +1459,80 @@ input.th-input:focus {
 
     50% {
       -webkit-transform: translate(-50%, -50%) scale(1);
-              transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -50%) scale(1);
     }
 
     100% {
       -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
     }
   }
 
   @-webkit-keyframes span-third-on {
     0% {
       -webkit-transform: translate(-50%, 200%);
-              transform: translate(-50%, 200%);
+      transform: translate(-50%, 200%);
     }
 
     30% {
       -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
     }
 
     100% {
       -webkit-transform: translate(-50%, -50%) rotate(45deg);
-              transform: translate(-50%, -50%) rotate(45deg);
+      transform: translate(-50%, -50%) rotate(45deg);
     }
   }
 
   @keyframes span-third-on {
     0% {
       -webkit-transform: translate(-50%, 200%);
-              transform: translate(-50%, 200%);
+      transform: translate(-50%, 200%);
     }
 
     30% {
       -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
     }
 
     100% {
       -webkit-transform: translate(-50%, -50%) rotate(45deg);
-              transform: translate(-50%, -50%) rotate(45deg);
+      transform: translate(-50%, -50%) rotate(45deg);
     }
   }
 
   @-webkit-keyframes span-third-off {
     0% {
       -webkit-transform: translate(-50%, -50%) rotate(45deg);
-              transform: translate(-50%, -50%) rotate(45deg);
+      transform: translate(-50%, -50%) rotate(45deg);
     }
 
     30% {
       -webkit-transform: translate(-50%, -50%) rotate(0deg);
-              transform: translate(-50%, -50%) rotate(0deg);
+      transform: translate(-50%, -50%) rotate(0deg);
     }
 
     100% {
       -webkit-transform: translate(-50%, 200%);
-              transform: translate(-50%, 200%);
+      transform: translate(-50%, 200%);
     }
   }
 
   @keyframes span-third-off {
     0% {
       -webkit-transform: translate(-50%, -50%) rotate(45deg);
-              transform: translate(-50%, -50%) rotate(45deg);
+      transform: translate(-50%, -50%) rotate(45deg);
     }
 
     30% {
       -webkit-transform: translate(-50%, -50%) rotate(0deg);
-              transform: translate(-50%, -50%) rotate(0deg);
+      transform: translate(-50%, -50%) rotate(0deg);
     }
 
     100% {
       -webkit-transform: translate(-50%, 200%);
-              transform: translate(-50%, 200%);
+      transform: translate(-50%, 200%);
     }
   }
 
@@ -1542,7 +1543,7 @@ input.th-input:focus {
 
   footer .copyright .content {
     -webkit-box-pack: center;
-            justify-content: center;
+    justify-content: center;
     margin-top: 20px;
   }
 
