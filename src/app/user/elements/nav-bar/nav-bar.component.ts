@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-import {InsuranceType} from "../../../entities/insurance-type.entity";
-import {InsuranceTypeService} from "../../../services/insurance-type.service";
+import { InsuranceType } from "../../../entities/insurance-type.entity";
+import { InsuranceTypeService } from "../../../services/insurance-type.service";
 
 @Component({
   selector: 'nav-bar',
@@ -12,7 +12,7 @@ export class NavBarComponent implements OnInit {
   insuranceTypes: InsuranceType[];
 
   constructor(private insuranceTypeService: InsuranceTypeService) {
-    insuranceTypeService.findAll().then(res => this.insuranceTypes = res);
+    // insuranceTypeService.findAll().then(res => this.insuranceTypes = res);
   }
 
   ngOnInit() {

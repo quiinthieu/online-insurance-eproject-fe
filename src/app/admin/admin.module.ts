@@ -8,6 +8,7 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { InlineSVGModule } from 'ng-inline-svg';
+import { CredentialService } from '../services/credential.service';
 import { AdminRoutingModule } from './admin-routing.module';
 import { TranslationModule } from './modules/i18n';
 import { Routing } from './pages/routing';
@@ -53,6 +54,8 @@ import { DrawersModule, DropdownMenusModule, ExtrasModule, ModalsModule } from '
     NgbTooltipModule,
     TranslateModule,
   ],
+  providers: [
+  ],
   exports: [RouterModule],
 })
-export class AdminModule {}
+export class AdminModule { }

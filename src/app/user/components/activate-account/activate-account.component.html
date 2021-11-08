@@ -1,0 +1,39 @@
+<div id="login-page">
+  <!-- :: Preloader -->
+  <!--<preloader></preloader>-->
+
+  <!-- :: NavBar -->
+  <!--<nav-bar></nav-bar>-->
+
+  <!-- :: Main Contain -->
+  <div class="main-contain text-center">
+    <div class="container">
+      <!-- Logo Contain -->
+      <logo-container></logo-container>
+      <!-- Login Card -->
+      <div class="login-card text-center mx-auto">
+        <!-- Name -->
+        <h5 class="name">Activation Code</h5>
+        <!-- Login Form -->
+        <form id="login-form">
+          <!-- Input Group -->
+          <div class="input-group">
+            <input class="th-input w-100" type="text" aria-label="email-input" placeholder="Activation Code" required>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="sub-btn">Activate</button>
+          <p-captcha siteKey="6LdTvB4dAAAAABHTynXJoMAQcQ6JBrMYIb9Nud4L" (onResponse)="showResponse($event)"></p-captcha>
+
+          <button type="submit" [disabled]="isDisabled" [ngClass]="isDisabled ? 'disabled sub-btn':'sub-btn'"
+            (click)="onResend()">Resend
+            Email</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- :: Footer -->
+  <!--<app-footer></app-footer>-->
+
+</div>
