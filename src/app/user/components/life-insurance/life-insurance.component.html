@@ -41,25 +41,25 @@
 <div class="pricing-table-2 p-80" id="section-1">
     <div class="container">
         <!-- Table -->
-        <h2 class="table-title text-center">Choose Your Web Hosting Plan</h2>
-        <h2 class="table-subtitle text-center">Every plan comes with a 30-day free trial.</h2>
+        <h2 class="table-title text-center">Choose Your Life Insurance Policy</h2>
+        <h2 class="table-subtitle text-center">Every policy comes with an appealing interest rate.</h2>
         <!-- Contain -->
         <div class="contain">
             <ul class="table-body p-0">
                 <li class="first-card">
                     <!-- card name -->
                     <div class="card-name text-center">
-                        <h3>bronze package</h3>
+                        <h3>{{lifePolicy[0].name}} package</h3>
                     </div>
                     <!-- offer -->
                     <div class="offer">
-                        <div class="old-price">$19.00</div>
+                        <div class="old-price">${{lifePolicy[0].amount*30/100}}</div>
                         <div class="save">save 30%</div>
                     </div>
                     <!-- card price -->
                     <div class="card-price">
                         <span class="currency">$</span>
-                        <span class="amount">10</span>
+                        <span class="amount">{{lifePolicy[0].amount}}</span>
                         <span class="duration">/mo</span>
                     </div>
                     <!-- card features -->
@@ -67,28 +67,27 @@
                         <ul class="p-0">
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>dedicated IP</b>
-                                <span>address</span>
+                                <b>coverage for {{lifePolicy[0].term}}</b>
+                                <span> years</span>
                             </li>
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>40 GB</b>
-                                <span>disk space</span>
+                                <b>{{lifePolicy[0].insuranceTypeName}}</b>
+                                <span> (long term)</span>
                             </li>
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>unlimited</b>
-                                <span>bandwidth</span>
+                                <b>Total amount:</b>
+                                <span><b> {{lifePolicy[0].amount*12}}</b> $</span>
                             </li>
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>3 GB</b>
-                                <span>RAM</span>
+                                <b>Interest rate: </b>
+                                <span><b> {{lifePolicy[0].interestRate}}</b>%</span>
                             </li>
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>2</b>
-                                <span>CPU cores</span>
+                                <b>Apply down below</b>
                             </li>
                         </ul>
                     </div>
@@ -102,17 +101,17 @@
                     <div class="ribbon">most popular</div>
                     <!-- card name -->
                     <div class="card-name text-center">
-                        <h3>gold package</h3>
+                        <h3>{{lifePolicy[1].name}} package</h3>
                     </div>
                     <!-- offer -->
                     <div class="offer">
-                        <div class="old-price">$49.00</div>
+                        <div class="old-price">${{lifePolicy[1].amount*71/100}}</div>
                         <div class="save">save 71%</div>
                     </div>
                     <!-- card price -->
                     <div class="card-price">
                         <span class="currency">$</span>
-                        <span class="amount">14</span>
+                        <span class="amount">{{lifePolicy[1].amount}}</span>
                         <span class="duration">/mo</span>
                     </div>
                     <!-- card features -->
@@ -120,28 +119,27 @@
                         <ul class="p-0">
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>dedicated IP</b>
-                                <span>address</span>
+                                <b>coverage for {{lifePolicy[1].term}}</b>
+                                <span> years</span>
                             </li>
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>50 GB</b>
-                                <span>disk space</span>
+                                <b>{{lifePolicy[1].insuranceTypeName}}</b>
+                                <span> (long term)</span>
                             </li>
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>unlimited</b>
-                                <span>bandwidth</span>
+                                <b>Total amount:</b>
+                                <span><b> {{lifePolicy[1].amount*12}}</b> $</span>
                             </li>
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>5 GB</b>
-                                <span>RAM</span>
+                                <b>Interest rate: </b>
+                                <span><b> {{lifePolicy[1].interestRate}}</b>%</span>
                             </li>
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>4</b>
-                                <span>CPU cores</span>
+                                <b>Apply down below</b>
                             </li>
                         </ul>
                     </div>
@@ -153,17 +151,17 @@
                 <li class="third-card">
                     <!-- card name -->
                     <div class="card-name text-center">
-                        <h3>platinum package</h3>
+                        <h3>{{lifePolicy[2].name}} package</h3>
                     </div>
                     <!-- offer -->
                     <div class="offer">
-                        <div class="old-price">$32.00</div>
+                        <div class="old-price">${{lifePolicy[2].amount*34/100}}</div>
                         <div class="save">save 34%</div>
                     </div>
                     <!-- card price -->
                     <div class="card-price">
                         <span class="currency">$</span>
-                        <span class="amount">26</span>
+                        <span class="amount">{{lifePolicy[2].amount}}</span>
                         <span class="duration">/mo</span>
                     </div>
                     <!-- card features -->
@@ -171,28 +169,27 @@
                         <ul class="p-0">
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>dedicated IP</b>
-                                <span>address</span>
+                                <b>coverage for {{lifePolicy[2].term}}</b>
+                                <span> years</span>
                             </li>
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>70 GB</b>
-                                <span>disk space</span>
+                                <b>{{lifePolicy[2].insuranceTypeName}}</b>
+                                <span> (long term)</span>
                             </li>
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>unlimited</b>
-                                <span>bandwidth</span>
+                                <b>Total amount:</b>
+                                <span><b> {{lifePolicy[2].amount*12}}</b> $</span>
                             </li>
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>6 GB</b>
-                                <span>RAM</span>
+                                <b>Interest rate: </b>
+                                <span><b> {{lifePolicy[2].interestRate}}</b>%</span>
                             </li>
                             <li>
                                 <i class="fa fa-check"></i>
-                                <b>4</b>
-                                <span>CPU cores</span>
+                                <b>Apply down below</b>
                             </li>
                         </ul>
                     </div>
@@ -204,37 +201,11 @@
             </ul>
         </div>
         <!-- Cards -->
-        <div class="cards">
-            <ul class="p-0">
-                <li>
-                    <img src="../../../../assets/user/images/shared-photos/cards/visa.png" alt="">
-                </li>
-                <li>
-                    <img src="../../../../assets/user/images/shared-photos/cards/american-express.png" alt="">
-                </li>
-                <li>
-                    <img src="../../../../assets/user/images/shared-photos/cards/bitpay.png" alt="">
-                </li>
-                <li>
-                    <img src="../../../../assets/user/images/shared-photos/cards/diners-club.png" alt="">
-                </li>
-                <li>
-                    <img src="../../../../assets/user/images/shared-photos/cards/discover.png" alt="">
-                </li>
-                <li>
-                    <img src="../../../../assets/user/images/shared-photos/cards/maestro.png" alt="">
-                </li>
-                <li>
-                    <img src="../../../../assets/user/images/shared-photos/cards/mastercard.png" alt="">
-                </li>
-                <li>
-                    <img src="../../../../assets/user/images/shared-photos/cards/paypal.png" alt="">
-                </li>
-            </ul>
+        <div class="cards" style="text-align: center;">
+                    <img src="../../../../assets/user/images/logoFile/2560px-PayPal_logo.svg.png" alt="" width="220px">
         </div>
     </div>
 </div>
-
 <!-- :: features -->
 <div class="features p-80 bg-2">
     <div class="container">
