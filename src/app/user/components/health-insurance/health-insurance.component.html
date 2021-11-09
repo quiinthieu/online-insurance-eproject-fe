@@ -4,9 +4,8 @@
         <div class="container">
             <!-- contain -->
             <div class="contain text-left">
-                <h1 class="mb-4">Shared Web Hosting Done Right</h1>
-                <p class="mb-4">When building a website, start here. Our shared service delivers a powerful, proven platform
-                    that's perfect for hosting your websites.</p>
+                <h1 class="mb-4">The importance of health insurance</h1>
+                <p class="mb-4">A medical insurance plan is extremely useful when it comes to beating medical treatment inflation.</p>
                 <button class="btn-fill-green text-uppercase">Choose Plan</button>
             </div>
         </div>
@@ -23,43 +22,32 @@
                     <div class="pricing-card">
                         <!-- card head -->
                         <div class="card-head text-center">
-                            <h4 class="mb-2">gold</h4>
-                            <h6 class="mb-0">$2.95/mo*</h6>
+                            <h4 class="mb-2">{{lifePolicy[0].name}}</h4>
+                            <h6 class="mb-0">${{lifePolicy[0].amount}}/mo*</h6>
                         </div>
                         <!-- card features -->
                         <ul class="card-features mb-0 list-unstyled">
                             <li>
-                                <span class="title d-block">Storage</span>
-                                <span class="gray">15GB SSD</span>
-                                <span class="dark">30GB SSD</span>
+                                <span class="title d-block">Coverage for</span>
+                                <span class="gray"><b>{{lifePolicy[0].term}}</b> years</span>
                             </li>
                             <li>
-                                <span class="title d-block">Website</span>
-                                <span class="gray">1 Website</span>
+                                <span class="title d-block">Total price</span>
+                                <span class="gray"><b>${{lifePolicy[0].amount*12}}</b></span>
                             </li>
                             <li>
-                                <span class="title d-block">Bandwidth</span>
-                                <span class="gray">Unmetered Bandwidth</span>
+                                <span class="title d-block">{{lifePolicy[0].insuranceTypeName}}</span>
+                                <span class="gray">It's important to have health insurance as a safety net</span>
                             </li>
                             <li>
-                                <span class="title d-block">Certificate</span>
-                                <span class="gray">Free SSL Certificate</span>
+                                <span class="title d-block">Interest rate</span>
+                                <span class="gray"><b>{{lifePolicy[0].interestRate}}%</b></span>
                             </li>
                             <li>
-                                <span class="title d-block">Performance</span>
-                                <span class="gray">Standard Performance</span>
-                            </li>
-                            <li>
-                                <span class="title d-block">Included Domain</span>
-                                <span class="gray">1 Included Domain</span>
-                            </li>
-                            <li>
-                                <span class="title d-block">Parked Domains</span>
-                                <span class="gray">5 Parked Domains</span>
-                            </li>
-                            <li>
-                                <span class="title d-block">Sub Domains</span>
-                                <span class="gray">25 Sub Domains</span>
+                                <span class="title d-block">Why is it important ?</span>
+                                <span class="gray">
+                                    Health insurance provides financial protection in case you have a serious accident or illness. ... Health coverage can help protect you from high, unexpected costs.
+                                </span>
                             </li>
                         </ul>
                         <!-- card footer -->
@@ -74,43 +62,32 @@
                     <div class="pricing-card">
                         <!-- card head -->
                         <div class="card-head text-center">
-                            <h4 class="mb-2">Silver</h4>
-                            <h6 class="mb-0">$4.95/mo*</h6>
+                            <h4 class="mb-2">{{lifePolicy[1].name}}</h4>
+                            <h6 class="mb-0">${{lifePolicy[1].amount}}/mo*</h6>
                         </div>
                         <!-- card features -->
                         <ul class="card-features mb-0 list-unstyled">
                             <li>
-                                <span class="title d-block">Storage</span>
-                                <span class="gray">15GB SSD</span>
-                                <span class="dark">30GB SSD</span>
+                                <span class="title d-block">Coverage for</span>
+                                <span class="gray"><b>{{lifePolicy[1].term}}</b> years</span>
                             </li>
                             <li>
-                                <span class="title d-block">Website</span>
-                                <span class="gray">1 Website</span>
+                                <span class="title d-block">Total price</span>
+                                <span class="gray"><b>${{lifePolicy[1].amount*12}}</b></span>
                             </li>
                             <li>
-                                <span class="title d-block">Bandwidth</span>
-                                <span class="gray">Unmetered Bandwidth</span>
+                                <span class="title d-block">{{lifePolicy[1].insuranceTypeName}}</span>
+                                <span class="gray">It's important to have health insurance as a safety net</span>
                             </li>
                             <li>
-                                <span class="title d-block">Certificate</span>
-                                <span class="gray">Free SSL Certificate</span>
+                                <span class="title d-block">Interest rate</span>
+                                <span class="gray"><b>{{lifePolicy[1].interestRate}}%</b></span>
                             </li>
                             <li>
-                                <span class="title d-block">Performance</span>
-                                <span class="gray">Standard Performance</span>
-                            </li>
-                            <li>
-                                <span class="title d-block">Included Domain</span>
-                                <span class="gray">1 Included Domain</span>
-                            </li>
-                            <li>
-                                <span class="title d-block">Parked Domains</span>
-                                <span class="gray">5 Parked Domains</span>
-                            </li>
-                            <li>
-                                <span class="title d-block">Sub Domains</span>
-                                <span class="gray">25 Sub Domains</span>
+                                <span class="title d-block">Why is it important ?</span>
+                                <span class="gray">
+                                    Health insurance provides financial protection in case you have a serious accident or illness. ... Health coverage can help protect you from high, unexpected costs.
+                                </span>
                             </li>
                         </ul>
                         <!-- card footer -->
@@ -125,43 +102,32 @@
                     <div class="pricing-card recommended">
                         <!-- card head -->
                         <div class="card-head text-center">
-                            <h4 class="mb-2">Diamond</h4>
-                            <h6 class="mb-0">$14.95/mo*</h6>
+                            <h4 class="mb-2">{{lifePolicy[2].name}}</h4>
+                            <h6 class="mb-0">${{lifePolicy[2].amount}}/mo*</h6>
                         </div>
                         <!-- card features -->
                         <ul class="card-features mb-0 list-unstyled">
                             <li>
-                                <span class="title d-block">Storage</span>
-                                <span class="gray">15GB SSD</span>
-                                <span class="dark">30GB SSD</span>
+                                <span class="title d-block">Coverage for</span>
+                                <span class="gray"><b>{{lifePolicy[2].term}}</b> years</span>
                             </li>
                             <li>
-                                <span class="title d-block">Website</span>
-                                <span class="gray">1 Website</span>
+                                <span class="title d-block">Total price</span>
+                                <span class="gray"><b>${{lifePolicy[2].amount*12}}</b></span>
                             </li>
                             <li>
-                                <span class="title d-block">Bandwidth</span>
-                                <span class="gray">Unmetered Bandwidth</span>
+                                <span class="title d-block">{{lifePolicy[2].insuranceTypeName}}</span>
+                                <span class="gray">It's important to have health insurance as a safety net</span>
                             </li>
                             <li>
-                                <span class="title d-block">Certificate</span>
-                                <span class="gray">Free SSL Certificate</span>
+                                <span class="title d-block">Interest rate</span>
+                                <span class="gray"><b>{{lifePolicy[2].interestRate}}%</b></span>
                             </li>
                             <li>
-                                <span class="title d-block">Performance</span>
-                                <span class="gray">Standard Performance</span>
-                            </li>
-                            <li>
-                                <span class="title d-block">Included Domain</span>
-                                <span class="gray">1 Included Domain</span>
-                            </li>
-                            <li>
-                                <span class="title d-block">Parked Domains</span>
-                                <span class="gray">5 Parked Domains</span>
-                            </li>
-                            <li>
-                                <span class="title d-block">Sub Domains</span>
-                                <span class="gray">25 Sub Domains</span>
+                                <span class="title d-block">Why is it important ?</span>
+                                <span class="gray">
+                                    Health insurance provides financial protection in case you have a serious accident or illness. ... Health coverage can help protect you from high, unexpected costs.
+                                </span>
                             </li>
                         </ul>
                         <!-- card footer -->
@@ -176,43 +142,32 @@
                     <div class="pricing-card">
                         <!-- card head -->
                         <div class="card-head text-center">
-                            <h4 class="mb-2">Platinum</h4>
-                            <h6 class="mb-0">$29.95/mo*</h6>
+                            <h4 class="mb-2">{{lifePolicy[3].name}}</h4>
+                            <h6 class="mb-0">${{lifePolicy[3].amount}}/mo*</h6>
                         </div>
                         <!-- card features -->
                         <ul class="card-features mb-0 list-unstyled">
                             <li>
-                                <span class="title d-block">Storage</span>
-                                <span class="gray">15GB SSD</span>
-                                <span class="dark">30GB SSD</span>
+                                <span class="title d-block">Coverage for</span>
+                                <span class="gray"><b>{{lifePolicy[3].term}}</b> years</span>
                             </li>
                             <li>
-                                <span class="title d-block">Website</span>
-                                <span class="gray">1 Website</span>
+                                <span class="title d-block">Total price</span>
+                                <span class="gray"><b>${{lifePolicy[3].amount*12}}</b></span>
                             </li>
                             <li>
-                                <span class="title d-block">Bandwidth</span>
-                                <span class="gray">Unmetered Bandwidth</span>
+                                <span class="title d-block">{{lifePolicy[3].insuranceTypeName}}</span>
+                                <span class="gray">It's important to have health insurance as a safety net</span>
                             </li>
                             <li>
-                                <span class="title d-block">Certificate</span>
-                                <span class="gray">Free SSL Certificate</span>
+                                <span class="title d-block">Interest rate</span>
+                                <span class="gray"><b>{{lifePolicy[3].interestRate}}%</b></span>
                             </li>
                             <li>
-                                <span class="title d-block">Performance</span>
-                                <span class="gray">Standard Performance</span>
-                            </li>
-                            <li>
-                                <span class="title d-block">Included Domain</span>
-                                <span class="gray">1 Included Domain</span>
-                            </li>
-                            <li>
-                                <span class="title d-block">Parked Domains</span>
-                                <span class="gray">5 Parked Domains</span>
-                            </li>
-                            <li>
-                                <span class="title d-block">Sub Domains</span>
-                                <span class="gray">25 Sub Domains</span>
+                                <span class="title d-block">Why is it important ?</span>
+                                <span class="gray">
+                                    Health insurance provides financial protection in case you have a serious accident or illness. ... Health coverage can help protect you from high, unexpected costs.
+                                </span>
                             </li>
                         </ul>
                         <!-- card footer -->
