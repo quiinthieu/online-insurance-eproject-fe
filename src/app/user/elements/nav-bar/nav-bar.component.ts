@@ -12,10 +12,10 @@ export class NavBarComponent implements OnInit {
   insuranceTypes: InsuranceType[];
 
   constructor(private insuranceTypeService: InsuranceTypeService) {
-    insuranceTypeService.findAll().then(res => this.insuranceTypes = res);
   }
 
   ngOnInit() {
+    this.insuranceTypeService.findAll().then(res => this.insuranceTypes = res);
     this.loadScript();
   }
 
