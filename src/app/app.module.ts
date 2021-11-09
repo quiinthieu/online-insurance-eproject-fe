@@ -16,6 +16,7 @@ import { CredentialService } from './services/credential.service';
 import { HttpObservablesService } from './services/http-method/http-observables.service';
 import { InsuranceTypeService } from "./services/insurance-type.service";
 import { MessageService } from "./services/message.service";
+import { PolicyService } from './services/policy.service';
 import { SubscriptionService } from "./services/subscription.service";
 import { PreloaderComponent } from './user/elements/preloader/preloader.component';
 
@@ -53,6 +54,7 @@ function appInitializer(authService: AuthService) {
     InsuranceTypeService,
     CredentialService,
     MessageService,
+    PolicyService,
     SubscriptionService,
     {
       provide: APP_INITIALIZER,
