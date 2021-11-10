@@ -5,7 +5,7 @@ import { Policy } from '../entities/policy.entity';
 
 @Injectable()
 export class PolicyService {
-  private BASE_URL:string =  environment.BASE_URL + '/policy/' ;
+  private BASE_URL:string =  'http://localhost:5001/api/policy/' ;
 
   constructor(private httpClient: HttpClient) {}
 
