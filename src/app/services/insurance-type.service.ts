@@ -12,10 +12,8 @@ export class InsuranceTypeService {
 
 
   details(id: number) {
-    return this.httpClient
-      .get(this.BASE_URL + 'insurance-type-details/' + id)
-      .toPromise()
-      .then((res) => res as InsuranceType);
+    return this.httpMethod
+      .getUrl(this.BASE_URL + 'insurance-type-details/' + id);
   }
 
   findAll() {
@@ -24,6 +22,7 @@ export class InsuranceTypeService {
     //   .toPromise()
     //   .then((res) => res as InsuranceType[]);
     return this.httpMethod.getUrl(this.BASE_URL + 'all-insurance-types');
+
   }
 
 

@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CustomerGuard } from '../services/guard/customer.guard';
 import { LoginGuard } from '../services/guard/login.guard';
 import { ActivateAccountComponent } from './components/activate-account/activate-account.component';
+import { HomeInsuranceComponent } from './components/home-insurance/home-insurance.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,10 @@ const routes: Routes = [
       {
         path: 'motor-insurance',
         component: MotorInsuranceComponent,
+      },
+      {
+        path: 'home-insurance',
+        component: HomeInsuranceComponent,
       },
       {
         path: 'activate-account',

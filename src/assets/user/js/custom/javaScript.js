@@ -14,13 +14,12 @@
 
 (function ($) {
   'use strict';
-    // -- :: Loading Page
-    $(window).on("load", function () {
-      // $("#loading").fadeOut(1000);
-      $("html").css("overflow-y", "visible");
+  // -- :: Loading Page
+  $(window).on("load", function () {
+    // $("#loading").fadeOut(1000);
+    $("html").css("overflow-y", "visible");
   });
   // ----------------------------------
-
 
 
   // // -- :: Navbar
@@ -66,15 +65,15 @@
   // -- :: Footer
   // Language Menu
   $(document).on("click", "#lang-btn", function () {
-      $("footer .copyright .language-menu .menu").toggleClass("show");
+    $("footer .copyright .language-menu .menu").toggleClass("show");
   });
   $(document).mouseup(function (e) {
-      var container = $("footer .copyright .language-menu .menu");
+    var container = $("footer .copyright .language-menu .menu");
 
-      // if the target of the click isn't the container nor a descendant of the container
-      if (!container.is(e.target) && container.has(e.target).length === 0) {
-          container.removeClass("show");
-      }
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      container.removeClass("show");
+    }
   });
 
   // ----------------------------------
@@ -82,131 +81,131 @@
   // -- :: Index Page
 
   // Hosting Section
-  $("#index-page .hosting .host-taps li").on("click",  function () {
-      $(this).addClass("active").siblings().removeClass("active");
-      $(".host-item").hide();
-      $($(this).data("show")).show();
-      return false;
+  $("#index-page .hosting .host-taps li").on("click", function () {
+    $(this).addClass("active").siblings().removeClass("active");
+    $(".host-item").hide();
+    $($(this).data("show")).show();
+    return false;
   });
 
   $("#index-page .hosting .host-taps .s-toggler .check").on(
-      "click",
-      function () {
-          $(this)
-              .parents(".s-toggler")
-              .find(".toggler")
-              .toggleClass("toggler--is-active");
-          $("#index-page .hosting .host-items-contain").toggleClass(
-              "active--section"
-          );
-      }
+    "click",
+    function () {
+      $(this)
+        .parents(".s-toggler")
+        .find(".toggler")
+        .toggleClass("toggler--is-active");
+      $("#index-page .hosting .host-items-contain").toggleClass(
+        "active--section"
+      );
+    }
   );
 
   // Section IX ( Boxes Nav )
   $(document).on("click", ".se-ix ul.boxes-nav li", function () {
-      $(this).addClass("active").siblings().removeClass("active");
-      $($(this).data("box")).fadeIn().siblings().hide();
+    $(this).addClass("active").siblings().removeClass("active");
+    $($(this).data("box")).fadeIn().siblings().hide();
   });
   // ----------------------------------
 
   // -- :: VPS Page
   // Section 4 -> Show the content
   $(document).on(
-      "click",
-      "#vps-page .section-4 .contain .list li",
-      function () {
-          $("#vps-page .section-4 .contain .list li").removeClass("selected");
-          $(this).addClass("selected");
-          $($(this).data("show")).fadeIn().siblings().hide();
-      }
+    "click",
+    "#vps-page .section-4 .contain .list li",
+    function () {
+      $("#vps-page .section-4 .contain .list li").removeClass("selected");
+      $(this).addClass("selected");
+      $($(this).data("show")).fadeIn().siblings().hide();
+    }
   );
   // ----------------------------------
 
   // -- :: Sign Up Page
   // Input Verification
   $(document).on("click", "#sign-up-page #password-btn", function () {
-      // toggle eye icon
-      $("#sign-up-page #password-btn i").toggleClass("fa-eye-slash");
-      var inputField = $("#sign-up-page #password-input");
-      // get the attribute value
-      var type = $(inputField).attr("type");
-      // now test it's value
-      if (type === "password") {
-          $(inputField).attr("type", "text");
-      } else {
-          $(inputField).attr("type", "password");
-      }
+    // toggle eye icon
+    $("#sign-up-page #password-btn i").toggleClass("fa-eye-slash");
+    var inputField = $("#sign-up-page #password-input");
+    // get the attribute value
+    var type = $(inputField).attr("type");
+    // now test it's value
+    if (type === "password") {
+      $(inputField).attr("type", "text");
+    } else {
+      $(inputField).attr("type", "password");
+    }
   });
   // ----------------------------------
 
   // -- :: Login Page
   // Input Verification
   $(document).on("click", "#login-page #password-btn", function () {
-      // toggle eye icon
-      $("#login-page #password-btn i").toggleClass("fa-eye-slash");
-      var inputField = $("#password-input");
-      // get the attribute value
-      var type = $(inputField).attr("type");
-      // now test it's value
-      if (type === "password") {
-          $(inputField).attr("type", "text");
-      } else {
-          $(inputField).attr("type", "password");
-      }
+    // toggle eye icon
+    $("#login-page #password-btn i").toggleClass("fa-eye-slash");
+    var inputField = $("#password-input");
+    // get the attribute value
+    var type = $(inputField).attr("type");
+    // now test it's value
+    if (type === "password") {
+      $(inputField).attr("type", "text");
+    } else {
+      $(inputField).attr("type", "password");
+    }
   });
   // ----------------------------------
 
   // -- :: About Us Page
   // Hide Information card
-$("#about-us-page .our-team .item .card-c").fadeOut(0);
+  $("#about-us-page .our-team .item .card-c").fadeOut(0);
 
   // Show Information Card
   $(document).on(
-      "click",
-      "#about-us-page .our-team .item > span, .our-team .item > img",
-      function () {
-          $(this).parents(".item").find(".card-c").fadeIn();
-          // add overflow hidden to html
-          if ($("html").hasClass("overflow-h") !== true) {
-              $("html").addClass("overflow-h");
-          } else {
-              return false;
-          }
+    "click",
+    "#about-us-page .our-team .item > span, .our-team .item > img",
+    function () {
+      $(this).parents(".item").find(".card-c").fadeIn();
+      // add overflow hidden to html
+      if ($("html").hasClass("overflow-h") !== true) {
+        $("html").addClass("overflow-h");
+      } else {
+        return false;
       }
+    }
   );
 
   // Hide Information Card
   $(document).on(
-      "click",
-      "#about-us-page .our-team .item .team-card button",
-      function () {
-          $(this).parents(".card-c").fadeOut();
-          // remove overflow hidden to html
-          if ($("html").hasClass("overflow-h") == true) {
-              $("html").removeClass("overflow-h");
-          } else {
-              return false;
-          }
+    "click",
+    "#about-us-page .our-team .item .team-card button",
+    function () {
+      $(this).parents(".card-c").fadeOut();
+      // remove overflow hidden to html
+      if ($("html").hasClass("overflow-h") == true) {
+        $("html").removeClass("overflow-h");
+      } else {
+        return false;
       }
+    }
   );
 
   // Map Section
-  $(document).on("click","#about-us-page .flag", function () {
-      $(".flag").removeClass("open");
-      $(this).addClass("open");
+  $(document).on("click", "#about-us-page .flag", function () {
+    $(".flag").removeClass("open");
+    $(this).addClass("open");
   });
   $(document).mouseup(function (e) {
-      var flag_con = $(".flag");
-      // if the target of the click isn't the container nor a descendant of the container
-      if (!flag_con.is(e.target) && flag_con.has(e.target).length === 0) {
-          flag_con.removeClass("open");
-      }
+    var flag_con = $(".flag");
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!flag_con.is(e.target) && flag_con.has(e.target).length === 0) {
+      flag_con.removeClass("open");
+    }
   });
 }(jQuery));
 
 
 // export function initJquery(){
-   // -- :: Loading Page
+// -- :: Loading Page
 //    $(window).on('load', function () {
 //     $('#loading').fadeOut(1000);
 //     $('html').css('overflow-y', 'visible');

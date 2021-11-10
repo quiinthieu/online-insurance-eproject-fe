@@ -46,6 +46,10 @@ header ul p {
 b {
     font-weight: 700 !important;
 }
+.text i.fa-check{
+    font-size: 33px;
+    color: var(--thGreen);
+}
 /* --------------------------------- */
 
 /* -- :: Pricing Table :: -- */
@@ -552,6 +556,7 @@ b {
     .section-6 p {
         font-size: 18px;
     }
+    
 }
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {

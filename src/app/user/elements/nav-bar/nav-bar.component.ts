@@ -16,6 +16,7 @@ export class NavBarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.insuranceTypeService.findAll().then(res => this.insuranceTypes = res);
     this.loadScript();
   }
 

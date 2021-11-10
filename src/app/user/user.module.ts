@@ -12,6 +12,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
 import { HealthInsuranceComponent } from './components/health-insurance/health-insurance.component';
 import { HelpComponent } from './components/help/help.component';
+import { HomeInsuranceComponent } from './components/home-insurance/home-insurance.component';
 import { HomeComponent } from './components/home/home.component';
 import { LifeInsuranceComponent } from './components/life-insurance/life-insurance.component';
 import { LoginComponent } from './components/login/login.component';
@@ -48,6 +49,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     LifeInsuranceComponent,
     HealthInsuranceComponent,
     MotorInsuranceComponent,
+    HomeInsuranceComponent,
     LoginComponent,
     RegisterComponent,
     NavBarComponent,
@@ -72,7 +74,6 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
     CaptchaModule,
     DialogModule,
     ButtonModule,

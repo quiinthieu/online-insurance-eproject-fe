@@ -3,19 +3,19 @@ import { Policy } from 'src/app/entities/policy.entity';
 import { PolicyService } from 'src/app/services/policy.service';
 
 @Component({
-  selector: 'app-life-insurance',
-  templateUrl: './life-insurance.component.html',
-  styleUrls: ['./life-insurance.component.css']
+  selector: 'app-home-insurance',
+  templateUrl: './home-insurance.component.html',
+  styleUrls: ['./home-insurance.component.css']
 })
-export class LifeInsuranceComponent implements OnInit {
+export class HomeInsuranceComponent implements OnInit {
 
-  constructor( private _policyService:PolicyService) { }
-  lifePolicy : Policy[]
+  constructor(private _policyService:PolicyService) { }
+
+  homePolicy : Policy[];
 
   ngOnInit() {
-    this.findAllByInsuranceId(1);
+    this.findAllByInsuranceId(4);
   }
-
   findAllByInsuranceId(id:number) {
     this._policyService.findAllByInsuranceType(id).then (
       res => {
@@ -23,12 +23,11 @@ export class LifeInsuranceComponent implements OnInit {
         for(let i =0;i<res.length;i++) {
           res[i].amount = Math.round(res[i].amount/12);
         }
-        this.lifePolicy = res;
+        this.homePolicy = res;
       },
       error => {
         return null;
       }
     );
   }
-
 }
