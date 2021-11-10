@@ -18,7 +18,8 @@ import { InsuranceTypeService } from "./services/insurance-type.service";
 import { MessageService } from "./services/message.service";
 import { SubscriptionService } from "./services/subscription.service";
 import { PreloaderComponent } from './user/elements/preloader/preloader.component';
-
+import { ToastModule } from 'primeng/toast';
+import { MessageService as MessageToastService } from 'primeng/api';
 
 function appInitializer(authService: AuthService) {
   return () => {
@@ -47,12 +48,14 @@ function appInitializer(authService: AuthService) {
     // #fake-end#
     InlineSVGModule.forRoot(),
     NgbModule,
+    ToastModule
   ],
   providers: [
     HttpObservablesService,
     InsuranceTypeService,
     CredentialService,
     MessageService,
+    MessageToastService,
     SubscriptionService,
     {
       provide: APP_INITIALIZER,

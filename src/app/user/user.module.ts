@@ -33,6 +33,9 @@ import { OurHistoryComponent } from './elements/our-history/our-history.componen
 import { OurTeam1Component } from './elements/our-team1/our-team1.component';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { RadioButtonModule } from 'primeng/radiobutton';
 @NgModule({
   declarations: [
     UserComponent,
@@ -71,6 +74,9 @@ import { UserComponent } from './user.component';
     ReactiveFormsModule,
 
     CaptchaModule,
+    DialogModule,
+    ButtonModule,
+    RadioButtonModule
 
   ],
   providers: [

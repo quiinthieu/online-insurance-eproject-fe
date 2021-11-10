@@ -14,6 +14,10 @@ export class CredentialService {
     return this.httpMethod.postUrl(`${this.BASE_URL}/login`, body);
   }
 
+  register(body: any) {
+    return this.httpMethod.postUrl(`${this.BASE_URL}/register`, body);
+  }
+
   logout() {
     localStorage.removeItem('credential');
     localStorage.removeItem('accessToken');

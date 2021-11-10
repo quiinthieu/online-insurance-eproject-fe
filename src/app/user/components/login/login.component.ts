@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { CredentialService } from 'src/app/services/credential.service';
 import { APP_CONST } from '../../../constants';
 @Component({
@@ -10,7 +11,9 @@ import { APP_CONST } from '../../../constants';
 })
 export class LoginComponent implements OnInit {
   formLogin: FormGroup;
-  constructor(private formBuilder: FormBuilder, private credentialService: CredentialService, private router: Router) {
+  isOpenDialog: boolean = false;
+  requestType: any = null;
+  constructor(private formBuilder: FormBuilder, private credentialService: CredentialService, private router: Router, private messageService: MessageService) {
   }
 
   ngOnInit() {
@@ -32,17 +35,24 @@ export class LoginComponent implements OnInit {
       password
     }
     this.credentialService.login(loginAccount).then(data => {
-      const { accessToken, credential } = data;
-      const { email, roleName, status } = credential
-      localStorage.setItem("accessToken", accessToken);
-      localStorage.setItem("credential", JSON.stringify({ email, roleName, status }))
-      if (roleName == APP_CONST.ROLE_AGENT) {
-        this.router.navigate(['admin']);
-      } else if (roleName == APP_CONST.ROLE_CUSTOMER) {
-        this.router.navigate(['customer']);
+      if (data.hasOwnProperty('error')) {
+        this.messageService.add({ severity: 'danger', summary: 'Error', detail: data.error.detail });
+      } else {
+        const { accessToken, credential } = data;
+        const { email, roleName, status } = credential
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("credential", JSON.stringify({ email, roleName, status }))
+        if (roleName == APP_CONST.ROLE_AGENT) {
+          this.router.navigate(['admin']);
+        } else if (roleName == APP_CONST.ROLE_CUSTOMER) {
+          this.router.navigate(['customer']);
+        }
       }
-      console.log(data);
     })
+  }
+
+  onForgotPassword() {
+    this.isOpenDialog = true;
   }
 
 
