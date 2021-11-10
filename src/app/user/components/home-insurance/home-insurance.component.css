@@ -20,7 +20,7 @@ header::before {
 header .contain {
     position: relative;
 }
-header h1 {
+header h1  {
     font-family: "Poppins", sans-serif !important;
     font-size: 46px;
     font-weight: bold;
@@ -35,7 +35,6 @@ header .contain > p {
     opacity: 0.8;
     max-width: 500px;
 }
-
 /* ------------------------------- */
 
 /* -- :: Pricing */
@@ -74,7 +73,7 @@ header .contain > p {
     text-transform: uppercase;
 }
 .pricing .pricing-card .card-head h6 {
-    font-size: 16px;
+    font-size: 24px;
     font-weight: bold;
     color: var(--thBlue);
 }
@@ -92,11 +91,12 @@ header .contain > p {
 }
 .pricing .pricing-card ul.card-features li span.gray {
     font-size: 14px;
+    margin: 2%;
     color: #777;
 }
 .pricing .pricing-card ul.card-features li span.dark {
     font-size: 14px;
-    color: #2c2f3e;
+    color: #0a0000;
     font-weight: 500;
 }
 /* card footer */
@@ -125,6 +125,11 @@ header .contain > p {
 /* image contain */
 .about .i-c img {
     width: 400px;
+}
+.text-a{
+    font-size: 18px;
+    color: rgb(89, 136, 199);
+    font-weight: 600;
 }
 /* ------------------------------- */
 
@@ -310,5 +315,47 @@ header .contain > p {
     .wrapper-2 .t-c p {
         font-size: 16px;
     }
+}
+.save{
+    font-size: 14px;
+    margin: 3%;
+    font-weight: 600;
+    line-break: 21px;
+    color: #fff;
+    background: var(--thBlue);
+    text-transform: uppercase;
+    border-radius: 40px;
+    padding: 6px 10px;
+    opacity: .5;
+}
+.save-f{
+    font-size: 14px;
+    margin: 3%;
+    font-weight: 600;
+    line-break: 21px;
+    color: #fff;
+    background: var(--thGreen);
+    text-transform: uppercase;
+    border-radius: 40px;
+    padding: 6px 10px;
+    opacity: .5;
+}
+.save-r{
+    font-size: 14px;
+    margin: 3%;
+    font-weight: 600;
+    line-break: 21px;
+    color: #fff;
+    background: var(--hotColor);
+    text-transform: uppercase;
+    border-radius: 40px;
+    padding: 6px 10px;
+    opacity: .5;
+}
+.old-price{
+    color: rgb(141, 162, 172);
+    font-size: 24px;
+    text-transform: uppercase;
+    text-decoration: line-through;
 }
 /* ------------------------------- */

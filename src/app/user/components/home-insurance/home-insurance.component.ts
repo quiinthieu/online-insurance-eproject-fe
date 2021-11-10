@@ -3,16 +3,18 @@ import { Policy } from 'src/app/entities/policy.entity';
 import { PolicyService } from 'src/app/services/policy.service';
 
 @Component({
-  selector: 'app-motor-insurance',
-  templateUrl: './motor-insurance.component.html',
-  styleUrls: ['./motor-insurance.component.css']
+  selector: 'app-home-insurance',
+  templateUrl: './home-insurance.component.html',
+  styleUrls: ['./home-insurance.component.css']
 })
-export class MotorInsuranceComponent implements OnInit {
+export class HomeInsuranceComponent implements OnInit {
 
   constructor(private _policyService:PolicyService) { }
-  motorPolicy : Policy[];
+
+  homePolicy : Policy[];
+
   ngOnInit() {
-    this.findAllByInsuranceId(3);
+    this.findAllByInsuranceId(4);
   }
   findAllByInsuranceId(id:number) {
     this._policyService.findAllByInsuranceType(id).then (
@@ -21,7 +23,7 @@ export class MotorInsuranceComponent implements OnInit {
         for(let i =0;i<res.length;i++) {
           res[i].amount = Math.round(res[i].amount/12);
         }
-        this.motorPolicy = res;
+        this.homePolicy = res;
       },
       error => {
         return null;
