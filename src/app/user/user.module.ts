@@ -18,12 +18,14 @@ import { LifeInsuranceComponent } from './components/life-insurance/life-insuran
 import { LoginComponent } from './components/login/login.component';
 import { MotorInsuranceComponent } from './components/motor-insurance/motor-insurance.component';
 import { RegisterComponent } from './components/register/register.component';
+import { RequestEmailComponent } from './components/request-email/request-email.component';
 import { AboutUsHeaderComponent } from './elements/about-us-header/about-us-header.component';
 import { CallToActionComponent } from './elements/call-to-action/call-to-action.component';
 import { ContactUsFormComponent } from './elements/contact-us-form/contact-us-form.component';
 import { ContactUsHeaderComponent } from './elements/contact-us-header/contact-us-header.component';
 import { FaqComponent } from './elements/faq/faq.component';
 import { FooterComponent } from './elements/footer/footer.component';
+import { LoadingComponent } from './elements/loading/loading.component';
 import { LoginFormComponent } from './elements/login-form/login-form.component';
 import { LogoContainerComponent } from './elements/logo-container/logo-container.component';
 import { MapComponent } from './elements/map/map.component';
@@ -34,11 +36,6 @@ import { OurHistoryComponent } from './elements/our-history/our-history.componen
 import { OurTeam1Component } from './elements/our-team1/our-team1.component';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
-import { DialogModule } from 'primeng/dialog';
-import { ButtonModule } from 'primeng/button';
-import { RadioButtonModule } from 'primeng/radiobutton';
-import { RequestEmailComponent } from './components/request-email/request-email.component';
-import { LoadingComponent } from './elements/loading/loading.component';
 @NgModule({
   declarations: [
     UserComponent,
@@ -79,9 +76,7 @@ import { LoadingComponent } from './elements/loading/loading.component';
     FormsModule,
     ReactiveFormsModule,
     CaptchaModule,
-    DialogModule,
-    ButtonModule,
-    RadioButtonModule
+
 
   ],
   providers: [

@@ -7,6 +7,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { ClipboardModule } from 'ngx-clipboard';
+import { ToastrModule } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './admin/modules/auth';
 import { FakeAPIService } from './admin/_fake';
@@ -19,8 +20,6 @@ import { MessageService } from "./services/message.service";
 import { PolicyService } from './services/policy.service';
 import { SubscriptionService } from "./services/subscription.service";
 import { PreloaderComponent } from './user/elements/preloader/preloader.component';
-import { ToastModule } from 'primeng/toast';
-import { MessageService as MessageToastService } from 'primeng/api';
 
 function appInitializer(authService: AuthService) {
   return () => {
@@ -49,14 +48,26 @@ function appInitializer(authService: AuthService) {
     // #fake-end#
     InlineSVGModule.forRoot(),
     NgbModule,
-    ToastModule
+
+    //ngx toast
+    ToastrModule.forRoot({
+      disableTimeOut: false,
+      timeOut: 3000,
+      tapToDismiss: true,
+      preventDuplicates: true,
+      includeTitleDuplicates: true,
+      newestOnTop: true,
+      progressBar: true,
+      progressAnimation: 'decreasing',
+      easing: 'ease-in',
+      easeTime: 300,
+    }), // ToastrModule added
   ],
   providers: [
     HttpObservablesService,
     InsuranceTypeService,
     CredentialService,
     MessageService,
-    MessageToastService,
     PolicyService,
     SubscriptionService,
     {

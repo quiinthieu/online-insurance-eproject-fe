@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
+import { ToastrService } from 'ngx-toastr';
 import { CredentialService } from 'src/app/services/credential.service';
 import { APP_CONST } from '../../../constants';
 
@@ -24,9 +24,9 @@ export class ActivateAccountComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private messageService: MessageService,
     private formBuilder: FormBuilder,
-    private credentialService: CredentialService
+    private credentialService: CredentialService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -48,7 +48,7 @@ export class ActivateAccountComponent implements OnInit {
           this.initForm();
         }
       } else {
-        this.messageService.add({ severity: 'danger', summary: 'Error', detail: 'Invalid Request' });
+        this.toastr.error('Invalid Request');
         this.router.navigate(['login'])
       }
     });
@@ -72,13 +72,13 @@ export class ActivateAccountComponent implements OnInit {
       password
     }
     this.credentialService.resetPassword(resetPasswordAccount).then(data => {
-      this.isLoading = false;
       if (data.hasOwnProperty('error')) {
-        this.messageService.add({ severity: 'danger', summary: 'Error', detail: data.error.detail });
+        this.toastr.error(data.error.detail);
       } else {
-        this.messageService.add({ severity: 'danger', summary: 'Error', detail: 'Reset Password success' });
+        this.toastr.success('Reset Password success');
       }
     })
+    this.isLoading = false;
     this.router.navigate(['login']);
   }
 
@@ -92,14 +92,16 @@ export class ActivateAccountComponent implements OnInit {
       activationCode
     }
     this.credentialService.verifyActivationCodeAndEmail(verifyAccount).then(data => {
-      this.isLoading = false;
-
       if (data.hasOwnProperty('error')) {
+        this.toastr.error(data.error.detail);
+        this.isLoading = false;
         this.router.navigate(['login']);
       } else {
         if (data.email == email && data.activationCode == this.credential.activationCode) {
           return true;
         }
+        this.toastr.error('Invalid Link');
+        this.isLoading = false;
         this.router.navigate(['login']);
       }
     })
@@ -115,12 +117,12 @@ export class ActivateAccountComponent implements OnInit {
       activationCode
     }
     this.credentialService.activateAccount(activateAccount).then(data => {
-      this.isLoading = false;
       if (data.hasOwnProperty('error')) {
-        this.messageService.add({ severity: 'danger', summary: 'Error', detail: data.error.detail });
+        this.toastr.error(data.error.detail);
       } else {
-        this.messageService.add({ severity: 'danger', summary: 'Error', detail: 'Activate account success' });
+        this.toastr.success('Activate account success');
       }
+      this.isLoading = false;
       this.router.navigate(['login']);
     })
   }
