@@ -34,6 +34,11 @@ import { OurHistoryComponent } from './elements/our-history/our-history.componen
 import { OurTeam1Component } from './elements/our-team1/our-team1.component';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { RequestEmailComponent } from './components/request-email/request-email.component';
+import { LoadingComponent } from './elements/loading/loading.component';
 @NgModule({
   declarations: [
     UserComponent,
@@ -64,6 +69,8 @@ import { UserComponent } from './user.component';
     NotFoundComponent,
     FaqComponent,
     ActivateAccountComponent,
+    RequestEmailComponent,
+    LoadingComponent,
   ],
   imports: [
     CommonModule,
@@ -72,6 +79,9 @@ import { UserComponent } from './user.component';
     FormsModule,
     ReactiveFormsModule,
     CaptchaModule,
+    DialogModule,
+    ButtonModule,
+    RadioButtonModule
 
   ],
   providers: [

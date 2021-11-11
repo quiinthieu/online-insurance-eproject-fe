@@ -1,4 +1,5 @@
 <div id="login-page">
+  <user-loading *ngIf="isLoading"></user-loading>
   <!-- :: Preloader -->
   <!--<preloader></preloader>-->
 
@@ -37,7 +38,14 @@
           <!-- Submit Button -->
           <button type="submit" class="sub-btn">sign in</button>
           <!-- Forget Password -->
-          <a href="./forget-password.html" class="forget-pass-link mx-auto">Forget password?</a>
+          <div style="display:flex;justify-content:space-between">
+            <a [routerLink]="['/request-email', {type:'forgot-password'}]" class="forget-pass-link mx-auto">Forget
+              password?</a>
+            <span>/</span>
+            <a [routerLink]="['/request-email',{type:'activate-account'}]" class="forget-pass-link mx-auto">Activate
+              Account</a>
+          </div>
+
           <!-- Or -->
           <div class="or-wrapper">
             <div class="or-div">or</div>
@@ -77,9 +85,12 @@
     </div>
   </div>
 
-    <!-- :: Newsletter Bar -->
-    <newsletter-bar></newsletter-bar>
+  <!-- :: Newsletter Bar -->
+  <newsletter-bar></newsletter-bar>
 
-    <!-- :: Footer -->
-    <!--<app-footer></app-footer>-->
+  <!-- :: Footer -->
+  <!--<app-footer></app-footer>-->
 </div>
+
+<!-- :: Footer -->
+<!--<app-footer></app-footer>-->

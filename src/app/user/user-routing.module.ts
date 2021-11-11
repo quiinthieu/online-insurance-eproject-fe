@@ -14,6 +14,7 @@ import { CustomerGuard } from '../services/guard/customer.guard';
 import { LoginGuard } from '../services/guard/login.guard';
 import { ActivateAccountComponent } from './components/activate-account/activate-account.component';
 import { HomeInsuranceComponent } from './components/home-insurance/home-insurance.component';
+import { RequestEmailComponent } from './components/request-email/request-email.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent,
+      },
+      {
+        path: 'request-email',
+        component: RequestEmailComponent,
       },
       {
         path: 'contact-us',
