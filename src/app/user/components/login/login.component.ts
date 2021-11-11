@@ -10,9 +10,8 @@ import { APP_CONST } from '../../../constants';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  isLoading = false;
   formLogin: FormGroup;
-  isOpenDialog: boolean = false;
-  requestType: any = null;
   constructor(private formBuilder: FormBuilder, private credentialService: CredentialService, private router: Router, private messageService: MessageService) {
   }
 
@@ -28,6 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
+    this.isLoading = true;
     console.log(this.formLogin.value);
     const { email, password } = this.formLogin.value;
     const loginAccount = {
@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
       password
     }
     this.credentialService.login(loginAccount).then(data => {
+      this.isLoading = false;
       if (data.hasOwnProperty('error')) {
         this.messageService.add({ severity: 'danger', summary: 'Error', detail: data.error.detail });
       } else {
@@ -49,10 +50,6 @@ export class LoginComponent implements OnInit {
         }
       }
     })
-  }
-
-  onForgotPassword() {
-    this.isOpenDialog = true;
   }
 
 

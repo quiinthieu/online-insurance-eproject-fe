@@ -11,7 +11,7 @@ import { APP_CONST } from '../../../constants';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-
+  isLoading = false;
   constructor(private formBuilder: FormBuilder, private credentialService: CredentialService, private router: Router, private messageService: MessageService) { }
 
   ngOnInit() {
@@ -22,18 +22,19 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       email: '',
       password: '',
-      username: '',
-      credentialId: ''
+      username: ''
     });
   }
 
   onRegister() {
-    const { credentialId, email, password, username } = this.registerForm.value;
+    this.isLoading = true;
+    const { email, password, username } = this.registerForm.value;
     const registerAccount = {
-      credentialId, email, password, username
+      email, password, username
     }
     this.credentialService.register(registerAccount).then(
       data => {
+        this.isLoading = false;
         if (data.hasOwnProperty('error')) {
           this.messageService.add({ severity: 'danger', summary: 'Error', detail: data.error.detail });
         } else {

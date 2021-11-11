@@ -1,4 +1,5 @@
 <div id="login-page">
+  <user-loading *ngIf="isLoading"></user-loading>
   <!-- :: Preloader -->
   <!--<preloader></preloader>-->
 
@@ -37,7 +38,14 @@
           <!-- Submit Button -->
           <button type="submit" class="sub-btn">sign in</button>
           <!-- Forget Password -->
-          <a (click)="onForgotPassword()" class="forget-pass-link mx-auto">Forget password?</a>
+          <div style="display:flex;justify-content:space-between">
+            <a [routerLink]="['/request-email', {type:'forgot-password'}]" class="forget-pass-link mx-auto">Forget
+              password?</a>
+            <span>/</span>
+            <a [routerLink]="['/request-email',{type:'activate-account'}]" class="forget-pass-link mx-auto">Activate
+              Account</a>
+          </div>
+
           <!-- Or -->
           <div class="or-wrapper">
             <div class="or-div">or</div>
@@ -84,27 +92,5 @@
   <!--<app-footer></app-footer>-->
 </div>
 
-<p-dialog header="Header" [(visible)]="isOpenDialog" [breakpoints]="{'960px': '75vw'}" [style]="{width: '50vw'}"
-  [draggable]="false" [resizable]="false">
-  <div class="input-group">
-    <input class="th-input w-100" type="email" aria-label="email-input" placeholder="Email address" required
-      formControlName="email">
-  </div>
-  <div class="input-group">
-    <p-radioButton name="request-type" value="Forgot Password" [(ngModel)]="requestType" inputId="forgot-password">
-    </p-radioButton>
-    <label for="forgot-password">Chicago</label>
-  </div>
-  <div class="input-group">
-    <p-radioButton name="request-type" value="Activate Account" [(ngModel)]="requestType" inputId="activate-account">
-    </p-radioButton>
-    <label for="activate-account">Chicago</label>
-  </div>
-  <ng-template pTemplate="footer">
-    <p-button label="No" styleClass="p-button-text"></p-button>
-    <p-button label="Yes" styleClass="p-button-text"></p-button>
-  </ng-template>
-</p-dialog>
 <!-- :: Footer -->
 <!--<app-footer></app-footer>-->
-</div>

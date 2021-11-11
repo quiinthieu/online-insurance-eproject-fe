@@ -37,6 +37,8 @@ import { UserComponent } from './user.component';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { RequestEmailComponent } from './components/request-email/request-email.component';
+import { LoadingComponent } from './elements/loading/loading.component';
 @NgModule({
   declarations: [
     UserComponent,
@@ -67,6 +69,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     NotFoundComponent,
     FaqComponent,
     ActivateAccountComponent,
+    RequestEmailComponent,
+    LoadingComponent,
   ],
   imports: [
     CommonModule,

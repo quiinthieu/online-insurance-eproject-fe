@@ -1,4 +1,6 @@
 <div id="login-page">
+  <user-loading *ngIf="isLoading"></user-loading>
+
   <!-- :: Preloader -->
   <!--<preloader></preloader>-->
 
@@ -13,21 +15,19 @@
       <!-- Login Card -->
       <div class="login-card text-center mx-auto">
         <!-- Name -->
-        <h5 class="name">Activation Code</h5>
+        <h5 class="name">{{credential.requestType==='forgot-password' ?'Reset Password':'Activate Account'}}</h5>
         <!-- Login Form -->
-        <form id="login-form">
+        <form id="login-form" [formGroup]="formRequest" (ngSubmit)="onSubmit()">
           <!-- Input Group -->
-          <div class="input-group">
-            <input class="th-input w-100" type="text" aria-label="email-input" placeholder="Activation Code" required>
+          <div class="input-group focused">
+            <input class="th-input w-100" type="password" aria-label="password-input" id="password-input"
+              placeholder="Password" required formControlName="password">
+            <button type="button" class="password-btn" id="password-btn">
+              <i class="fa fa-eye"></i>
+            </button>
           </div>
-
           <!-- Submit Button -->
-          <button type="submit" class="sub-btn">Activate</button>
-          <p-captcha siteKey="6LdTvB4dAAAAABHTynXJoMAQcQ6JBrMYIb9Nud4L" (onResponse)="showResponse($event)"></p-captcha>
-
-          <button type="submit" [disabled]="isDisabled" [ngClass]="isDisabled ? 'disabled sub-btn':'sub-btn'"
-            (click)="onResend()">Resend
-            Email</button>
+          <button type="submit" class="sub-btn">Reset Password</button>
         </form>
       </div>
     </div>
