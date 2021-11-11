@@ -3,6 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './_metronic/layout/layout.component';
 import {AgentComponent} from "./components/agent/agent.component";
 import {BranchComponent} from "./components/branch/branch.component";
+import {ClaimComponent} from "./components/claim/claim.component";
+import {CredentialComponent} from "./components/credential/credential.component";
+import {CustomerComponent} from "./components/customer/customer.component";
+import {CustomerPolicyComponent} from "./components/customer-policy/customer-policy.component";
+import {InsuranceTypeComponent} from "./components/insurance-type/insurance-type.component";
+import {MessageComponent} from "./components/message/message.component";
+import {PolicyComponent} from "./components/policy/policy.component";
+import {PremiumTransactionComponent} from "./components/premium-transaction/premium-transaction.component";
+import {PremiumTypeComponent} from "./components/premium-type/premium-type.component";
+import {RoleComponent} from "./components/role/role.component";
+import {SubscriptionComponent} from "./components/subscription/subscription.component";
 
 const routes: Routes = [
   {
@@ -73,6 +84,50 @@ const routes: Routes = [
           {
             path: 'branch',
             component: BranchComponent
+          },
+          {
+            path: 'claim',
+            component: ClaimComponent
+          },
+          {
+            path: 'credential',
+            component: CredentialComponent
+          },
+          {
+            path: 'customer',
+            component: CustomerComponent
+          },
+          {
+            path: 'customer-policy',
+            component: CustomerPolicyComponent
+          },
+          {
+            path: 'insurance-type',
+            component: InsuranceTypeComponent
+          },
+          {
+            path: 'message',
+            component: MessageComponent
+          },
+          {
+            path: 'policy',
+            component: PolicyComponent
+          },
+          {
+            path: 'premium-transaction',
+            component: PremiumTransactionComponent
+          },
+          {
+            path: 'premium-type',
+            component: PremiumTypeComponent
+          },
+          {
+            path: 'role',
+            component: RoleComponent
+          },
+          {
+            path: 'subscription',
+            component: SubscriptionComponent
           }
 
         ],
