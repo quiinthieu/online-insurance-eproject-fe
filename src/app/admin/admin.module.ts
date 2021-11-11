@@ -23,7 +23,7 @@ import { ScriptsInitComponent } from './_metronic/layout/components/scripts-init
 import { ToolbarComponent } from './_metronic/layout/components/toolbar/toolbar.component';
 import { TopbarComponent } from './_metronic/layout/components/topbar/topbar.component';
 import { LayoutComponent } from './_metronic/layout/layout.component';
-import { DrawersModule, DropdownMenusModule, ExtrasModule, ModalsModule } from './_metronic/partials';
+import {DrawersModule, DropdownMenusModule, ExtrasModule, ModalsModule, WidgetsModule} from './_metronic/partials';
 import { AgentComponent } from './components/agent/agent.component';
 import { BranchComponent } from './components/branch/branch.component';
 import { ClaimComponent } from './components/claim/claim.component';
@@ -79,6 +79,7 @@ import { SubscriptionComponent } from './components/subscription/subscription.co
     DropdownMenusModule,
     NgbTooltipModule,
     TranslateModule,
+    WidgetsModule,
   ],
   providers: [
   ],
