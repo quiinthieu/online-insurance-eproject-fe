@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './_metronic/layout/layout.component';
+import {AgentComponent} from "./components/agent/agent.component";
+import {BranchComponent} from "./components/branch/branch.component";
 
 const routes: Routes = [
   {
@@ -64,6 +66,14 @@ const routes: Routes = [
                 (m) => m.ChatModule
               ),
           },
+          {
+            path: 'agent',
+            component: AgentComponent
+          },
+          {
+            path: 'branch',
+            component: BranchComponent
+          }
 
         ],
       },

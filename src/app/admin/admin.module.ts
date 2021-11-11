@@ -24,6 +24,8 @@ import { ToolbarComponent } from './_metronic/layout/components/toolbar/toolbar.
 import { TopbarComponent } from './_metronic/layout/components/topbar/topbar.component';
 import { LayoutComponent } from './_metronic/layout/layout.component';
 import { DrawersModule, DropdownMenusModule, ExtrasModule, ModalsModule } from './_metronic/partials';
+import { AgentComponent } from './components/agent/agent.component';
+import { BranchComponent } from './components/branch/branch.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { DrawersModule, DropdownMenusModule, ExtrasModule, ModalsModule } from '
     TopbarComponent,
     PageTitleComponent,
     HeaderMenuComponent,
+    AgentComponent,
+    BranchComponent,
   ],
   imports: [
     CommonModule,

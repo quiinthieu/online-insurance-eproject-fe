@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BASE_URL: 'https://localhost:5001/api',
+  BASE_URL: 'http://localhost:5001/api',
   appVersion: 'v8.0.27',
   USERDATA_KEY: 'authf649fc9a5f55',
   isMockEnabled: true,

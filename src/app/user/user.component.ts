@@ -14,6 +14,7 @@ import * as $ from 'jquery';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit, AfterViewInit {
   observer;
@@ -42,7 +43,7 @@ export class UserComponent implements OnInit, AfterViewInit {
   // };
 
   ngOnInit() {
-    $.getScript('../../assets/user/js/custom/javaScript.js'); //Add path to your custom js file
+    $.getScript('../../assets/user/js/custom/javaScript.js');//Add path to your custom js file
   }
 
   ngAfterViewInit() {
