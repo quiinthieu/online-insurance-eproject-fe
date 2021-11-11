@@ -93,12 +93,14 @@ export class ActivateAccountComponent implements OnInit {
     }
     this.credentialService.verifyActivationCodeAndEmail(verifyAccount).then(data => {
       if (data.hasOwnProperty('error')) {
+        this.toastr.error(data.error.detail);
         this.isLoading = false;
         this.router.navigate(['login']);
       } else {
         if (data.email == email && data.activationCode == this.credential.activationCode) {
           return true;
         }
+        this.toastr.error('Invalid Link');
         this.isLoading = false;
         this.router.navigate(['login']);
       }
