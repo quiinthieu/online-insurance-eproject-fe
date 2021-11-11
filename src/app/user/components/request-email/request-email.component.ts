@@ -54,8 +54,7 @@ export class RequestEmailComponent implements OnInit {
     } else if (APP_CONST.REQUEST_ACTIVATE_ACCOUNT) {
       this.activateRequest(email);
     }
-    this.isDisabled = true;
-    window.grecaptcha.reset()
+
   }
 
   showResponse(event) {
@@ -72,6 +71,8 @@ export class RequestEmailComponent implements OnInit {
       } else {
         this.toastr.success('Email has sent to your account');
       }
+      this.isDisabled = true;
+      window.grecaptcha.reset()
       this.isLoading = false;
       this.router.navigate(['login'])
     })
@@ -85,6 +86,8 @@ export class RequestEmailComponent implements OnInit {
       } else {
         this.toastr.success('Email has sent to your account');
       }
+      this.isDisabled = true;
+      window.grecaptcha.reset()
       this.isLoading = false;
       this.router.navigate(['login'])
     })
