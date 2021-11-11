@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
+import { ToastrService } from 'ngx-toastr';
 import { CredentialService } from 'src/app/services/credential.service';
 import { APP_CONST } from '../../../constants';
 @Component({
@@ -12,7 +12,11 @@ import { APP_CONST } from '../../../constants';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   isLoading = false;
-  constructor(private formBuilder: FormBuilder, private credentialService: CredentialService, private router: Router, private messageService: MessageService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private credentialService: CredentialService,
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.initForm();
@@ -34,13 +38,13 @@ export class RegisterComponent implements OnInit {
     }
     this.credentialService.register(registerAccount).then(
       data => {
-        this.isLoading = false;
         if (data.hasOwnProperty('error')) {
-          this.messageService.add({ severity: 'danger', summary: 'Error', detail: data.error.detail });
+          this.toastr.error(data.error.detail);
         } else {
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: APP_CONST.REGISTER_SUCCESS });
-          this.router.navigate(['login']);
+          this.toastr.success(APP_CONST.REGISTER_SUCCESS);
         }
+        this.isLoading = false;
+        this.router.navigate(['login']);
       },
 
     )

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
+import { ToastrService } from 'ngx-toastr';
 import { CredentialService } from 'src/app/services/credential.service';
 import { APP_CONST } from '../../../constants';
 
@@ -19,8 +19,9 @@ export class RequestEmailComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private credentialService: CredentialService,
-    private router: Router, private messageService: MessageService,
-    private formBuilder: FormBuilder) { }
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.initRequestType();
@@ -40,7 +41,7 @@ export class RequestEmailComponent implements OnInit {
       if (type) {
         this.requestType = type;
       } else {
-        this.messageService.add({ severity: 'danger', summary: 'Error', detail: 'Invalid Request' });
+        this.toastr.error('Invalid Request');
         this.router.navigate(['login']);
       }
     })
@@ -66,27 +67,27 @@ export class RequestEmailComponent implements OnInit {
   activateRequest(email: string) {
     this.isLoading = true;
     this.credentialService.activateRequest({ email }).then(data => {
-      this.isLoading = false;
       if (data.hasOwnProperty('error')) {
-        this.messageService.add({ severity: 'danger', summary: 'Error', detail: data.error.detail });
+        this.toastr.error(data.error.detail)
       } else {
-        this.messageService.add({ severity: 'danger', summary: 'Error', detail: 'Email has sent to your account' });
+        this.toastr.success('Email has sent to your account');
       }
+      this.isLoading = false;
+      this.router.navigate(['login'])
     })
-    this.router.navigate(['login'])
   }
 
   resetPasswordRequest(email: string) {
     this.isLoading = true;
     this.credentialService.resetPasswordRequest({ email }).then(data => {
-      this.isLoading = false;
       if (data.hasOwnProperty('error')) {
-        this.messageService.add({ severity: 'danger', summary: 'Error', detail: data.error.detail });
+        this.toastr.error(data.error.detail)
       } else {
-        this.messageService.add({ severity: 'danger', summary: 'Error', detail: 'Email has sent to your account' });
+        this.toastr.success('Email has sent to your account');
       }
+      this.isLoading = false;
+      this.router.navigate(['login'])
     })
-    this.router.navigate(['login'])
   }
 
 
