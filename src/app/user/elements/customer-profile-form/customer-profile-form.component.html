@@ -1,0 +1,72 @@
+<div class="contact-form-s">
+    <div class="container">
+        <!-- row -->
+        <div class="row justify-content-center">
+            <!-- col -->
+            <div class="col-lg-7 col-md-9">
+                <form [formGroup]="updateProfile" (ngSubmit)="saveProfile()" id="contact-sales-form">
+                    <!-- Input Group -->
+                    <div class="input-group">
+                        <label for="f-name">FullName</label>
+                        <input class="th-input w-100" id="f-name" type="text" aria-label="f-name"
+                        formControlName="name" required autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label for="zipcode">Zipcode</label>
+                        <input class="th-input w-100" id="zipcode" type="text" aria-label="zipcode"
+                        formControlName="zipCode" required autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label for="occupation">Occupation</label>
+                        <input class="th-input w-100" id="occupation" type="text" aria-label="occupation"
+                        formControlName="occupation" required autocomplete="off">
+                    </div>
+                    <!-- Input Group -->
+                    <div class="input-group">
+                        <label for="b-day">Birthday</label>
+                        <input class="th-input w-100" id="b-day" type="datetime-local" aria-label="b-day"
+                        formControlName="birthday" required autocomplete="off">
+                    </div>
+                    <!-- Input Group -->
+                    <div class="input-group">
+                        <label for="street">Street</label>
+                        <input class="th-input w-100" id="street" type="text" aria-label="street"
+                        formControlName="street" required autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label for="city">City</label>
+                        <input class="th-input w-100" id="city" type="text" aria-label="city"
+                        formControlName="city" required autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label for="state">State</label>
+                        <input class="th-input w-100" id="state" type="text" aria-label="state"
+                        formControlName="state" required autocomplete="off">
+                    </div>
+                    <!-- Input Group -->
+                    <div class="input-group" >
+                      <tr>
+                          <td><input type="radio" name="gender" value="Male" formControlName="gender" ></td>
+                          <td><span>Male</span></td>
+                      </tr>
+                      <tr style="margin-left:30px;">
+                          <td><input type="radio" name="gender" value="Female" formControlName="gender" ></td>
+                          <td><span>Female</span></td>
+                    </tr>
+                    </div>
+                    <div class="input-group">
+                        <label for="citizenid">Citizen Id</label>
+                        <input class="th-input w-100" id="citizenid" type="text" aria-label="citizenid"
+                        formControlName="citizenId" required autocomplete="off">
+                    </div>
+                    <!-- Input Group -->
+                    <div class="input-group justify-content-end mb-0">
+                        <button type="submit" id="contact-sales-form-btn" class="btn-fill-blue text-capitalize">
+                            Update profile
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
