@@ -1,15 +1,15 @@
 export class Result {
-  private _result: string;
+  private _result;
 
 
   constructor() {
   }
 
-  get result(): string {
+  get result() {
     return this._result;
   }
 
-  set result(value: string) {
+  set result(value) {
     this._result = value;
   }
 }

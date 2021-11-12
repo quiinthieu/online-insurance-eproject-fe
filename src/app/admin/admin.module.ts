@@ -23,7 +23,20 @@ import { ScriptsInitComponent } from './_metronic/layout/components/scripts-init
 import { ToolbarComponent } from './_metronic/layout/components/toolbar/toolbar.component';
 import { TopbarComponent } from './_metronic/layout/components/topbar/topbar.component';
 import { LayoutComponent } from './_metronic/layout/layout.component';
-import { DrawersModule, DropdownMenusModule, ExtrasModule, ModalsModule } from './_metronic/partials';
+import {DrawersModule, DropdownMenusModule, ExtrasModule, ModalsModule, WidgetsModule} from './_metronic/partials';
+import { AgentComponent } from './components/agent/agent.component';
+import { BranchComponent } from './components/branch/branch.component';
+import { ClaimComponent } from './components/claim/claim.component';
+import { CredentialComponent } from './components/credential/credential.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { CustomerPolicyComponent } from './components/customer-policy/customer-policy.component';
+import { InsuranceTypeComponent } from './components/insurance-type/insurance-type.component';
+import { MessageComponent } from './components/message/message.component';
+import { PolicyComponent } from './components/policy/policy.component';
+import { PremiumTransactionComponent } from './components/premium-transaction/premium-transaction.component';
+import { PremiumTypeComponent } from './components/premium-type/premium-type.component';
+import { RoleComponent } from './components/role/role.component';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
 
 
 @NgModule({
@@ -39,6 +52,19 @@ import { DrawersModule, DropdownMenusModule, ExtrasModule, ModalsModule } from '
     TopbarComponent,
     PageTitleComponent,
     HeaderMenuComponent,
+    AgentComponent,
+    BranchComponent,
+    ClaimComponent,
+    CredentialComponent,
+    CustomerComponent,
+    CustomerPolicyComponent,
+    InsuranceTypeComponent,
+    MessageComponent,
+    PolicyComponent,
+    PremiumTransactionComponent,
+    PremiumTypeComponent,
+    RoleComponent,
+    SubscriptionComponent,
   ],
   imports: [
     CommonModule,
@@ -53,6 +79,7 @@ import { DrawersModule, DropdownMenusModule, ExtrasModule, ModalsModule } from '
     DropdownMenusModule,
     NgbTooltipModule,
     TranslateModule,
+    WidgetsModule,
   ],
   providers: [
   ],

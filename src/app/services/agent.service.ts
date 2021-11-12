@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Agent } from '../entities/agent.entity';
+import {Result} from "../entities/result.entity";
 
 @Injectable()
 export class AgentService {
@@ -22,6 +23,13 @@ export class AgentService {
       .get(this.BASE_URL + 'all-agents')
       .toPromise()
       .then((res) => res as Agent[]);
+  }
+
+  count() {
+    return this.httpClient
+      .get(this.BASE_URL + 'count')
+      .toPromise()
+      .then(res => res as Result)
   }
 
 
