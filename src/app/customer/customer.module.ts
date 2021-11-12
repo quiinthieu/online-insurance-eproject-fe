@@ -1,21 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CredentialService } from 'src/app/services/credential.service';
-import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerComponent } from './customer.component';
 
 @NgModule({
   declarations: [
-    CustomerComponent
+    CustomerComponent,
   ],
   imports: [
     CommonModule,
-    CustomerRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [
   ],

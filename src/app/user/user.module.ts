@@ -80,7 +80,6 @@ import { UserComponent } from './user.component';
 
   ],
   providers: [
-    CustomerGuard,
     LoginGuard
   ],
   bootstrap: [UserComponent]

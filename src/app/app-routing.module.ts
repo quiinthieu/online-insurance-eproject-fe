@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './admin/modules/auth/services/auth.guard';
+import { CustomerGuard } from './services/guard/customer.guard';
 
 export const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () =>
       import('./admin/modules/auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'customer',
+    canActivate: [CustomerGuard],
+    loadChildren: () =>
+      import('./customer/components/layout/layout.module').then(
+        (m) => m.LayoutCustomerModule
+      ),
   },
   // {
   //   path: 'error',
@@ -43,4 +52,4 @@ export const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

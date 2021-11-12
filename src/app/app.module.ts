@@ -14,6 +14,7 @@ import { FakeAPIService } from './admin/_fake';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CredentialService } from './services/credential.service';
+import { CustomerGuard } from './services/guard/customer.guard';
 import { HttpObservablesService } from './services/http-method/http-observables.service';
 import { InsuranceTypeService } from "./services/insurance-type.service";
 import { MessageService } from "./services/message.service";
@@ -70,6 +71,7 @@ function appInitializer(authService: AuthService) {
     MessageService,
     PolicyService,
     SubscriptionService,
+    CustomerGuard,
     {
       provide: APP_INITIALIZER,
       useFactory: appInitializer,
