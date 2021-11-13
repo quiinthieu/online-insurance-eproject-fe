@@ -1,17 +1,14 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { LayoutService } from '../admin/_metronic/layout';
-import { LayoutInitService } from '../admin/_metronic/layout/core/layout-init.service';
-import { Customer } from '../entities/customer.entity';
-import { CustomerService } from '../services/customer.service';
+import { Customer } from 'src/app/entities/customer.entity';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
-  selector: 'app-customer',
-  templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.scss']
+  selector: 'app-overview',
+  templateUrl: './profile.component.html',
 })
-export class CustomerComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   customer : Customer;
   constructor(
     private customerService : CustomerService,
