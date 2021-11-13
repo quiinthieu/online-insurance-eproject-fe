@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClaimTableComponent } from './claim-table/claim-table.component';
 import { LayoutCustomerComponent } from './components/layout/layout.component';
 import { CustomerComponent } from './customer.component';
 import { ProfileComponent } from './profile/profilecomponent';
+import { TransactionTableComponent } from './transaction-table/transaction-table.component';
 import { UpdateProfileComponent } from './update-profile/settings.component';
 
 const routes: Routes = [
@@ -15,6 +17,7 @@ const routes: Routes = [
         redirectTo: 'profile',
         pathMatch: 'full'
       },
+
       {
         path: 'profile',
         component: CustomerComponent,
@@ -23,6 +26,14 @@ const routes: Routes = [
             path: '',
             redirectTo:'overview-profile',
             pathMatch:'full'
+          },
+          {
+            path:'transaction',
+            component:TransactionTableComponent
+          },
+          {
+            path:'claim',
+            component:ClaimTableComponent
           },
           {
             path: 'update-profile',
