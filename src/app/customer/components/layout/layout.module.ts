@@ -21,6 +21,8 @@ import { HeaderMenuComponent } from './components/header/header-menu/header-menu
 import { DrawersModule, DropdownMenusModule, ExtrasModule, ModalsModule } from 'src/app/admin/_metronic/partials';
 import { CustomerRoutingModule } from '../../customer-routing.module';
 import { LayoutCustomerComponent } from './layout.component';
+import { CustomerModule } from '../../customer.module';
+import { DialogService } from 'primeng/dynamicdialog';
 
 
 @NgModule({
@@ -49,6 +51,10 @@ import { LayoutCustomerComponent } from './layout.component';
     DropdownMenusModule,
     NgbTooltipModule,
     TranslateModule,
+    CustomerModule,
+  ],
+  providers: [
+    DialogService
   ],
   exports: [RouterModule],
 })
