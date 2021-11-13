@@ -1,20 +1,25 @@
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerService } from '../services/customer.service';
-import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerComponent } from './customer.component';
-import { ProfileComponent } from './profile/profilecomponent';
-import { ProfileDetailsComponent } from './update-profile/forms/profile-details/profile-details.component';
-import { UpdateProfileComponent } from './update-profile/settings.component';
-
+import { CustomerPolicyComponent } from './components/customer-policy/policy.component';
+import { PolicyService } from '../services/policy.service';
+import { CustomerRoutingModule } from './customer-routing.module';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { PolicyComponent } from './components/policy/policy.component';
+import { CommonService } from '../services/common.service';
+import { PolicyDetailService } from '../services/policy-detail.service';
+import { InlineSVGModule } from 'ng-inline-svg';
+import { AgentDetailComponent } from './components/agent-detail/agent-detail.component';
+import { BranchService } from '../services/branch.service';
 @NgModule({
   declarations: [
     CustomerComponent,
-    UpdateProfileComponent,
-    ProfileDetailsComponent,
-    ProfileComponent
+    CustomerPolicyComponent,
+    PolicyComponent,
+    AgentDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -22,14 +27,24 @@ import { UpdateProfileComponent } from './update-profile/settings.component';
     FormsModule,
     ReactiveFormsModule,
     CustomerRoutingModule,
+    DynamicDialogModule,
+    InlineSVGModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [
     CustomerService,
-    DatePipe
+    PolicyService,
+    DialogService,
+    CommonService,
+    PolicyDetailService,
+    BranchService
+
   ],
-  bootstrap: [CustomerComponent]
+  entryComponents: [
+    PolicyComponent
+  ],
+  bootstrap: []
 })
 export class CustomerModule { }

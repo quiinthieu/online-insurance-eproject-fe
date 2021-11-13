@@ -45,9 +45,15 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
       } else {
         const { accessToken, credential } = data;
-        const { id, email, roleName, status } = credential
+        const { id, email, roleName, status, customers } = credential
+        const { id: customerId, name: customerName } = customers[0];
+        let customer = {
+          id: customerId,
+          name: customerName
+        }
+
         localStorage.setItem("accessToken", accessToken);
-        localStorage.setItem("credential", JSON.stringify({ id, email, roleName, status }))
+        localStorage.setItem("credential", JSON.stringify({ id, email, roleName, status, customer }))
         if (roleName == APP_CONST.ROLE_AGENT) {
           this.isLoading = false;
           this.router.navigate(['admin']);

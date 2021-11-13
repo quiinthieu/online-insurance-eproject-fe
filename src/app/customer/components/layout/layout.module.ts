@@ -22,6 +22,7 @@ import { DrawersModule, DropdownMenusModule, ExtrasModule, ModalsModule } from '
 import { CustomerRoutingModule } from '../../customer-routing.module';
 import { LayoutCustomerComponent } from './layout.component';
 import { CustomerModule } from '../../customer.module';
+import { DialogService } from 'primeng/dynamicdialog';
 
 
 @NgModule({
@@ -50,7 +51,10 @@ import { CustomerModule } from '../../customer.module';
     DropdownMenusModule,
     NgbTooltipModule,
     TranslateModule,
-    CustomerModule
+    CustomerModule,
+  ],
+  providers: [
+    DialogService
   ],
   exports: [RouterModule],
 })
