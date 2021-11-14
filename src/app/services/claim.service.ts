@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { ClaimExtend } from '../entities/claim-extend.entity';
 import { Claim } from '../entities/claim.entity';
 
 @Injectable()
 export class ClaimService {
-  private BASE_URL:string =  environment.BASE_URL + 'claim/' ;
+  private BASE_URL:string =  environment.BASE_URL + '/claim/' ;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -24,5 +25,11 @@ export class ClaimService {
       .then((res) => res as Claim[]);
   }
 
+  findByCustomerId(id: number) {
+    return this.httpClient
+      .get(this.BASE_URL + 'claims-by-customerid/'+id)
+      .toPromise()
+      .then((res) => res as ClaimExtend[]);
+  }
 
 }
