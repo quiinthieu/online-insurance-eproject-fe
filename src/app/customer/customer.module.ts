@@ -2,6 +2,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InlineSVGModule } from 'ng-inline-svg';
 import { DialogService } from 'primeng/dynamicdialog';
 import { BranchService } from '../services/branch.service';
 import { ClaimService } from '../services/claim.service';
@@ -39,6 +40,7 @@ import { UpdateProfileComponent } from './update-profile/settings.component';
     FormsModule,
     ReactiveFormsModule,
     CustomerRoutingModule,
+    InlineSVGModule.forRoot(),
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
