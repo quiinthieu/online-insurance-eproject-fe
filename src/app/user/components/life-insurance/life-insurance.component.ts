@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Policy } from 'src/app/entities/policy.entity';
-import { PolicyService } from 'src/app/services/policy.service';
+import { ActivatedRoute } from '@angular/router';
+import { CommonService } from 'src/app/services/common.service';
+import { PolicyDetailService } from 'src/app/services/policy-detail.service';
 
 @Component({
   selector: 'app-life-insurance',
@@ -9,26 +10,27 @@ import { PolicyService } from 'src/app/services/policy.service';
 })
 export class LifeInsuranceComponent implements OnInit {
 
-  constructor( private _policyService:PolicyService) { }
-  lifePolicy : Policy[]
+  lifePolicy: any = [];
+  constructor(private activatedRoute: ActivatedRoute, private policyDetailService: PolicyDetailService, private commonService: CommonService) { }
+
 
   ngOnInit() {
-    this.findAllByInsuranceId(1);
+    this.initPolicyInsurance();
   }
 
-  findAllByInsuranceId(id:number) {
-    this._policyService.findAllByInsuranceType(id).then (
-      res => {
-        console.log(res);
-        for(let i =0;i<res.length;i++) {
-          res[i].amount = Math.round(res[i].amount/12);
-        }
-        this.lifePolicy = res;
-      },
-      error => {
-        return null;
-      }
-    );
+  initPolicyInsurance() {
+    this.activatedRoute.params.subscribe(param => {
+      let typeId = param['type'];
+      (typeId) && this.policyDetailService.findByInsuranceType(typeId).then(data => this.lifePolicy = data)
+    })
   }
+
+  onBuy(policyId: number) {
+    this.commonService.passingData['buy-policy'] = true;
+    this.commonService.passingData['buy-policy-id'] = policyId;
+
+  }
+
+
 
 }

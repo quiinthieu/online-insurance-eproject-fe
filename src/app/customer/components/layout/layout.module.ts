@@ -23,6 +23,7 @@ import { CustomerRoutingModule } from '../../customer-routing.module';
 import { LayoutCustomerComponent } from './layout.component';
 import { CustomerModule } from '../../customer.module';
 import { DialogService } from 'primeng/dynamicdialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { DialogService } from 'primeng/dynamicdialog';
     TopbarComponent,
     PageTitleComponent,
     HeaderMenuComponent,
+
   ],
   imports: [
     CommonModule,
@@ -52,6 +54,7 @@ import { DialogService } from 'primeng/dynamicdialog';
     NgbTooltipModule,
     TranslateModule,
     CustomerModule,
+
   ],
   providers: [
     DialogService
