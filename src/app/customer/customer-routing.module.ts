@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClaimTableComponent } from './claim-table/claim-table.component';
 import { LayoutCustomerComponent } from './components/layout/layout.component';
-import { CustomerPolicyComponent } from './components/customer-policy/policy.component';
 import { CustomerComponent } from './customer.component';
+import { ProfileComponent } from './profile/profilecomponent';
+import { TransactionTableComponent } from './transaction-table/transaction-table.component';
+import { UpdateProfileComponent } from './update-profile/settings.component';
 
 const routes: Routes = [
   {
@@ -11,28 +14,39 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'profile',
+        pathMatch: 'full'
+      },
+
+      {
+        path: 'profile',
+        component: CustomerComponent,
         children: [
           {
             path: '',
-            redirectTo: 'test',
-            pathMatch: 'full',
+            redirectTo:'overview-profile',
+            pathMatch:'full'
           },
           {
-            path: 'test',
-            component: CustomerComponent
+            path:'transaction',
+            component:TransactionTableComponent
           },
           {
-            path: 'customer-policy',
-            component: CustomerPolicyComponent
+            path:'claim',
+            component:ClaimTableComponent
           },
           {
-            path: 'policy',
+            path: 'update-profile',
+            component: UpdateProfileComponent
           },
-
-
-
+          {
+            path: 'overview-profile',
+            component: ProfileComponent
+          },
         ],
       },
+      { path: '', redirectTo: 'overview', pathMatch: 'full' },
+      { path: '**', redirectTo: 'overview', pathMatch: 'full' },
     ],
   }
 ];

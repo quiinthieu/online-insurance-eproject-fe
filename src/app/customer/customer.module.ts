@@ -1,25 +1,27 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { JwPaginationComponent } from 'jw-angular-pagination';
+import { ClaimService } from '../services/claim.service';
 import { CustomerService } from '../services/customer.service';
-import { CustomerComponent } from './customer.component';
-import { CustomerPolicyComponent } from './components/customer-policy/policy.component';
-import { PolicyService } from '../services/policy.service';
+import { PremiumTransactionService } from '../services/premium-transaction.service';
+import { ClaimTableComponent } from './claim-table/claim-table.component';
 import { CustomerRoutingModule } from './customer-routing.module';
-import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
-import { PolicyComponent } from './components/policy/policy.component';
-import { CommonService } from '../services/common.service';
-import { PolicyDetailService } from '../services/policy-detail.service';
-import { InlineSVGModule } from 'ng-inline-svg';
-import { AgentDetailComponent } from './components/agent-detail/agent-detail.component';
-import { BranchService } from '../services/branch.service';
+import { CustomerComponent } from './customer.component';
+import { ProfileComponent } from './profile/profilecomponent';
+import { TransactionTableComponent } from './transaction-table/transaction-table.component';
+import { ProfileDetailsComponent } from './update-profile/forms/profile-details/profile-details.component';
+import { UpdateProfileComponent } from './update-profile/settings.component';
+
 @NgModule({
   declarations: [
     CustomerComponent,
-    CustomerPolicyComponent,
-    PolicyComponent,
-    AgentDetailComponent,
+    UpdateProfileComponent,
+    ProfileDetailsComponent,
+    ProfileComponent,
+    TransactionTableComponent,
+    ClaimTableComponent
   ],
   imports: [
     CommonModule,
@@ -27,24 +29,16 @@ import { BranchService } from '../services/branch.service';
     FormsModule,
     ReactiveFormsModule,
     CustomerRoutingModule,
-    DynamicDialogModule,
-    InlineSVGModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [
     CustomerService,
-    PolicyService,
-    DialogService,
-    CommonService,
-    PolicyDetailService,
-    BranchService
-
+    PremiumTransactionService,
+    DatePipe,
+    ClaimService
   ],
-  entryComponents: [
-    PolicyComponent
-  ],
-  bootstrap: []
+  bootstrap: [CustomerComponent]
 })
 export class CustomerModule { }
