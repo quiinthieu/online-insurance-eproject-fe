@@ -45,9 +45,8 @@
       <img src="../../../../assets/user/images/logoFile/logo-b.png" class="img-fluid d-lg-none d-block" alt="VRocket">
     </a>
     <!-- toggler -->
-    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span></span>
       <span></span>
       <span></span>
@@ -65,13 +64,13 @@
         <ng-container *ngIf="insuranceTypes != null && insuranceTypes.length > 0">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-capitalize" href="#" id="navbarDropdown1" role="button"
-               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">insurance</a>
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">insurance</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
               <ng-container *ngFor="let insuranceType of insuranceTypes">
-                <a class="dropdown-item text-capitalize" [routerLink]="['/life-insurance']">
+                <a class="dropdown-item text-capitalize" [routerLink]="['/life-insurance',{type:insuranceType.id}]">
                   <div class="d-flex align-items-center justify-content-start">
                     <img src="../../../../assets/user/images/icons/blue/server-01.svg"
-                         class="img-fluid d-lg-block d-none" alt="img">
+                      class="img-fluid d-lg-block d-none" alt="img">
                     <div>
                       <span class="name d-block">{{insuranceType.name}}</span>
                       <span class="des d-lg-block d-none">perfect for hosting.</span>

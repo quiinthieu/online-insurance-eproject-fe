@@ -14,4 +14,9 @@ export class PolicyDetailService {
     return this.httpMethod.getUrl(`${this.BASE_URL}/policy-details/${id}`)
   }
 
+  findByInsuranceType(id: number) {
+    return this.httpMethod.getUrl(`${this.BASE_URL}/policy-by-insurancetype/${id}`)
+
+  }
+
 }

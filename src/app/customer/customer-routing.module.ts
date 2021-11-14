@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClaimTableComponent } from './claim-table/claim-table.component';
+import { CustomerPolicyComponent } from './components/customer-policy/policy.component';
 import { LayoutCustomerComponent } from './components/layout/layout.component';
 import { CustomerComponent } from './customer.component';
 import { ProfileComponent } from './profile/profilecomponent';
 import { TransactionTableComponent } from './transaction-table/transaction-table.component';
 import { UpdateProfileComponent } from './update-profile/settings.component';
+
+
 
 const routes: Routes = [
   {
@@ -24,16 +27,16 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            redirectTo:'overview-profile',
-            pathMatch:'full'
+            redirectTo: 'overview-profile',
+            pathMatch: 'full'
           },
           {
-            path:'transaction',
-            component:TransactionTableComponent
+            path: 'transaction',
+            component: TransactionTableComponent
           },
           {
-            path:'claim',
-            component:ClaimTableComponent
+            path: 'claim',
+            component: ClaimTableComponent
           },
           {
             path: 'update-profile',
@@ -44,6 +47,11 @@ const routes: Routes = [
             component: ProfileComponent
           },
         ],
+      },
+
+      {
+        path: 'customer-policy',
+        component: CustomerPolicyComponent
       },
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: '**', redirectTo: 'overview', pathMatch: 'full' },

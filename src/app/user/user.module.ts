@@ -3,8 +3,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CaptchaModule } from 'primeng/captcha';
+import { CommonService } from '../services/common.service';
 import { CustomerGuard } from '../services/guard/customer.guard';
 import { LoginGuard } from '../services/guard/login.guard';
+import { PolicyDetailService } from '../services/policy-detail.service';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ActivateAccountComponent } from './components/activate-account/activate-account.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
@@ -80,7 +82,9 @@ import { UserComponent } from './user.component';
 
   ],
   providers: [
-    LoginGuard
+    LoginGuard,
+    PolicyDetailService,
+    CommonService
   ],
   bootstrap: [UserComponent]
 })

@@ -4,10 +4,7 @@
       <h3 class="fw-bolder m-0">Profile Details</h3>
     </div>
 
-    <a
-      routerLink="/customer/profile/update-profile"
-      class="btn btn-primary align-self-center"
-    >
+    <a routerLink="/customer/profile/update-profile" class="btn btn-primary align-self-center">
       Edit Profile
     </a>
   </div>
@@ -25,18 +22,14 @@
       <label class="col-lg-4 fw-bold text-muted">Date of birth</label>
 
       <div class="col-lg-8 fv-row">
-        <span class="fw-bold fs-6">{{customer.birthday|date:'dd/MM/yyyy' }}</span>
+        <span class="fw-bold fs-6">{{customer.birthday|date:'dd/MM/yyyy'}}</span>
       </div>
     </div>
 
     <div class="row mb-7">
       <label class="col-lg-4 fw-bold text-muted">
         Zipcode
-        <i
-          class="fas fa-exclamation-circle ms-1 fs-7"
-          data-bs-toggle="tooltip"
-          title="Phone number must be active"
-        ></i>
+        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Phone number must be active"></i>
       </label>
 
       <div class="col-lg-8 d-flex align-items-center">
@@ -59,11 +52,7 @@
     <div class="row mb-7">
       <label class="col-lg-4 fw-bold text-muted">
         Occupation
-        <i
-          class="fas fa-exclamation-circle ms-1 fs-7"
-          data-bs-toggle="tooltip"
-          title="Country of origination"
-        ></i>
+        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Country of origination"></i>
       </label>
 
       <div class="col-lg-8">
@@ -87,20 +76,16 @@
       </div>
     </div>
 
-    <div
-      class="
+    <div class="
         notice
         d-flex
         bg-light-warning
         rounded
         border-warning border border-dashed
         p-6
-      "
-    >
-      <span
-        inlineSVG="'./assets/media/icons/duotune/general/gen044.svg'"
-        class="svg-icon svg-icon-2tx svg-icon-warning me-4"
-      ></span>
+      ">
+      <span [inlineSVG]="'./assets/media/icons/duotune/general/gen044.svg'"
+        class="svg-icon svg-icon-2tx svg-icon-warning me-4"></span>
       <div class="d-flex flex-stack flex-grow-1">
         <div class="fw-bold">
           <h4 class="text-gray-800 fw-bolder">We need your attention!</h4>
@@ -117,5 +102,3 @@
     </div>
   </div>
 </div>
-
-

@@ -17,21 +17,6 @@ export const routes: Routes = [
         (m) => m.LayoutCustomerModule
       ),
   },
-  // {
-  //   path: 'error',
-  //   loadChildren: () =>
-  //     import('./admin/modules/errors/errors.module').then(
-  //       (m) => m.ErrorsModule
-  //     ),
-  // },
-  // {
-  //   path: 'admin',
-  //   canActivate: [AuthGuard],
-  //   loadChildren: () =>
-  //     import('./admin/_metronic/layout/layout.module').then(
-  //       (m) => m.LayoutModule
-  //     ),
-  // },
   {
     path: 'admin',
     // canActivate: [AuthGuard],
@@ -44,6 +29,13 @@ export const routes: Routes = [
     path: '',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
+
+
+
+
+
+
+
 
   { path: '**', redirectTo: 'error/404' },
 ];

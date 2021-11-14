@@ -98,6 +98,7 @@ export class ActivateAccountComponent implements OnInit {
         this.router.navigate(['login']);
       } else {
         if (data.email == email && data.activationCode == this.credential.activationCode) {
+          this.isLoading = false;
           return true;
         }
         this.toastr.error('Invalid Link');
