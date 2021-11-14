@@ -1,9 +1,9 @@
 <!-- begin::Header -->
 <div class="card-header border-0 pt-5">
   <h3 class="card-title align-items-start flex-column">
-    <span class="card-label fw-bolder fs-3 mb-1">Agent</span>
+    <span class="card-label fw-bolder fs-3 mb-1">Customer</span>
     
-    <span class="text-muted mt-1 fw-bold fs-7">Over {{count1}} new Agents</span>
+    <span class="text-muted mt-1 fw-bold fs-7">Over {{count1}} new Customers</span>
   
   </h3>
   <div class="card-toolbar">
@@ -30,15 +30,20 @@
           <th class="min-w-125px">Name</th>
           <th class="min-w-125px">Birthday</th>
           <th class="min-w-200px">Gender</th>
-          <th class="min-w-150px">BranchId</th>
+          <th class="min-w-150px">Street</th>
+          <th class="min-w-150px">City</th>
+          <th class="min-w-125px">State</th>
+          <th class="min-w-125px">ZipCode</th>
+          <th class="min-w-200px">Occupation</th>
           <th class="min-w-150px">CredentialId</th>
+          <th class="min-w-150px">CitizenId</th>
           <th class="min-w-200px text-end rounded-end"></th>
         </tr>
       </thead>
       <!-- end::Table head -->
       <!-- begin::Table body -->
       <tbody>
-        <ng-container *ngFor="let agent of tbAgents">
+        <ng-container *ngFor="let customer of tbCustomers">
         <tr>
           <td>
             <div class="d-flex align-items-center">
@@ -54,7 +59,7 @@
                   href="#"
                   class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
                 >
-                  {{agent.id}}
+                  {{customer.id}}
                 </a>
                 <span class="text-muted fw-bold text-muted d-block fs-7">
                  
@@ -67,7 +72,7 @@
               href="#"
               class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
             >
-             {{agent.name}}
+             {{customer.name}}
             </a>
             <span class="text-muted fw-bold text-muted d-block fs-7"></span>
           </td>
@@ -76,7 +81,7 @@
               href="#"
               class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
             >
-            {{agent.birthday|date: 'dd/MM/yyyy'}}
+            {{customer.birthday|date: 'dd/MM/yyyy'}}
             </a>
             <span class="text-muted fw-bold text-muted d-block fs-7"
               ></span
@@ -87,7 +92,7 @@
               href="#"
               class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
             >
-            {{agent.gender}}
+            {{customer.gender}}
             </a>
             <span class="text-muted fw-bold text-muted d-block fs-7"
               ></span
@@ -98,7 +103,7 @@
               href="#"
               class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
             >
-            {{agent.branchId}}
+            {{customer.street}}
             </a>
             <span class="text-muted fw-bold text-muted d-block fs-7"
               ></span
@@ -109,7 +114,54 @@
               href="#"
               class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
             >
-            {{agent.credentialId}}
+            {{customer.city}}
+            </a>
+            <span class="text-muted fw-bold text-muted d-block fs-7"
+              ></span
+            >
+          </td>
+          <td>
+            <a
+              href="#"
+              class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
+            >
+            {{customer.state}}
+            </a>
+            <span class="text-muted fw-bold text-muted d-block fs-7"
+              ></span
+            >
+          </td>
+          <td>
+            <span class="badge badge-light-warning fs-7 fw-bold">{{customer.zipCode}}</span>
+          </td>
+          <td>
+            <a
+              href="#"
+              class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
+            >
+            {{customer.occupation}}
+            </a>
+            <span class="text-muted fw-bold text-muted d-block fs-7"
+              ></span
+            >
+          </td>
+          <td>
+            <a
+              href="#"
+              class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
+            >
+            {{customer.credentialId}}
+            </a>
+            <span class="text-muted fw-bold text-muted d-block fs-7"
+              ></span
+            >
+          </td>
+          <td>
+            <a
+              href="#"
+              class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6"
+            >
+            {{customer.citizenId}}
             </a>
             <span class="text-muted fw-bold text-muted d-block fs-7"
               ></span

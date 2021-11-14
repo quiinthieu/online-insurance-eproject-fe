@@ -37,6 +37,18 @@ import { PremiumTransactionComponent } from './components/premium-transaction/pr
 import { PremiumTypeComponent } from './components/premium-type/premium-type.component';
 import { RoleComponent } from './components/role/role.component';
 import { SubscriptionComponent } from './components/subscription/subscription.component';
+import { AgentService } from '../services/agent.service';
+import { BranchService } from '../services/branch.service';
+import { ClaimService } from '../services/claim.service';
+import { CustomerService } from '../services/customer.service';
+import { PolicyService } from '../services/policy.service';
+import { InsuranceTypeService } from '../services/insurance-type.service';
+import { MessageService } from '../services/message.service';
+import { PremiumTypeService } from '../services/premium-type.service';
+import { PremiumTransactionService } from '../services/premium-transaction.service';
+import { RoleService } from '../services/role.service copy';
+import { SubscriptionService } from '../services/subscription.service';
+
 
 
 @NgModule({
@@ -82,6 +94,18 @@ import { SubscriptionComponent } from './components/subscription/subscription.co
     WidgetsModule,
   ],
   providers: [
+    AgentService,
+    BranchService,
+    ClaimService,
+    CustomerService,
+    CredentialService,
+    PolicyService,
+    InsuranceTypeService,
+    MessageService,
+    PremiumTypeService,
+    PremiumTransactionService,
+    RoleService,
+    SubscriptionService,
   ],
   exports: [RouterModule],
 })

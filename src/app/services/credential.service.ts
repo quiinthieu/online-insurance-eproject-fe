@@ -1,13 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { Credentiall } from '../entities/credential.entity';
 import { HttpObservablesService } from './http-method/http-observables.service';
 
 @Injectable()
 export class CredentialService {
-  private BASE_URL: string = environment.BASE_URL + '/credential';
+  private BASE_URL: string = environment.BASE_URL + '/credential/';
 
-  constructor(private httpMethod: HttpObservablesService, private router: Router) { }
+  constructor(private httpMethod: HttpObservablesService, private router: Router,
+    private httpClient: HttpClient) { }
 
 
   login(body: any) {
@@ -43,5 +46,17 @@ export class CredentialService {
     return this.httpMethod.postUrl(`${this.BASE_URL}/verify`, body);
   }
 
+  findAll() {
+    return this.httpClient
+      .get(this.BASE_URL + 'find-all')
+      .toPromise()
+      .then((res) => res as Credentiall[]);
+  }
+  count() {
+    return this.httpClient
+      .get(this.BASE_URL + 'count')
+      .toPromise()
+      .then(res => res as number)
+  }
 
 }

@@ -6,12 +6,27 @@ import { HttpObservablesService } from './http-method/http-observables.service';
 
 @Injectable()
 export class BranchService {
-  private BASE_URL: string = environment.BASE_URL + '/branch';
+  private BASE_URL: string = environment.BASE_URL + '/branch/';
 
-  constructor(private httpMethod: HttpObservablesService) { }
+  constructor(private httpMethod: HttpObservablesService,
+    private httpClient: HttpClient) { }
 
   findById(id: number) {
     return this.httpMethod.getUrl(`${this.BASE_URL}/branch-details/${id}`)
+  }
+
+  findAll() {
+    return this.httpClient
+      .get(this.BASE_URL + 'all-branches')
+      .toPromise()
+      .then((res) => res as Branch[]);
+  }
+
+  count() {
+    return this.httpClient
+      .get(this.BASE_URL + 'count')
+      .toPromise()
+      .then(res => res as number)
   }
 
 }

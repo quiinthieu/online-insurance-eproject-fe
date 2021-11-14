@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { ClaimExtend } from '../entities/claim-extend.entity';
 import { Claim } from '../entities/claim.entity';
 
 @Injectable()
@@ -24,12 +23,12 @@ export class ClaimService {
       .toPromise()
       .then((res) => res as Claim[]);
   }
-
-  findByCustomerId(id: number) {
+ 
+  count() {
     return this.httpClient
-      .get(this.BASE_URL + 'claims-by-customerid/'+id)
+      .get(this.BASE_URL + 'count')
       .toPromise()
-      .then((res) => res as ClaimExtend[]);
+      .then(res => res as number)
   }
 
 }
