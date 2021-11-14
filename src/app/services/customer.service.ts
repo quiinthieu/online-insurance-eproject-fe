@@ -38,5 +38,10 @@ export class CustomerService {
       .then((res) => res as Customer);
   }
 
-
+  count() {
+    return this.httpClient
+      .get(this.BASE_URL + 'count')
+      .toPromise()
+      .then(res => res as number)
+  }
 }

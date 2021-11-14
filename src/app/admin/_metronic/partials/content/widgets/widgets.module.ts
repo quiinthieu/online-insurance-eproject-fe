@@ -78,6 +78,10 @@ import { TablesWidget12Component } from './tables/tables-widget12/tables-widget1
 import { TablesWidget13Component } from './tables/tables-widget13/tables-widget13.component';
 import { TablesWidget14Component } from './tables/tables-widget14/tables-widget14.component';
 import { TableAgentComponent } from './tables/table-agent/table-agent.component';
+import { TableBranchComponent } from './tables/table-branch/table-branch.component';
+import { TableClaimComponent } from './tables/table-claim/table-claim.component';
+import { TableCredentialComponent } from './tables/table-credential/table-credential.component';
+import { TableCustomerComponent } from './tables/table-customer/table-customer.component';
 
 @NgModule({
   declarations: [
@@ -155,6 +159,10 @@ import { TableAgentComponent } from './tables/table-agent/table-agent.component'
     TablesWidget13Component,
     TablesWidget14Component,
     TableAgentComponent,
+    TableBranchComponent,
+    TableClaimComponent,
+    TableCredentialComponent,
+    TableCustomerComponent,
   ],
   imports: [
     CommonModule,
@@ -238,6 +246,10 @@ import { TableAgentComponent } from './tables/table-agent/table-agent.component'
 		TablesWidget13Component,
 		TablesWidget14Component,
 		TableAgentComponent,
+    TableBranchComponent,
+    TableClaimComponent,
+    TableCredentialComponent,
+    TableCustomerComponent,
 	],
 })
 export class WidgetsModule {}

@@ -5,7 +5,7 @@ import { Claim } from '../entities/claim.entity';
 
 @Injectable()
 export class ClaimService {
-  private BASE_URL:string =  environment.BASE_URL + 'claim/' ;
+  private BASE_URL:string =  environment.BASE_URL + '/claim/' ;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -23,6 +23,12 @@ export class ClaimService {
       .toPromise()
       .then((res) => res as Claim[]);
   }
-
+ 
+  count() {
+    return this.httpClient
+      .get(this.BASE_URL + 'count')
+      .toPromise()
+      .then(res => res as number)
+  }
 
 }
