@@ -18,6 +18,8 @@ export class PolicyService {
       .then((res) => res as Policy[]);
   }
 
+ 
+
   findByCustomerId(id: number) {
     return this.httpMethod.getUrl(`${this.BASE_URL}/customer-policies/${id}`);
   }

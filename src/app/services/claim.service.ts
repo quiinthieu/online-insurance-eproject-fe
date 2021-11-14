@@ -5,6 +5,9 @@ import { Claim } from '../entities/claim.entity';
 
 @Injectable()
 export class ClaimService {
+  findByCustomerId(id: number) {
+    throw new Error('Method not implemented.');
+  }
   private BASE_URL:string =  environment.BASE_URL + '/claim/' ;
 
   constructor(private httpClient: HttpClient) {}

@@ -82,6 +82,12 @@ import { TableBranchComponent } from './tables/table-branch/table-branch.compone
 import { TableClaimComponent } from './tables/table-claim/table-claim.component';
 import { TableCredentialComponent } from './tables/table-credential/table-credential.component';
 import { TableCustomerComponent } from './tables/table-customer/table-customer.component';
+import { TableCustomerPolicyComponent } from './tables/table-customerpolicy/table-customerpolicy.component';
+import { TableInsuranceComponent } from './tables/table-insurance/table-insurance.component';
+import { TableMessComponent } from './tables/table-mess/table-mess.component';
+import { TablePolicyComponent } from './tables/table-policy/table-policy.component';
+
+
 
 @NgModule({
   declarations: [
@@ -163,6 +169,10 @@ import { TableCustomerComponent } from './tables/table-customer/table-customer.c
     TableClaimComponent,
     TableCredentialComponent,
     TableCustomerComponent,
+    TableCustomerPolicyComponent,
+    TableInsuranceComponent,
+    TableMessComponent,
+    TablePolicyComponent,
   ],
   imports: [
     CommonModule,
@@ -250,6 +260,12 @@ import { TableCustomerComponent } from './tables/table-customer/table-customer.c
     TableClaimComponent,
     TableCredentialComponent,
     TableCustomerComponent,
+    TableCustomerPolicyComponent,
+    TableInsuranceComponent,
+    TableMessComponent,
+    TablePolicyComponent,
+   
+    
 	],
 })
 export class WidgetsModule {}

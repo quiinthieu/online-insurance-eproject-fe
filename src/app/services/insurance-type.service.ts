@@ -24,6 +24,11 @@ export class InsuranceTypeService {
     return this.httpMethod.getUrl(this.BASE_URL + 'all-insurance-types');
 
   }
-
+  count() {
+    return this.httpClient
+      .get(this.BASE_URL + 'count')
+      .toPromise()
+      .then(res => res as number)
+  }
 
 }
