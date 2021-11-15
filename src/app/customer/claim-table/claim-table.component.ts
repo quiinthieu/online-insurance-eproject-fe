@@ -30,15 +30,15 @@ export class ClaimTableComponent implements OnInit {
       res => {
         console.log("Customer id: "+res.id);
         this.customer = res;
-        // this.claimService.findByCustomerId(this.customer.id).then(
-        //   res2 => {
-        //     console.log(res2);
-        //     this.claims = res2;
-        //   },
-        //   error2 => {
-        //     console.log(error2);
-        //   }
-        // )
+        this.claimService.findByCustomerId(this.customer.id).then(
+          res2 => {
+            console.log(res2);
+            this.claims = res2;
+          },
+          error2 => {
+            console.log(error2);
+          }
+        )
       },
       error => {
         console.log(error);

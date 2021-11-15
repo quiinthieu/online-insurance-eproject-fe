@@ -7,7 +7,7 @@ import { HttpObservablesService } from './http-method/http-observables.service';
 
 @Injectable()
 export class CredentialService {
-  private BASE_URL: string = environment.BASE_URL + '/credential/';
+  private BASE_URL: string = environment.BASE_URL + '/credential';
 
   constructor(private httpMethod: HttpObservablesService, private router: Router,
     private httpClient: HttpClient) { }
@@ -48,13 +48,13 @@ export class CredentialService {
 
   findAll() {
     return this.httpClient
-      .get(this.BASE_URL + 'find-all')
+      .get(this.BASE_URL + '/find-all')
       .toPromise()
       .then((res) => res as Credentiall[]);
   }
   count() {
     return this.httpClient
-      .get(this.BASE_URL + 'count')
+      .get(this.BASE_URL + '/count')
       .toPromise()
       .then(res => res as number)
   }

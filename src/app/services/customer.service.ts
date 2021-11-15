@@ -26,11 +26,6 @@ export class CustomerService {
   }
 
   detailsbycredentialid(id: number) {
-    // return this.httpClient
-    //   .get(this.BASE_URL + 'customer-details-by-credential/' + id)
-    //   .toPromise()
-    //   .then((res) => res as Customer);
-
     return this.httpMethod.getUrl(this.BASE_URL + 'customer-details-by-credential-id/' + id);
   }
 
