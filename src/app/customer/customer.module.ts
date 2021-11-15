@@ -21,6 +21,10 @@ import { ProfileComponent } from './profile/profilecomponent';
 import { TransactionTableComponent } from './transaction-table/transaction-table.component';
 import { ProfileDetailsComponent } from './update-profile/forms/profile-details/profile-details.component';
 import { UpdateProfileComponent } from './update-profile/settings.component';
+import { BuyPolicyComponent } from './components/buy-policy/buy-policy.component';
+import { ToastrService } from 'ngx-toastr';
+import { CustomerPolicyService } from '../services/customer-policy.service';
+import { PremiumTypeService } from '../services/premium-type.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,7 @@ import { UpdateProfileComponent } from './update-profile/settings.component';
     CustomerPolicyComponent,
     PolicyComponent,
     AgentDetailComponent,
+    BuyPolicyComponent,
   ],
   imports: [
     CommonModule,
@@ -54,7 +59,9 @@ import { UpdateProfileComponent } from './update-profile/settings.component';
     BranchService,
     DatePipe,
     PremiumTransactionService,
-    ClaimService
+    ClaimService,
+    CustomerPolicyService,
+    PremiumTypeService
   ],
   entryComponents: [
     PolicyComponent

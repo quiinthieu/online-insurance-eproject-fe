@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CommonService } from 'src/app/services/common.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { concat, filter } from 'lodash';
+import { ToastrService } from 'ngx-toastr';
 import { PolicyDetailService } from 'src/app/services/policy-detail.service';
-
 @Component({
   selector: 'app-life-insurance',
   templateUrl: './life-insurance.component.html',
@@ -11,7 +11,12 @@ import { PolicyDetailService } from 'src/app/services/policy-detail.service';
 export class LifeInsuranceComponent implements OnInit {
 
   lifePolicy: any = [];
-  constructor(private activatedRoute: ActivatedRoute, private policyDetailService: PolicyDetailService, private commonService: CommonService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private policyDetailService: PolicyDetailService,
+    private router: Router,
+    private toastr: ToastrService
+  ) { }
 
 
   ngOnInit() {
@@ -25,12 +30,24 @@ export class LifeInsuranceComponent implements OnInit {
     })
   }
 
-  onBuy(policyId: number) {
-    this.commonService.passingData['buy-policy'] = true;
-    this.commonService.passingData['buy-policy-id'] = policyId;
+  onBuy(policyItem: any) {
+    let addedPolicyItem = [];
+    if (localStorage.getItem('policy-item')) {
+      addedPolicyItem = JSON.parse(localStorage.getItem('policy-item'));
+      let countItem = filter(addedPolicyItem, ['id', policyItem.id])
+      if (countItem.length == 0) {
+        localStorage.setItem('policy-item', JSON.stringify(concat(addedPolicyItem, policyItem)));
+        this.router.navigate(['/customer/buy-policy']);
+      } else {
+        this.toastr.error('Item already added');
+      }
+
+    } else {
+      localStorage.setItem('policy-item', JSON.stringify(concat(addedPolicyItem, policyItem)));
+      this.router.navigate(['/customer/buy-policy']);
+    }
 
   }
-
 
 
 }
