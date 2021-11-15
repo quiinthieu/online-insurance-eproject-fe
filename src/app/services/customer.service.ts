@@ -26,7 +26,7 @@ export class CustomerService {
 
   detailsbycredentialid(id:number) {
     return this.httpClient
-      .get(this.BASE_URL + 'customer-details-by-credential/' + id)
+      .get(this.BASE_URL + 'customer-details-by-credential-id/' + id)
       .toPromise()
       .then((res) => res as Customer);
   }
