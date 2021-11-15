@@ -48,6 +48,8 @@ import { PremiumTypeService } from '../services/premium-type.service';
 import { PremiumTransactionService } from '../services/premium-transaction.service';
 import { RoleService } from '../services/role.service copy';
 import { SubscriptionService } from '../services/subscription.service';
+import { CustomerPolicyService } from '../services/customer-policy.service';
+import { PolicyDetailService } from '../services/policy-detail.service';
 
 
 
@@ -98,8 +100,10 @@ import { SubscriptionService } from '../services/subscription.service';
     BranchService,
     ClaimService,
     CustomerService,
+    CustomerPolicyService,
     CredentialService,
     PolicyService,
+    PolicyDetailService,
     InsuranceTypeService,
     MessageService,
     PremiumTypeService,

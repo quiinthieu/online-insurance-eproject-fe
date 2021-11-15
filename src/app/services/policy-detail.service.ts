@@ -8,7 +8,8 @@ import { HttpObservablesService } from './http-method/http-observables.service';
 export class PolicyDetailService {
   private BASE_URL: string = environment.BASE_URL + '/policy';
 
-  constructor(private httpMethod: HttpObservablesService) { }
+  constructor(private httpMethod: HttpObservablesService,
+    private httpClient: HttpClient) { }
 
   findById(id: number) {
     return this.httpMethod.getUrl(`${this.BASE_URL}/policy-details/${id}`)
@@ -17,6 +18,19 @@ export class PolicyDetailService {
   findByInsuranceType(id: number) {
     return this.httpMethod.getUrl(`${this.BASE_URL}/policy-by-insurancetype/${id}`)
 
+  }
+  findAll() {
+    return this.httpClient
+      .get(this.BASE_URL + '/all-policies/')
+      .toPromise()
+      .then((res) => res as Policy[]);
+  }
+
+  count() {
+    return this.httpClient
+      .get(this.BASE_URL + '/count')
+      .toPromise()
+      .then(res => res as number)
   }
 
 }
