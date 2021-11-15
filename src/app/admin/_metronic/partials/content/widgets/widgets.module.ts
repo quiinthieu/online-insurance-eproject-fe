@@ -86,6 +86,10 @@ import { TableCustomerPolicyComponent } from './tables/table-customerpolicy/tabl
 import { TableInsuranceComponent } from './tables/table-insurance/table-insurance.component';
 import { TableMessComponent } from './tables/table-mess/table-mess.component';
 import { TablePolicyComponent } from './tables/table-policy/table-policy.component';
+import { TablePremiumTransactionComponent } from './tables/table-premiumtransaction/table-premiumtransaction.component';
+import { TablePremiumTypeComponent } from './tables/table-premiumtpye/table-premiumtype.component';
+import { TableRoleComponent } from './tables/table-role/table-role.component';
+import { TableSubscriptionComponent } from './tables/table-subscription/table-subscription.component';
 
 
 
@@ -173,6 +177,10 @@ import { TablePolicyComponent } from './tables/table-policy/table-policy.compone
     TableInsuranceComponent,
     TableMessComponent,
     TablePolicyComponent,
+    TablePremiumTransactionComponent,
+    TablePremiumTypeComponent,
+    TableRoleComponent,
+    TableSubscriptionComponent,
   ],
   imports: [
     CommonModule,
@@ -264,8 +272,10 @@ import { TablePolicyComponent } from './tables/table-policy/table-policy.compone
     TableInsuranceComponent,
     TableMessComponent,
     TablePolicyComponent,
-   
-    
+    TablePremiumTransactionComponent,
+    TablePremiumTypeComponent,
+    TableRoleComponent,
+    TableSubscriptionComponent,
 	],
 })
 export class WidgetsModule {}

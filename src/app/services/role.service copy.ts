@@ -5,7 +5,7 @@ import { Role } from '../entities/role.entity';
 
 @Injectable()
 export class RoleService {
-  private BASE_URL:string =  environment.BASE_URL + 'role/' ;
+  private BASE_URL:string =  environment.BASE_URL + '/role/' ;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -19,10 +19,16 @@ export class RoleService {
 
   findAll() {
     return this.httpClient
-      .get(this.BASE_URL + 'find-all')
+      .get(this.BASE_URL + 'all-roles')
       .toPromise()
       .then((res) => res as Role[]);
   }
 
+  count() {
+    return this.httpClient
+      .get(this.BASE_URL + 'count')
+      .toPromise()
+      .then((res) => res as number);
+  }
 
 }

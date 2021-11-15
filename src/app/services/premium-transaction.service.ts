@@ -20,7 +20,7 @@ export class PremiumTransactionService {
 
   findAll() {
     return this.httpClient
-      .get(this.BASE_URL + 'all-premiumTransactions')
+      .get(this.BASE_URL + 'all-premium-transactions')
       .toPromise()
       .then((res) => res as PremiumTransaction[]);
   }
@@ -30,6 +30,13 @@ export class PremiumTransactionService {
       .get(this.BASE_URL + 'premium-transactions-by-customerid/'+id)
       .toPromise()
       .then((res) => res as PremiumTransactionExtend[]);
+  }
+
+  count() {
+    return this.httpClient
+      .get(this.BASE_URL + 'count')
+      .toPromise()
+      .then((res) => res as number);
   }
 
 }
