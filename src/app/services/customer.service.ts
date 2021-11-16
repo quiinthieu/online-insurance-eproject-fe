@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Customer } from '../entities/customer.entity';
+import { HttpObservablesService } from './http-method/http-observables.service';
 
 @Injectable()
 export class CustomerService {
-  private BASE_URL:string =  environment.BASE_URL + '/customer/' ;
+  private BASE_URL: string = environment.BASE_URL + '/customer/';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private httpMethod: HttpObservablesService) { }
 
 
   details(id: number) {
@@ -24,16 +25,13 @@ export class CustomerService {
       .then((res) => res as Customer[]);
   }
 
-  detailsbycredentialid(id:number) {
-    return this.httpClient
-      .get(this.BASE_URL + 'customer-details-by-credential-id/' + id)
-      .toPromise()
-      .then((res) => res as Customer);
+  detailsbycredentialid(id: number) {
+    return this.httpMethod.getUrl(this.BASE_URL + 'customer-details-by-credential-id/' + id);
   }
 
-  updateProfile(id : number , customerToUpdate : Customer) {
+  updateProfile(id: number, customerToUpdate: Customer) {
     return this.httpClient
-      .put(this.BASE_URL + 'customer-update/' + id,customerToUpdate)
+      .put(this.BASE_URL + 'customer-update/' + id, customerToUpdate)
       .toPromise()
       .then((res) => res as Customer);
   }

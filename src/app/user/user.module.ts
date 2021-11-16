@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { CaptchaModule } from 'primeng/captcha';
 import { CommonService } from '../services/common.service';
 import { CustomerGuard } from '../services/guard/customer.guard';
@@ -84,7 +85,7 @@ import { UserComponent } from './user.component';
   providers: [
     LoginGuard,
     PolicyDetailService,
-    CommonService
+    CommonService,
   ],
   bootstrap: [UserComponent]
 })

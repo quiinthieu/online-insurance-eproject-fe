@@ -2,16 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { CustomerPolicy } from '../entities/customer-policy.entity';
+import { HttpObservablesService } from './http-method/http-observables.service';
 
 
 @Injectable()
 export class CustomerPolicyService {
-  private BASE_URL:string =  environment.BASE_URL + '/customer-policy/' ;
+  private BASE_URL: string = environment.BASE_URL + '/customer-policy/';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private httpMethod: HttpObservablesService) { }
 
-
-  
 
   findAll() {
     return this.httpClient
@@ -26,6 +25,11 @@ export class CustomerPolicyService {
       .toPromise()
       .then(res => res as number)
   }
+
+  createCustomerPolicy(body: any) {
+    return this.httpMethod.postUrl(this.BASE_URL + 'create-customer-policy', body);
+  }
+
 
 
 }

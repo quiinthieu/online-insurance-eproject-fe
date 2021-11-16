@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClaimTableComponent } from './claim-table/claim-table.component';
+import { BuyPolicyComponent } from './components/buy-policy/buy-policy.component';
 import { CustomerPolicyComponent } from './components/customer-policy/policy.component';
 import { LayoutCustomerComponent } from './components/layout/layout.component';
 import { CustomerComponent } from './customer.component';
@@ -20,7 +21,10 @@ const routes: Routes = [
         redirectTo: 'profile',
         pathMatch: 'full'
       },
-
+      {
+        path: 'buy-policy',
+        component: BuyPolicyComponent
+      },
       {
         path: 'profile',
         component: CustomerComponent,
