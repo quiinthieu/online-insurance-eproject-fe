@@ -14,7 +14,7 @@ export class CredentialService {
 
 
   login(body: any) {
-    return this.httpMethod.postUrl(`${this.BASE_URL}login`, body);
+    return this.httpMethod.postUrl(`${this.BASE_URL}/login`, body);
   }
 
   register(body: any) {

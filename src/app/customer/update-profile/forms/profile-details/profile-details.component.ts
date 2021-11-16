@@ -59,6 +59,7 @@ export class ProfileDetailsComponent implements OnInit {
     this.customerService.updateProfile(this.customerId,customerUpdate).then(
         res => {
             this.toastr.success("Succeed")
+            this.loadProfile();
         },
         error => {
             console.log(error);
