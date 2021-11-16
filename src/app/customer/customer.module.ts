@@ -25,6 +25,7 @@ import { BuyPolicyComponent } from './components/buy-policy/buy-policy.component
 import { ToastrService } from 'ngx-toastr';
 import { CustomerPolicyService } from '../services/customer-policy.service';
 import { PremiumTypeService } from '../services/premium-type.service';
+import { ClaimDetailComponent } from './components/claim-detail/claim-detail.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { PremiumTypeService } from '../services/premium-type.service';
     PolicyComponent,
     AgentDetailComponent,
     BuyPolicyComponent,
+    ClaimDetailComponent
   ],
   imports: [
     CommonModule,
