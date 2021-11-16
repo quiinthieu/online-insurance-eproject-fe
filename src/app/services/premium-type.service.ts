@@ -14,10 +14,11 @@ export class PremiumTypeService {
   ) {}
 
   details(id: number) {
-    return this.httpClient
-      .get(this.BASE_URL + 'premiumType-details/' + id)
-      .toPromise()
-      .then((res) => res as PremiumType);
+    // return this.httpClient
+    //   .get(this.BASE_URL + 'premiumType-details/' + id)
+    //   .toPromise()
+    //   .then((res) => res as PremiumType);
+    return this.httpMethod.getUrl(`${this.BASE_URL}premiumType-details/${id}`);
   }
 
   findAll() {

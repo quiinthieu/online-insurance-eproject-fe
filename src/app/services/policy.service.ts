@@ -12,10 +12,11 @@ export class PolicyService {
 
 
   findAllByInsuranceType(id: number) {
-    return this.httpClient
-      .get(this.BASE_URL + '/policy-by-insurancetype/' + id)
-      .toPromise()
-      .then((res) => res as Policy[]);
+    // return this.httpClient
+    //   .get(this.BASE_URL + '/policy-by-insurancetype/' + id)
+    //   .toPromise()
+    //   .then((res) => res as Policy[]);
+    return this.httpMethod.getUrl(`${this.BASE_URL}/policy-by-insurancetype/`+id);
   }
 
  

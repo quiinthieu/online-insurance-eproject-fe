@@ -47,16 +47,18 @@ export class CredentialService {
   }
 
   findAll() {
-    return this.httpClient
-      .get(this.BASE_URL + '/find-all')
-      .toPromise()
-      .then((res) => res as Credentiall[]);
+    // return this.httpClient
+    //   .get(this.BASE_URL + '/find-all')
+    //   .toPromise()
+    //   .then((res) => res as Credentiall[]);
+    return this.httpMethod.getUrl(`${this.BASE_URL}/verify`);
   }
   count() {
-    return this.httpClient
-      .get(this.BASE_URL + '/count')
-      .toPromise()
-      .then(res => res as number)
+    // return this.httpClient
+    //   .get(this.BASE_URL + '/count')
+    //   .toPromise()
+    //   .then(res => res as number)
+    return this.httpMethod.getUrl(`${this.BASE_URL}/count`);
   }
 
 }
