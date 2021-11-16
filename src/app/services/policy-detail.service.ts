@@ -20,17 +20,19 @@ export class PolicyDetailService {
 
   }
   findAll() {
-    return this.httpClient
-      .get(this.BASE_URL + '/all-policies/')
-      .toPromise()
-      .then((res) => res as Policy[]);
+    // return this.httpClient
+    //   .get(this.BASE_URL + '/all-policies/')
+    //   .toPromise()
+    //   .then((res) => res as Policy[]);
+    return this.httpMethod.getUrl(`${this.BASE_URL}/all-policies`);
   }
 
   count() {
-    return this.httpClient
-      .get(this.BASE_URL + '/count')
-      .toPromise()
-      .then(res => res as number)
+    // return this.httpClient
+    //   .get(this.BASE_URL + '/count')
+    //   .toPromise()
+    //   .then(res => res as number)
+    return this.httpMethod.getUrl(`${this.BASE_URL}/count`);
   }
 
 }

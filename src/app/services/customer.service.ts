@@ -12,17 +12,19 @@ export class CustomerService {
 
 
   details(id: number) {
-    return this.httpClient
-      .get(this.BASE_URL + 'customer-details/' + id)
-      .toPromise()
-      .then((res) => res as Customer);
+    // return this.httpClient
+    //   .get(this.BASE_URL + 'customer-details/' + id)
+    //   .toPromise()
+    //   .then((res) => res as Customer);
+    return this.httpMethod.getUrl(`${this.BASE_URL}customer-details/${id}`);
   }
 
   findAll() {
-    return this.httpClient
-      .get(this.BASE_URL + 'all-customers')
-      .toPromise()
-      .then((res) => res as Customer[]);
+    // return this.httpClient
+    //   .get(this.BASE_URL + 'all-customers')
+    //   .toPromise()
+    //   .then((res) => res as Customer[]);
+    return this.httpMethod.getUrl(`${this.BASE_URL}all-customers`);
   }
 
   detailsbycredentialid(id: number) {
@@ -37,9 +39,10 @@ export class CustomerService {
   }
 
   count() {
-    return this.httpClient
-      .get(this.BASE_URL + 'count')
-      .toPromise()
-      .then(res => res as number)
+    // return this.httpClient
+    //   .get(this.BASE_URL + 'count')
+    //   .toPromise()
+    //   .then(res => res as number)
+    return this.httpMethod.getUrl(`${this.BASE_URL}count`);
   }
 }

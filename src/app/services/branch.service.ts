@@ -12,21 +12,24 @@ export class BranchService {
     private httpClient: HttpClient) { }
 
   findById(id: number) {
-    return this.httpMethod.getUrl(`${this.BASE_URL}/branch-details/${id}`)
+    return this.httpMethod.getUrl(`${this.BASE_URL}branch-details/${id}`)
   }
 
   findAll() {
-    return this.httpClient
-      .get(this.BASE_URL + 'all-branches')
-      .toPromise()
-      .then((res) => res as Branch[]);
+    // return this.httpClient
+    //   .get(this.BASE_URL + 'all-branches')
+    //   .toPromise()
+    //   .then((res) => res as Branch[]);
+    return this.httpMethod.getUrl(`${this.BASE_URL}all-branches`);
+
   }
 
   count() {
-    return this.httpClient
-      .get(this.BASE_URL + 'count')
-      .toPromise()
-      .then(res => res as number)
+    // return this.httpClient
+    //   .get(this.BASE_URL + 'count')
+    //   .toPromise()
+    //   .then(res => res as number)
+    return this.httpMethod.getUrl(`${this.BASE_URL}count`);
   }
 
 }

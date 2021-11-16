@@ -13,17 +13,19 @@ export class CustomerPolicyService {
 
 
   findAll() {
-    return this.httpClient
-      .get(this.BASE_URL + 'all-customer-policies')
-      .toPromise()
-      .then((res) => res as CustomerPolicy[]);
+    // return this.httpClient
+    //   .get(this.BASE_URL + 'all-customer-policies')
+    //   .toPromise()
+    //   .then((res) => res as CustomerPolicy[]);
+    return this.httpMethod.getUrl(`${this.BASE_URL}all-customer-policies`);
   }
 
   count() {
-    return this.httpClient
-      .get(this.BASE_URL + 'count')
-      .toPromise()
-      .then(res => res as number)
+    // return this.httpClient
+    //   .get(this.BASE_URL + 'count')
+    //   .toPromise()
+    //   .then(res => res as number)
+    return this.httpMethod.getUrl(`${this.BASE_URL}count`);
   }
 
   createCustomerPolicy(body: any) {
