@@ -14,11 +14,11 @@ export class CredentialService {
 
 
   login(body: any) {
-    return this.httpMethod.postUrl(`${this.BASE_URL}/login`, body);
+    return this.httpMethod.postUrl(`${this.BASE_URL}login`, body);
   }
 
   register(body: any) {
-    return this.httpMethod.postUrl(`${this.BASE_URL}/register`, body);
+    return this.httpMethod.postUrl(`${this.BASE_URL}register`, body);
   }
 
   logout() {
@@ -28,22 +28,22 @@ export class CredentialService {
   }
 
   activateRequest(body: any) {
-    return this.httpMethod.postUrl(`${this.BASE_URL}/activate-request`, body);
+    return this.httpMethod.postUrl(`${this.BASE_URL}activate-request`, body);
   }
 
   activateAccount(body: any) {
-    return this.httpMethod.postUrl(`${this.BASE_URL}/activate-account`, body);
+    return this.httpMethod.postUrl(`${this.BASE_URL}activate-account`, body);
   }
 
   resetPasswordRequest(body: any) {
-    return this.httpMethod.postUrl(`${this.BASE_URL}/reset-password-request`, body);
+    return this.httpMethod.postUrl(`${this.BASE_URL}reset-password-request`, body);
   }
   resetPassword(body: any) {
-    return this.httpMethod.postUrl(`${this.BASE_URL}/reset-password`, body);
+    return this.httpMethod.postUrl(`${this.BASE_URL}reset-password`, body);
   }
 
   verifyActivationCodeAndEmail(body: any) {
-    return this.httpMethod.postUrl(`${this.BASE_URL}/verify`, body);
+    return this.httpMethod.postUrl(`${this.BASE_URL}verify`, body);
   }
 
   findAll() {
