@@ -26,6 +26,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CustomerPolicyService } from '../services/customer-policy.service';
 import { PremiumTypeService } from '../services/premium-type.service';
 import { ClaimDetailComponent } from './components/claim-detail/claim-detail.component';
+import { PaypalService } from '../services/paypal.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { ClaimDetailComponent } from './components/claim-detail/claim-detail.com
     PremiumTransactionService,
     ClaimService,
     CustomerPolicyService,
-    PremiumTypeService
+    PremiumTypeService,
+    PaypalService
   ],
   entryComponents: [
     PolicyComponent

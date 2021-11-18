@@ -16,18 +16,31 @@
           <th class="min-w-140px">Amount</th>
           <th class="min-w-120px">Paid Date</th>
           <th class="min-w-120px">Due Date</th>
+          <th class="min-w-120px">Pay</th>
         </tr>
       </thead>
       <!-- end::Table head -->
       <!-- begin::Table body -->
       <tbody>
         <ng-container *ngFor="let p of premiumTransactions">
-          <tr>
-            <td>{{p.name}}</td>
-            <td>{{p.amount}}</td>
-            <td>{{p.paidDate | date :'dd / MM / yyyy'}}</td>
-            <td>{{p.dueDate | date: 'dd / MM / yyyy'}}</td>
-          </tr>
+            <tr>
+              <td>{{p.name}}</td>
+              <td>{{p.amount}}</td>
+              <td>{{p.paidDate | date :'dd / MM / yyyy'}}</td>
+              <td>{{p.dueDate | date: 'dd / MM / yyyy'}}</td>
+              <td>
+                <!-- <ng-container *ngIf="!p.paidDate">
+                  <button type="button" class="btn btn-primary active">Paypal checkout</button>
+               </ng-container> -->
+              <div *ngIf="!p.paidDate; else elseBlock">
+                <button type="button" class="btn btn-primary active" (click)="onShowCheckoutPaypal(p)">Paypal checkout</button>
+              </div>
+              
+              <ng-template #elseBlock>
+                <button type="button" class="btn btn-primary disabled">Paypal checkout</button>
+              </ng-template>
+              </td>
+            </tr>
         </ng-container>
       </tbody>
       <!-- end::Table body -->
