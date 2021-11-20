@@ -3,6 +3,7 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { CommonService } from 'src/app/services/common.service';
 import { PolicyService } from 'src/app/services/policy.service';
 import { TransactionTableComponent } from '../../transaction-table/transaction-table.component';
+import { AgentDetailComponent } from '../agent-detail/agent-detail.component';
 import { ClaimDetailComponent } from '../claim-detail/claim-detail.component';
 import { PolicyComponent } from '../policy/policy.component';
 
@@ -16,6 +17,8 @@ export class CustomerPolicyComponent implements OnInit {
   policies: any = [];
   refPolicy: DynamicDialogRef;
   refAgent: DynamicDialogRef;
+  refTrans: DynamicDialogRef;
+  refClaim: DynamicDialogRef;
   constructor(private policyService: PolicyService, private dialogService: DialogService, private commonService: CommonService) { }
 
   ngOnInit(): void {
@@ -31,32 +34,50 @@ export class CustomerPolicyComponent implements OnInit {
     });
   }
 
-  onOpenTransDetail() {
-
-  }
 
 
-  onShowTransaction(customerPolicyId: number) {
-    this.refPolicy = this.dialogService.open(TransactionTableComponent, {
+
+  onShowTransDialog(item: any) {
+    this.refTrans = this.dialogService.open(TransactionTableComponent, {
       header: 'Transaction Info',
       width: '60%',
       contentStyle: { "max-height": "500px", "overflow": "auto" },
       baseZIndex: 10000
     });
 
-    console.log("Customer policy: "+customerPolicyId);
-    this.commonService.passingData['customer-policy-id'] = customerPolicyId;
+    this.commonService.passingData['customer-policy-id'] = item.id;
+  }
+
+
+  onShowPolicyDialog(item: any) {
+    this.refPolicy = this.dialogService.open(PolicyComponent, {
+      header: 'Transaction Info',
+      width: '60%',
+      contentStyle: { "max-height": "500px", "overflow": "auto" },
+      baseZIndex: 10000
+    });
+
+    this.commonService.passingData['policy-detail'] = item.policyId;
 
   }
-  onShowClaimDialog(customerPolicyId: number) {
-    this.refAgent = this.dialogService.open(ClaimDetailComponent, {
+  onShowAgentDialog(item: number) {
+    this.refAgent = this.dialogService.open(AgentDetailComponent, {
       header: 'Claim Info',
       width: '30%',
       contentStyle: { "max-height": "500px", "overflow": "auto" },
       baseZIndex: 10000
     });
-    console.log("Customer policy: "+customerPolicyId);
-    this.commonService.passingData['customer-policy-id'] = customerPolicyId;
+    this.commonService.passingData['customer-policy-detail'] = item;
+  }
+
+  onShowClaimDialog(item: any) {
+    this.refClaim = this.dialogService.open(ClaimDetailComponent, {
+      header: 'Claim Info',
+      width: '30%',
+      contentStyle: { "max-height": "500px", "overflow": "auto" },
+      baseZIndex: 10000
+    });
+    this.commonService.passingData['customer-policy-id'] = item.id;
   }
 
   ngOnDestroy() {
@@ -64,6 +85,10 @@ export class CustomerPolicyComponent implements OnInit {
       this.refPolicy.close();
     } else if (this.refAgent) {
       this.refAgent.close();
+    } else if (this.refTrans) {
+      this.refTrans.close();
+    } else if (this.refClaim) {
+      this.refClaim.close();
     }
   }
 

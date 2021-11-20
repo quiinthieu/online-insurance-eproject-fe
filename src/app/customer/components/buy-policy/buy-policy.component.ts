@@ -75,7 +75,7 @@ export class BuyPolicyComponent implements OnInit {
     this.customerService.detailsbycredentialid(this.credential.id).then(
       res => {
         let { name, birthday, gender, street, city, state, zipCode, occupation, credentialId, citizenId, id } = res
-        birthday = birthday ? birthday : this.datePipe.transform(new Date(), 'dd/MM/yyyy');
+        birthday = birthday ? this.datePipe.transform(birthday, 'dd/MM/yyyy') : this.datePipe.transform(new Date(), 'dd/MM/yyyy');
         gender = gender ? gender : 'male';
         this.updateProfile = this.formBuilder.group({
           id,
@@ -118,7 +118,9 @@ export class BuyPolicyComponent implements OnInit {
     this.isLoading = true;
     let customerInfo = this.updateProfile.value;
     let PremiumTypeId = this.selectedPremiumType;
-    customerInfo.birthday = this.datePipe.transform(customerInfo.birthday, 'yyyy-MM-dd');
+    // customerInfo.birthday = this.datePipe.transform(customerInfo.birthday, 'yyyy-MM-dd');
+    let splitedDate = customerInfo.birthday.split('/');
+    customerInfo.birthday = `${splitedDate[2]}-${splitedDate[1]}-${splitedDate[0]}`
     let policyId = [];
     this.policyItem.map(item => {
       policyId.push(item.id);

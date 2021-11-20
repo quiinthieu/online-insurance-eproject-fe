@@ -49,6 +49,7 @@ import { PaypalService } from '../services/paypal.service';
     ReactiveFormsModule,
     CustomerRoutingModule,
     InlineSVGModule.forRoot(),
+
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

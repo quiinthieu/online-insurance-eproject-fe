@@ -9,22 +9,22 @@ import { CommonService } from 'src/app/services/common.service';
   styleUrls: ['./claim-detail.component.scss']
 })
 export class ClaimDetailComponent implements OnInit {
-  customerPolicyId:number;
-  claimDetail:Claim
+  customerPolicyId: number;
+  claimDetail: any = {};
   // customerPolicyDetail: any;
   isLoading = false;
   // branchDetail: any;
   constructor(private commonService: CommonService, private claimService: ClaimService) { }
 
   ngOnInit(): void {
-    this.isLoading = true
-    this.customerPolicyId = this.commonService.passingData['customer-policy-id'] || null;
+    this.customerPolicyId = this.commonService.passingData['customer-policy-id'];
     console.warn(this.customerPolicyId)
     if (this.customerPolicyId) {
       this.initData();
     }
   }
   initData() {
+    this.isLoading = true
     this.claimService.findByCustomerPolicyId(this.customerPolicyId).then(data => {
       this.claimDetail = data;
       this.isLoading = false;
