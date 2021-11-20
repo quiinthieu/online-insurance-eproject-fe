@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { CommonService } from 'src/app/services/common.service';
 import { PolicyService } from 'src/app/services/policy.service';
+import { TransactionTableComponent } from '../../transaction-table/transaction-table.component';
 import { ClaimDetailComponent } from '../claim-detail/claim-detail.component';
 import { PolicyComponent } from '../policy/policy.component';
 
@@ -35,15 +36,16 @@ export class CustomerPolicyComponent implements OnInit {
   }
 
 
-  onShowPolicyDialog(policyDetailId: number) {
-    this.refPolicy = this.dialogService.open(PolicyComponent, {
-      header: 'Policy Details',
-      width: '40%',
+  onShowTransaction(customerPolicyId: number) {
+    this.refPolicy = this.dialogService.open(TransactionTableComponent, {
+      header: 'Transaction Info',
+      width: '60%',
       contentStyle: { "max-height": "500px", "overflow": "auto" },
       baseZIndex: 10000
     });
 
-    this.commonService.passingData['policy-detail'] = policyDetailId;
+    console.log("Customer policy: "+customerPolicyId);
+    this.commonService.passingData['customer-policy-id'] = customerPolicyId;
 
   }
   onShowClaimDialog(customerPolicyId: number) {

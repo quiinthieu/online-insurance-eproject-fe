@@ -26,7 +26,8 @@ import { ToastrService } from 'ngx-toastr';
 import { CustomerPolicyService } from '../services/customer-policy.service';
 import { PremiumTypeService } from '../services/premium-type.service';
 import { ClaimDetailComponent } from './components/claim-detail/claim-detail.component';
-import { CalendarModule } from 'primeng/calendar';
+import { PaypalService } from '../services/paypal.service';
+
 @NgModule({
   declarations: [
     CustomerComponent,
@@ -49,7 +50,6 @@ import { CalendarModule } from 'primeng/calendar';
     CustomerRoutingModule,
     InlineSVGModule.forRoot(),
 
-    CalendarModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
@@ -65,7 +65,8 @@ import { CalendarModule } from 'primeng/calendar';
     PremiumTransactionService,
     ClaimService,
     CustomerPolicyService,
-    PremiumTypeService
+    PremiumTypeService,
+    PaypalService
   ],
   entryComponents: [
     PolicyComponent
