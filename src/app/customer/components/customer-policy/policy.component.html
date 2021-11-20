@@ -28,7 +28,7 @@
             <th class="min-w-125px">Insurance</th>
             <th class="min-w-125px">Date</th>
             <th class="min-w-200px">Amount</th>
-            <th class="min-w-150px">Agent</th>
+            <th class="min-w-150px">Action</th>
             <th class="min-w-200px text-end rounded-end"></th>
           </tr>
         </thead>
@@ -77,8 +77,8 @@
                 <span class="text-muted fw-bold text-muted d-block fs-7">{{item.premiumTypeName}}</span>
               </td>
               <td>
-                <div class="custom-hover" (click)="onShowAgentDialog(item)">
-                  <span class="badge badge-light-primary fs-7 fw-bold">{{item.branchName}}</span>
+                <div class="custom-hover" (click)="onShowClaimDialog(item.id)">
+                  <span class="badge badge-light-primary fs-7 fw-bold">Claim</span>
                 </div>
               </td>
               <td class="text-end">

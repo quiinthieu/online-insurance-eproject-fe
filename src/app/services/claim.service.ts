@@ -45,4 +45,12 @@ export class ClaimService {
     // .then((res)=> res as ClaimExtend[]);
     return this.httpMethod.getUrl(`${this.BASE_URL}claims-by-customer-id/${customerId}`);
   }
+
+  findByCustomerPolicyId(customerPolicyId:number) {
+    // return this.httpClient
+    // .get(this.BASE_URL + 'claims-by-customer-id/'+customerId)
+    // .toPromise()
+    // .then((res)=> res as ClaimExtend[]);
+    return this.httpMethod.getUrl(`${this.BASE_URL}claims-by-customer-policy-id/${customerPolicyId}`);
+  }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { CommonService } from 'src/app/services/common.service';
 import { PolicyService } from 'src/app/services/policy.service';
-import { AgentDetailComponent } from '../agent-detail/agent-detail.component';
+import { ClaimDetailComponent } from '../claim-detail/claim-detail.component';
 import { PolicyComponent } from '../policy/policy.component';
 
 @Component({
@@ -12,7 +12,7 @@ import { PolicyComponent } from '../policy/policy.component';
 })
 export class CustomerPolicyComponent implements OnInit {
   isLoading = false;
-  policies: any = []
+  policies: any = [];
   refPolicy: DynamicDialogRef;
   refAgent: DynamicDialogRef;
   constructor(private policyService: PolicyService, private dialogService: DialogService, private commonService: CommonService) { }
@@ -46,15 +46,15 @@ export class CustomerPolicyComponent implements OnInit {
     this.commonService.passingData['policy-detail'] = policyDetailId;
 
   }
-  onShowAgentDialog(customerPolicyDetail: any) {
-    this.refAgent = this.dialogService.open(AgentDetailComponent, {
-      header: 'Agent Details',
-      width: '25%',
+  onShowClaimDialog(customerPolicyId: number) {
+    this.refAgent = this.dialogService.open(ClaimDetailComponent, {
+      header: 'Claim Info',
+      width: '30%',
       contentStyle: { "max-height": "500px", "overflow": "auto" },
       baseZIndex: 10000
     });
-
-    this.commonService.passingData['customer-policy-detail'] = customerPolicyDetail;
+    console.log("Customer policy: "+customerPolicyId);
+    this.commonService.passingData['customer-policy-id'] = customerPolicyId;
   }
 
   ngOnDestroy() {
