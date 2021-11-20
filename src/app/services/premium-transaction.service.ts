@@ -36,6 +36,14 @@ export class PremiumTransactionService {
     return this.httpMethod.getUrl(`${this.BASE_URL}premium-transactions-by-customerid/`+id);
   }
 
+  findByCustomerPolicyId(id: number) {
+    // return this.httpClient
+    //   .get(this.BASE_URL + 'premium-transactions-by-customerid/'+id)
+    //   .toPromise()
+    //   .then((res) => res as PremiumTransactionExtend[]);
+    return this.httpMethod.getUrl(`${this.BASE_URL}premium-transactions/`+id);
+  }
+
   count() {
     return this.httpClient
       .get(this.BASE_URL + 'count')

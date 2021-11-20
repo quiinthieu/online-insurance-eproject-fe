@@ -44,9 +44,9 @@
                   </div>
                   <div class="d-flex justify-content-start flex-column">
                     <div class="custom-hover">
-                      <span (click)="onShowPolicyDialog(item.policyId)" class="text-dark fw-bolder  mb-1 fs-6 ">
+                      <!-- <span (click)="onShowPolicyDialog(item.policyId)" class="text-dark fw-bolder  mb-1 fs-6 ">
                         {{item.policyName}}
-                      </span>
+                      </span> -->
                     </div>
 
                     <span class="text-muted fw-bold text-muted d-block fs-7">
@@ -78,7 +78,10 @@
               </td>
               <td>
                 <div class="custom-hover" (click)="onShowClaimDialog(item.id)">
-                  <span class="badge badge-light-primary fs-7 fw-bold">Claim</span>
+                  <span class="badge badge-light-primary fs-7 fw-bold">Claim</span> 
+                </div>
+                <div class="custom-hover" (click)="onShowTransaction(item.id)">
+                  <span class="badge badge-light-primary fs-7 fw-bold">View transaction</span> 
                 </div>
               </td>
               <td class="text-end">
