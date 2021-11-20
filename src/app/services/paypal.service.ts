@@ -7,10 +7,10 @@ import { HttpObservablesService } from './http-method/http-observables.service';
 export class PaypalService {
   private BASE_URL: string = environment.BASE_URL + '/payment/paypal/';
 
-  constructor( private httpMethod: HttpObservablesService) {}
+  constructor(private httpMethod: HttpObservablesService) { }
 
-  PayPalCheckout(premiumTransactions : PremiumTransaction[]) {
-    return this.httpMethod.postUrl(this.BASE_URL+"check-out",premiumTransactions);
+  PayPalCheckout(premiumTransactions: any) {
+    return this.httpMethod.postUrl(this.BASE_URL + "check-out", premiumTransactions);
   }
-  
+
 }

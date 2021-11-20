@@ -9,29 +9,33 @@ import { CustomerService } from 'src/app/services/customer.service';
 import { PaypalService } from 'src/app/services/paypal.service';
 import { PremiumTransactionService } from 'src/app/services/premium-transaction.service';
 
+
+
 @Component({
   selector: 'transaction-table',
   templateUrl: './transaction-table.component.html',
 })
 export class TransactionTableComponent implements OnInit {
-  premiumTransactions : PremiumTransactionExtend[]
-  customer : Customer
+  premiumTransactions: any = []
+  total: number = 0;
+  customer: Customer
   isLoading = false;
-  customerPolicyId:number;
+  customerPolicyId: number;
+
 
   constructor(
     private premiumTransactionService: PremiumTransactionService,
-    private customerService : CustomerService,
-    private datePipe : DatePipe,
+    private customerService: CustomerService,
+    private datePipe: DatePipe,
     private commonService: CommonService,
     private payPalService: PaypalService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.isLoading=true;
+    this.isLoading = true;
     this.premiumTransactions = null;
-    
+
 
     this.customerPolicyId = this.commonService.passingData['customer-policy-id'] || null;
     console.warn(this.customerPolicyId)
@@ -44,48 +48,60 @@ export class TransactionTableComponent implements OnInit {
   }
 
   loadPremiumTransactions() {
-    const credential = JSON.parse(localStorage.getItem("credential"));
-    this.customerService.detailsbycredentialid(credential.id).then(
-      res => {
-        console.log("Customer id: "+res.id);
-        this.customer = res;
-        this.premiumTransactionService.findByCustomerId(this.customer.id).then(
-          res2 => {
-            console.log(res2);
-            this.premiumTransactions = res2;
-          },
-          error2 => {
-            console.log(error2);
-          }
-        )
-      },
-      error => {
-        console.log(error);
-      }
-    )
+    this.premiumTransactionService.findAll().then(data => {
+      console.log(data);
+      this.premiumTransactions = data.transactions;
+      this.total = data.total;
+      this.isLoading = false;
+    })
   }
 
   loadPremiumTransactionsByCustomerPolicyId() {
     this.premiumTransactionService.findByCustomerPolicyId(this.customerPolicyId).then(data => {
       console.log(data);
-      this.premiumTransactions = data;
+      this.premiumTransactions = data.transactions;
+      this.total = data.total;
       this.isLoading = false;
     });
   }
 
-  onShowCheckoutPaypal(premiumTransaction : PremiumTransaction) {
-    console.log("preeeee:")
-    console.log(premiumTransaction);
-    let pTs : PremiumTransaction[] = [premiumTransaction];
-    
-    this.payPalService.PayPalCheckout(pTs).then(
-      res=> {
+  // onShowCheckoutPaypal(premiumTransaction: PremiumTransaction) {
+  //   console.log("preeeee:")
+  //   console.log(premiumTransaction);
+  //   premiumTransaction.amount = Math.floor(premiumTransaction.amount)
+  //   let pTs: PremiumTransaction[] = [premiumTransaction];
+  //   console.warn(pTs)
+
+  //   this.payPalService.PayPalCheckout(pTs).then(
+
+  //     res => {
+  //       console.warn(res)
+  //       // this.router.ngOnDestroy();
+  //       // window.location.href = res.path;
+  //     },
+  //     // error => {
+  //     //   console.log(error);
+  //     // }
+  //   )
+  // }
+
+  onShowCheckoutPaypal(transaction: any) {
+    transaction.amount = Math.floor(transaction.amount);
+    let listRequest = [transaction];
+
+    console.warn(transaction)
+
+    this.payPalService.PayPalCheckout(listRequest).then(data => {
+      this.router.ngOnDestroy();
+      window.location.href = data.path;
+      if (data.hasOwnProperty('error')) {
+        this.router.navigate([data.url])
+      } else {
         this.router.ngOnDestroy();
-        window.location.href = res.path;
-      },
-      error => {
-        console.log(error);
+        window.location.href = data.path;
       }
-    )
+      console.warn(data)
+    });
+
   }
 }
