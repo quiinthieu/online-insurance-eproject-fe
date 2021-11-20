@@ -7,7 +7,7 @@ import { HttpObservablesService } from './http-method/http-observables.service';
 
 @Injectable()
 export class CredentialService {
-  private BASE_URL: string = environment.BASE_URL + '/credential';
+  private BASE_URL: string = environment.BASE_URL + '/credential/';
 
   constructor(private httpMethod: HttpObservablesService, private router: Router,
     private httpClient: HttpClient) { }

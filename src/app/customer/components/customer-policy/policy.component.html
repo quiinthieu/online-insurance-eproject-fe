@@ -82,21 +82,16 @@
                 </div>
               </td>
               <td class="text-end">
-                <a href="#" class="
-                  btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                  me-1
-                ">
-                  <img src="./assets/media/icons/duotune/general/gen019.svg" alt="" class="svg-icon svg-icon-3">
-                </a>
-                <a href="#" class="
-                  btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                  me-1
-                ">
-                  <img src="./assets/media/icons/duotune/art/art005.svg" alt="" class="svg-icon svg-icon-3">
-                </a>
-                <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                  <img src="./assets/media/icons/duotune/general/gen027.svg" alt="" class="svg-icon svg-icon-3">
-                </a>
+
+                <button class="btn btn-sm btn-light me-2 cursor-pointer" id="kt_user_follow_button"
+                  (click)="onOpenTransDetail()">
+                  <span class="indicator-label">Premium</span>
+                </button>
+
+                <button class="btn btn-sm btn-light me-2 cursor-pointer" id="kt_user_follow_button"
+                  (click)="onOpenTransDetail()">
+                  <span class="indicator-label">Claim</span>
+                </button>
               </td>
             </tr>
           </ng-container>

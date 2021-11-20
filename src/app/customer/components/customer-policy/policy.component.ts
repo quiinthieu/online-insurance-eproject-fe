@@ -30,7 +30,9 @@ export class CustomerPolicyComponent implements OnInit {
     });
   }
 
+  onOpenTransDetail() {
 
+  }
 
 
   onShowPolicyDialog(policyDetailId: number) {
