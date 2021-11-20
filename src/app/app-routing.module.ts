@@ -11,7 +11,7 @@ export const routes: Routes = [
   },
   {
     path: 'customer',
-    canActivate: [CustomerGuard],
+    // canActivate: [CustomerGuard],
     loadChildren: () =>
       import('./customer/components/layout/layout.module').then(
         (m) => m.LayoutCustomerModule
@@ -19,7 +19,7 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./admin/admin.module').then(
         (m) => m.AdminModule

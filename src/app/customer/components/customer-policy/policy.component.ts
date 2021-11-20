@@ -31,7 +31,9 @@ export class CustomerPolicyComponent implements OnInit {
     });
   }
 
+  onOpenTransDetail() {
 
+  }
 
 
   onShowTransaction(customerPolicyId: number) {
