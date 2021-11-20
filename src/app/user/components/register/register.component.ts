@@ -26,15 +26,15 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       email: '',
       password: '',
-      username: ''
+      name: ''
     });
   }
 
   onRegister() {
     this.isLoading = true;
-    const { email, password, username } = this.registerForm.value;
+    const { email, password, name } = this.registerForm.value;
     const registerAccount = {
-      email, password, username
+      email, password, name
     }
     this.credentialService.register(registerAccount).then(
       data => {

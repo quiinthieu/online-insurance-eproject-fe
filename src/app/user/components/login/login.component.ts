@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    this.isLoading = true;
+    // this.isLoading = true;
     console.log(this.formLogin.value);
     const { email, password } = this.formLogin.value;
     const loginAccount = {
@@ -40,9 +40,9 @@ export class LoginComponent implements OnInit {
       password
     }
     this.credentialService.login(loginAccount).then(data => {
+      // this.isLoading = false;
       if (data.hasOwnProperty('error')) {
         this.toastr.error(data.error.detail);
-        this.isLoading = false;
       } else {
         const { accessToken, credential } = data;
         const { id, email, roleName, status, customers } = credential
@@ -51,14 +51,11 @@ export class LoginComponent implements OnInit {
           id: customerId,
           name: customerName
         }
-
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("credential", JSON.stringify({ id, email, roleName, status, customer }))
         if (roleName == APP_CONST.ROLE_AGENT) {
-          this.isLoading = false;
           this.router.navigate(['admin']);
         } else if (roleName == APP_CONST.ROLE_CUSTOMER) {
-          this.isLoading = false;
           this.router.navigate(['customer']);
         }
       }

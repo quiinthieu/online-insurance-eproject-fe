@@ -51,8 +51,8 @@ export class BuyPolicyComponent implements OnInit {
     this.updateProfile = this.formBuilder.group({
       id: '',
       name: '',
-      birthday: '',
-      gender: '',
+      birthday: this.datePipe.transform(new Date(), 'dd/MM/yyyy'),
+      gender: 'male',
       street: '',
       city: '',
       state: '',
@@ -74,7 +74,9 @@ export class BuyPolicyComponent implements OnInit {
   loadProfile() {
     this.customerService.detailsbycredentialid(this.credential.id).then(
       res => {
-        const { name, birthday, gender, street, city, state, zipCode, occupation, credentialId, citizenId, id } = res
+        let { name, birthday, gender, street, city, state, zipCode, occupation, credentialId, citizenId, id } = res
+        birthday = birthday ? birthday : this.datePipe.transform(new Date(), 'dd/MM/yyyy');
+        gender = gender ? gender : 'male';
         this.updateProfile = this.formBuilder.group({
           id,
           name,
@@ -87,10 +89,9 @@ export class BuyPolicyComponent implements OnInit {
           occupation,
           credentialId,
           citizenId,
-        });
-      },
+        })
 
-    );
+      });
   }
 
   onSelectPremiumType(value: any) {
@@ -117,7 +118,7 @@ export class BuyPolicyComponent implements OnInit {
     this.isLoading = true;
     let customerInfo = this.updateProfile.value;
     let PremiumTypeId = this.selectedPremiumType;
-    // customerInfo.birthday = this.datePipe.transform(customerInfo.birthday, 'yyyy-MM-dd');
+    customerInfo.birthday = this.datePipe.transform(customerInfo.birthday, 'yyyy-MM-dd');
     let policyId = [];
     this.policyItem.map(item => {
       policyId.push(item.id);
