@@ -11,33 +11,49 @@ import { PolicyDetailService } from 'src/app/services/policy-detail.service';
 })
 export class TablePolicyComponent implements OnInit {
 
-  constructor(private _policyService: PolicyDetailService) {}
+  constructor(private _policyService: PolicyDetailService) { }
   tbPolis: Policy[];
   count: any;
   count2: any;
-
+  loading = false;
   ngOnInit(): void {
-    
+
     this.countPolicy();
+    this.getPolicy();
+  }
+
+  getPolicy() {
+    this.loading = true;
+
     this._policyService.findAll().then(
       res => {
+        this.loading = false;
+
         this.tbPolis = res;
       },
-      error =>{
+      error => {
+        this.loading = false;
+
         console.error(error);
       }
-     
-      
+
+
     );
   }
-  countPolicy(){
-    this._policyService.count().then(res=>{
+  countPolicy() {
+    this.loading = true;
+
+    this._policyService.count().then(res => {
+      this.loading = false;
+
       this.count = res;
       this.count2 = this.count.result;
     },
-    error=>{
-      console.log(error);
-    });
+      error => {
+        this.loading = false;
+
+        console.log(error);
+      });
   }
- 
+
 }

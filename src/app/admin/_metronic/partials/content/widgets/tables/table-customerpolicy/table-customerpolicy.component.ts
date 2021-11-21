@@ -11,33 +11,46 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class TableCustomerPolicyComponent implements OnInit {
 
-  constructor(private _customerPolicyService: CustomerPolicyService) {}
+  constructor(private _customerPolicyService: CustomerPolicyService) { }
   tbCustomerPolis: CustomerPolicy[];
   count: any;
   count1: any;
-
+  loading = false;
   ngOnInit(): void {
-    
+
     this.countCustomer();
-    this. _customerPolicyService.findAll().then(
+    this.getCustomerPolicy();
+  }
+
+  getCustomerPolicy() {
+    this.loading = true;
+    this._customerPolicyService.findAll().then(
       res => {
-        this.tbCustomerPolis= res;
+        this.loading = false;
+        this.tbCustomerPolis = res;
       },
-      error =>{
+      error => {
+        this.loading = false;
+
         console.error(error);
       }
-     
-      
+
+
     );
   }
-  countCustomer(){
-    this._customerPolicyService.count().then(res=>{
+  countCustomer() {
+    this.loading = true;
+    this._customerPolicyService.count().then(res => {
+      this.loading = false;
+
       this.count = res;
       this.count1 = this.count.result;
     },
-    error=>{
-      console.log(error);
-    });
+      error => {
+        this.loading = false;
+
+        console.log(error);
+      });
   }
- 
+
 }

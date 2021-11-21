@@ -11,32 +11,45 @@ import { RoleService } from 'src/app/services/role.service copy';
 })
 export class TableRoleComponent implements OnInit {
 
-  constructor(private _roleService: RoleService) {}
+  constructor(private _roleService: RoleService) { }
   tbRoles: Role[];
   count: any;
   count1: any;
 
+  loading = false;
   ngOnInit(): void {
     this.countRole();
+    this.getRole();
+  }
+
+  getRole() {
+    this.loading = true;
     this._roleService.findAll().then(
       res => {
+        this.loading = false;
         this.tbRoles = res;
       },
-      error =>{
+      error => {
+        this.loading = false;
+
         console.error(error);
       }
-     
-      
+
+
     );
   }
- 
-  countRole(){
-    this._roleService.count().then(res=>{
+  countRole() {
+    this.loading = true;
+    this._roleService.count().then(res => {
+      this.loading = false;
+
       this.count = res;
       this.count1 = this.count.result;
     },
-    error=>{
-    console.log(error);
-    });
+      error => {
+        this.loading = false;
+
+        console.log(error);
+      });
   }
 }

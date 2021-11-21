@@ -9,33 +9,49 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class TableCustomerComponent implements OnInit {
 
-  constructor(private _customerService: CustomerService) {}
+  constructor(private _customerService: CustomerService) { }
   tbCustomers: Customer[];
   count: any;
   count1: any;
-
+  loading = false;
   ngOnInit(): void {
-    
+
     this.countCustomer();
-    this. _customerService.findAll().then(
+    this.getCustomer();
+  }
+
+  getCustomer() {
+
+    this.loading = true;
+    this._customerService.findAll().then(
       res => {
+
+        this.loading = false;
         this.tbCustomers = res;
       },
-      error =>{
+      error => {
+        this.loading = false;
+
         console.error(error);
       }
-     
-      
+
+
     );
   }
-  countCustomer(){
-    this._customerService.count().then(res=>{
+  countCustomer() {
+
+    this.loading = true;
+    this._customerService.count().then(res => {
+      this.loading = false;
+
       this.count = res;
       this.count1 = this.count.result;
     },
-    error=>{
-      console.log(error);
-    });
+      error => {
+        this.loading = false;
+
+        console.log(error);
+      });
   }
- 
+
 }

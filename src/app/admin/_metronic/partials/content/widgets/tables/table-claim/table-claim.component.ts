@@ -10,32 +10,48 @@ import { ClaimService } from 'src/app/services/claim.service';
 })
 export class TableClaimComponent implements OnInit {
 
-  constructor(private _claimService: ClaimService) {}
+  constructor(private _claimService: ClaimService) { }
   tbClaims: Claim[];
   count: any;
   count1: any;
-
+  loading = false;
   ngOnInit(): void {
     this.countClaim();
-    this. _claimService.findAll().then(
+    this.getClaim();
+  }
+
+  getClaim() {
+    this.loading = true;
+
+    this._claimService.findAll().then(
       res => {
+        this.loading = false;
+
         this.tbClaims = res;
       },
-      error =>{
+      error => {
+        this.loading = false;
+
         console.error(error);
       }
-     
-      
+
+
     );
   }
- 
-  countClaim(){
-    this._claimService.count().then(res=>{
+
+  countClaim() {
+    this.loading = true;
+
+    this._claimService.count().then(res => {
+      this.loading = false;
+
       this.count = res;
       this.count1 = this.count.result;
     },
-    error=>{
-    console.log(error);
-    });
+      error => {
+        this.loading = false;
+
+        console.log(error);
+      });
   }
 }

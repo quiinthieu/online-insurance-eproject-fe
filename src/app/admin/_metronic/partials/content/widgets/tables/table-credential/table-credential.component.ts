@@ -11,33 +11,50 @@ import { CredentialService } from 'src/app/services/credential.service';
 })
 export class TableCredentialComponent implements OnInit {
 
-  constructor(private _credentialService: CredentialService) {}
+  constructor(private _credentialService: CredentialService) { }
   tbCredentials: Credentiall[];
   count: any;
   count1: any;
 
+  loading = false;
   ngOnInit(): void {
     this.countCredential();
-    this. _credentialService.findAll().then(
+    this.getCredential();
+  }
+
+  getCredential() {
+    this.loading = true;
+
+    this._credentialService.findAll().then(
       res => {
+        this.loading = false;
+
         this.tbCredentials = res;
       },
-      error =>{
+      error => {
+        this.loading = false;
+
         console.error(error);
       }
-     
-      
+
+
     );
   }
-  countCredential(){
-    this._credentialService.count().then(res=>{
+  countCredential() {
+    this.loading = true;
+
+    this._credentialService.count().then(res => {
+      this.loading = false;
+
       this.count = res;
       this.count1 = this.count.result;
     },
-    error=>{
-    console.log(error);
-    });
+      error => {
+        this.loading = false;
+
+        console.log(error);
+      });
   }
-  
+
 
 }
