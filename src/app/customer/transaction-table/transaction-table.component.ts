@@ -19,7 +19,7 @@ export class TransactionTableComponent implements OnInit {
   premiumTransactions: any = []
   total: number = 0;
   customer: Customer
-  isLoading = false;
+  loading = false;
   customerPolicyId: number;
 
 
@@ -33,7 +33,7 @@ export class TransactionTableComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.isLoading = true;
+
     this.premiumTransactions = null;
 
 
@@ -48,20 +48,22 @@ export class TransactionTableComponent implements OnInit {
   }
 
   loadPremiumTransactions() {
+    this.loading = true;
     this.premiumTransactionService.findAll().then(data => {
+      this.loading = false;
       console.log(data);
       this.premiumTransactions = data.transactions;
       this.total = data.total;
-      this.isLoading = false;
     })
   }
 
   loadPremiumTransactionsByCustomerPolicyId() {
+    this.loading = true;
     this.premiumTransactionService.findByCustomerPolicyId(this.customerPolicyId).then(data => {
+      this.loading = false;
       console.log(data);
       this.premiumTransactions = data.transactions;
       this.total = data.total;
-      this.isLoading = false;
     });
   }
 
@@ -86,12 +88,14 @@ export class TransactionTableComponent implements OnInit {
   // }
 
   onShowCheckoutPaypal(transaction: any) {
+    this.loading = true;
     transaction.amount = Math.floor(transaction.amount);
     let listRequest = [transaction];
 
     console.warn(transaction)
 
     this.payPalService.PayPalCheckout(listRequest).then(data => {
+      this.loading = false;
       this.router.ngOnDestroy();
       window.location.href = data.path;
       if (data.hasOwnProperty('error')) {

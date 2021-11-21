@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 import { CaptchaModule } from 'primeng/captcha';
 import { CommonService } from '../services/common.service';
-import { CustomerGuard } from '../services/guard/customer.guard';
 import { LoginGuard } from '../services/guard/login.guard';
 import { PolicyDetailService } from '../services/policy-detail.service';
+import { ShareModule } from '../share.module';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ActivateAccountComponent } from './components/activate-account/activate-account.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
@@ -71,6 +70,8 @@ import { UserComponent } from './user.component';
     ActivateAccountComponent,
     RequestEmailComponent,
     LoadingComponent,
+
+
   ],
   imports: [
     CommonModule,
@@ -79,8 +80,13 @@ import { UserComponent } from './user.component';
     FormsModule,
     ReactiveFormsModule,
     CaptchaModule,
+    ShareModule
 
-
+  ],
+  exports: [],
+  schemas: [
+    NO_ERRORS_SCHEMA,
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [
     LoginGuard,

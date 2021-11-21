@@ -1,3 +1,6 @@
+<ng-container *ngIf="loading">
+  <preloader></preloader>
+</ng-container>
 <div class="card card-xl-stretch mb5 mb-xl-8">
   <!-- begin::Header -->
   <div class="card-header align-items-center border-0 mt-4">
@@ -163,14 +166,8 @@
         </div>
       </div>
       <div class="card-footer d-flex justify-content-end py-6 px-9">
-        <button type="submit" class="btn btn-primary" [disabled]="isLoading">
-          <ng-container *ngIf="!isLoading;else loading">Save Changes</ng-container>
-          <ng-template #loading>
-            <span clas="indicator-progress" [style.display]="'block'">
-              Please wait...{{ " " }}
-              <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-            </span>
-          </ng-template>
+        <button type="submit" class="btn btn-primary">
+          <ng-container>Save Changes</ng-container>
         </button>
       </div>
     </form>

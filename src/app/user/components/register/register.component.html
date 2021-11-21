@@ -1,4 +1,6 @@
-<user-loading *ngIf="isLoading"></user-loading>
+<ng-container *ngIf="loading">
+  <preloader></preloader>
+</ng-container>
 <!-- :: Navbar -->
 <nav-bar></nav-bar>
 <!-- :: Main Contain -->

@@ -27,6 +27,8 @@ import { CustomerPolicyService } from '../services/customer-policy.service';
 import { PremiumTypeService } from '../services/premium-type.service';
 import { ClaimDetailComponent } from './components/claim-detail/claim-detail.component';
 import { PaypalService } from '../services/paypal.service';
+import { ShareModule } from '../share.module';
+import { LayoutCustomerModule } from './components/layout';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { PaypalService } from '../services/paypal.service';
     ReactiveFormsModule,
     CustomerRoutingModule,
     InlineSVGModule.forRoot(),
+    ShareModule,
+    LayoutCustomerModule
 
   ],
   schemas: [

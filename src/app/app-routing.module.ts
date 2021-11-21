@@ -12,9 +12,13 @@ export const routes: Routes = [
   {
     path: 'customer',
     canActivate: [CustomerGuard],
+    // loadChildren: () =>
+    //   import('./customer/components/layout/layout.module').then(
+    //     (m) => m.LayoutCustomerModule
+    //   ),
     loadChildren: () =>
-      import('./customer/components/layout/layout.module').then(
-        (m) => m.LayoutCustomerModule
+      import('./customer/customer.module').then(
+        (m) => m.CustomerModule
       ),
   },
   {

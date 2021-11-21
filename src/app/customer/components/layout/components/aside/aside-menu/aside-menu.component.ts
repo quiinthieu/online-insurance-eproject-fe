@@ -11,11 +11,12 @@ export class AsideMenuComponent implements OnInit {
   appAngularVersion: string = environment.appVersion;
   appPreviewChangelogUrl: string = environment.appPreviewChangelogUrl;
 
+  loading = false;
   constructor(
-    private commonService : CommonService
-  ) {}
+    private commonService: CommonService
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   showingTransaction() {
     this.commonService.passingData['customer-policy-id'] = null;

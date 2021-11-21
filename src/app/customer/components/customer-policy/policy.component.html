@@ -1,5 +1,8 @@
 <!-- {{policies|json}} -->
-<user-loading *ngIf="isLoading"></user-loading>
+<ng-container *ngIf="loading">
+  <preloader></preloader>
+</ng-container>
+
 <div class="card card-xl-stretch mb-5 mb-xl-8">
   <!-- begin::Header -->
   <div class="card-header border-0 pt-5">

@@ -10,6 +10,7 @@ import { PolicyDetailService } from 'src/app/services/policy-detail.service';
 })
 export class LifeInsuranceComponent implements OnInit {
 
+  loading = false;
   lifePolicy: any = [];
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -24,7 +25,9 @@ export class LifeInsuranceComponent implements OnInit {
   }
 
   initPolicyInsurance() {
+    this.loading = true;
     this.activatedRoute.params.subscribe(param => {
+      this.loading = false;
       let typeId = param['type'];
       (typeId) && this.policyDetailService.findByInsuranceType(typeId).then(data => this.lifePolicy = data)
     })

@@ -10,7 +10,7 @@ import { APP_CONST } from '../../../constants';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  isLoading = false;
+  loading = false;
   formLogin: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
+    this.loading = true;
     // this.isLoading = true;
     console.log(this.formLogin.value);
     const { email, password } = this.formLogin.value;
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
       password
     }
     this.credentialService.login(loginAccount).then(data => {
-      // this.isLoading = false;
+      this.loading = false;
       if (data.hasOwnProperty('error')) {
         this.toastr.error(data.error.detail);
       } else {
@@ -54,8 +55,10 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("credential", JSON.stringify({ id, email, roleName, status, customer }))
         if (roleName == APP_CONST.ROLE_AGENT) {
+          // window.location.href = 'http://localhost:4200/admin';
           this.router.navigate(['admin']);
         } else if (roleName == APP_CONST.ROLE_CUSTOMER) {
+          // window.location.href = 'http://localhost:4200/customer';
           this.router.navigate(['customer']);
         }
       }

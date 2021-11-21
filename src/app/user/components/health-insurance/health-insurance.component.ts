@@ -8,24 +8,27 @@ import { PolicyService } from 'src/app/services/policy.service';
   styleUrls: ['./health-insurance.component.css']
 })
 export class HealthInsuranceComponent implements OnInit {
-
-  constructor( private _policyService:PolicyService) { }
-  lifePolicy : Policy[]
+  loading = false;
+  constructor(private _policyService: PolicyService) { }
+  lifePolicy: Policy[]
 
   ngOnInit() {
     this.findAllByInsuranceId(2);
   }
 
-  findAllByInsuranceId(id:number) {
-    this._policyService.findAllByInsuranceType(id).then (
+  findAllByInsuranceId(id: number) {
+    this.loading = true;
+    this._policyService.findAllByInsuranceType(id).then(
       res => {
+        this.loading = false;
         console.log(res);
-        for(let i =0;i<res.length;i++) {
-          res[i].amount = Math.round(res[i].amount/12);
+        for (let i = 0; i < res.length; i++) {
+          res[i].amount = Math.round(res[i].amount / 12);
         }
         this.lifePolicy = res;
       },
       error => {
+        this.loading = false;
         return null;
       }
     );

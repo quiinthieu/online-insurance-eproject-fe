@@ -11,7 +11,8 @@ import { APP_CONST } from '../../../constants';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-  isLoading = false;
+
+  loading = false;
   constructor(
     private formBuilder: FormBuilder,
     private credentialService: CredentialService,
@@ -31,19 +32,19 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister() {
-    this.isLoading = true;
+    this.loading = true;
     const { email, password, name } = this.registerForm.value;
     const registerAccount = {
       email, password, name
     }
     this.credentialService.register(registerAccount).then(
       data => {
+        this.loading = false;
         if (data.hasOwnProperty('error')) {
           this.toastr.error(data.error.detail);
         } else {
           this.toastr.success(APP_CONST.REGISTER_SUCCESS);
         }
-        this.isLoading = false;
         this.router.navigate(['login']);
       },
 

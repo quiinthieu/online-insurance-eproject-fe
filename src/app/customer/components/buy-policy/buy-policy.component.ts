@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./buy-policy.component.scss']
 })
 export class BuyPolicyComponent implements OnInit {
-  isLoading = false;
+  loading = false;
   policyItem: Array<any> = [];
   premiumType: Array<any> = [];
   credential: any;
@@ -66,14 +66,20 @@ export class BuyPolicyComponent implements OnInit {
   }
 
   initPremiumType() {
-    this.premiumTypeService.findAll().then(data => this.premiumType = data);
+    this.loading = true;
+    this.premiumTypeService.findAll().then(data => {
+      this.loading = false;
+      this.premiumType = data
+    });
   }
 
 
 
   loadProfile() {
+    this.loading = true;
     this.customerService.detailsbycredentialid(this.credential.id).then(
       res => {
+        this.loading = false;
         let { name, birthday, gender, street, city, state, zipCode, occupation, credentialId, citizenId, id } = res
         birthday = birthday ? this.datePipe.transform(birthday, 'dd/MM/yyyy') : this.datePipe.transform(new Date(), 'dd/MM/yyyy');
         gender = gender ? gender : 'male';
@@ -115,7 +121,7 @@ export class BuyPolicyComponent implements OnInit {
   }
 
   buyPolicy() {
-    this.isLoading = true;
+    this.loading = true;
     let customerInfo = this.updateProfile.value;
     let PremiumTypeId = this.selectedPremiumType;
     // customerInfo.birthday = this.datePipe.transform(customerInfo.birthday, 'yyyy-MM-dd');
@@ -135,10 +141,10 @@ export class BuyPolicyComponent implements OnInit {
     console.warn(buyPolicyItem)
 
     this.customerPolicyService.createCustomerPolicy(buyPolicyItem).then(data => {
+      this.loading = false;
       if (data.hasOwnProperty('error')) {
         this.toastr.success('error');
       } else {
-        this.isLoading = false;
         localStorage.removeItem('policy-item');
         this.toastr.success(data.msg);
         setTimeout(() => {

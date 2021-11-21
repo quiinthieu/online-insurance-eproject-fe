@@ -7,9 +7,10 @@ import { LayoutService } from '../../core/layout.service';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
+  loading = false;
   footerContainerCssClasses: string = '';
   currentDateStr: string = new Date().getFullYear().toString();
-  constructor(private layout: LayoutService) {}
+  constructor(private layout: LayoutService) { }
 
   ngOnInit(): void {
     this.footerContainerCssClasses =

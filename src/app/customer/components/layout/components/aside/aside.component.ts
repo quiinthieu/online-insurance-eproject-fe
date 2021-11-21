@@ -22,6 +22,8 @@ import {
   styleUrls: ['./aside.component.scss'],
 })
 export class AsideComponent implements OnInit, OnDestroy {
+
+  loading = false;
   asideTheme: string = '';
   asideMinimize: boolean = false;
   asideMenuCSSClasses: string = '';
