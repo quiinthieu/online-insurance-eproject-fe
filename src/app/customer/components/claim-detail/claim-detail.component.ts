@@ -12,7 +12,7 @@ export class ClaimDetailComponent implements OnInit {
   customerPolicyId: number;
   claimDetail: any = {};
   // customerPolicyDetail: any;
-  isLoading = false;
+  loading = false;
   // branchDetail: any;
   constructor(private commonService: CommonService, private claimService: ClaimService) { }
 
@@ -24,10 +24,10 @@ export class ClaimDetailComponent implements OnInit {
     }
   }
   initData() {
-    this.isLoading = true
+    this.loading = true
     this.claimService.findByCustomerPolicyId(this.customerPolicyId).then(data => {
+      this.loading = false;
       this.claimDetail = data;
-      this.isLoading = false;
     });
   }
 

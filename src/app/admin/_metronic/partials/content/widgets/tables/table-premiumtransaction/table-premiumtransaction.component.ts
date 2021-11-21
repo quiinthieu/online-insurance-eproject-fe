@@ -12,32 +12,49 @@ import { PremiumTransactionService } from 'src/app/services/premium-transaction.
 })
 export class TablePremiumTransactionComponent implements OnInit {
 
-  constructor(private _premiumTransactionService: PremiumTransactionService) {}
+  constructor(private _premiumTransactionService: PremiumTransactionService) { }
   tbTrans: PremiumTransaction[];
   count: any;
   count1: any;
-
+  loading = false;
   ngOnInit(): void {
     this.countTran();
+    this.getTran();
+
+  }
+
+  getTran() {
+    this.loading = true;
+
     this._premiumTransactionService.findAll().then(
       res => {
+        this.loading = false;
+
         this.tbTrans = res;
       },
-      error =>{
+      error => {
+        this.loading = false;
+
         console.error(error);
       }
-     
-      
+
+
     );
   }
- 
-  countTran(){
-    this._premiumTransactionService.count().then(res=>{
+
+  countTran() {
+    this.loading = true;
+
+    this._premiumTransactionService.count().then(res => {
+      this.loading = false;
+
       this.count = res;
       this.count1 = this.count.result;
     },
-    error=>{
-    console.log(error);
-    });
+      error => {
+        this.loading = false;
+
+        console.log(error);
+      });
   }
 }

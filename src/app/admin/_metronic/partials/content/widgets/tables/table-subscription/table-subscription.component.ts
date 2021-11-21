@@ -13,32 +13,48 @@ import { SubscriptionService } from 'src/app/services/subscription.service';
 })
 export class TableSubscriptionComponent implements OnInit {
 
-  constructor(private _subscriptionService: SubscriptionService) {}
+  constructor(private _subscriptionService: SubscriptionService) { }
   tbSus: Subscription[];
   count: any;
   count1: any;
 
+  loading = false;
   ngOnInit(): void {
     this.countRole();
+    this.getSub();
+  }
+
+  getSub() {
+    this.loading = true;
+
     this._subscriptionService.findAll().then(
       res => {
+        this.loading = false;
+
         this.tbSus = res;
       },
-      error =>{
+      error => {
+        this.loading = false;
+
         console.error(error);
       }
-     
-      
+
+
     );
   }
- 
-  countRole(){
-    this._subscriptionService.count().then(res=>{
+  countRole() {
+    this.loading = true;
+
+    this._subscriptionService.count().then(res => {
+      this.loading = false;
+
       this.count = res;
       this.count1 = this.count.result;
     },
-    error=>{
-    console.log(error);
-    });
+      error => {
+        this.loading = false;
+
+        console.log(error);
+      });
   }
 }

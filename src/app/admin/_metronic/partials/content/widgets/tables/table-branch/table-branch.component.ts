@@ -9,33 +9,45 @@ import { BranchService } from 'src/app/services/branch.service';
 })
 export class TableBranchComponent implements OnInit {
 
-  constructor(private _branchService: BranchService) {}
+  constructor(private _branchService: BranchService) { }
+  loading = false;
   tbBranchs: Branch[];
   count: any;
   count1: any;
   ngOnInit(): void {
 
     this.countBranch();
-    this. _branchService.findAll().then(
+    this.getBranch();
+  }
+
+  getBranch() {
+    this.loading = true;
+    this._branchService.findAll().then(
       res => {
+        this.loading = false;
         this.tbBranchs = res;
       },
-      error =>{
+      error => {
         console.error(error);
       }
-     
-      
+
+
     );
   }
 
-  countBranch(){
-    this._branchService.count().then(res=>{
+  countBranch() {
+    this.loading = true;
+    this._branchService.count().then(res => {
+      this.loading = false;
+
       this.count = res;
       this.count1 = this.count.result;
     },
-    error=>{
-    console.log(error);
-    });
+      error => {
+        this.loading = false;
+
+        console.log(error);
+      });
   }
 
 }

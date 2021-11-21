@@ -9,33 +9,44 @@ import { AgentService } from 'src/app/services/agent.service';
 })
 export class TableAgentComponent implements OnInit {
 
-  constructor(private _agentService: AgentService) {}
+  constructor(private _agentService: AgentService) { }
   tbAgents: Agent[];
   count: any;
   count1: any;
-
+  loading = false;
   ngOnInit(): void {
-    
+
     this.countAgent();
-    this. _agentService.findAll().then(
+    this.getAgent();
+  }
+
+  getAgent() {
+    this.loading = true;
+    this._agentService.findAll().then(
       res => {
+        this.loading = false;
         this.tbAgents = res;
       },
-      error =>{
+      error => {
+        this.loading = false;
         console.error(error);
       }
-     
-      
     );
   }
-  countAgent(){
-    this._agentService.count().then(res=>{
+  countAgent() {
+    this.loading = true;
+
+    this._agentService.count().then(res => {
+      this.loading = false;
+
       this.count = res;
       this.count1 = this.count.result;
     },
-    error=>{
-      console.log(error);
-    });
+      error => {
+        this.loading = false;
+
+        console.log(error);
+      });
   }
- 
+
 }

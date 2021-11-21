@@ -13,7 +13,7 @@ import { PolicyComponent } from '../policy/policy.component';
   styleUrls: ['./policy.component.scss']
 })
 export class CustomerPolicyComponent implements OnInit {
-  isLoading = false;
+  loading = false;
   policies: any = [];
   refPolicy: DynamicDialogRef;
   refAgent: DynamicDialogRef;
@@ -26,11 +26,11 @@ export class CustomerPolicyComponent implements OnInit {
   }
 
   initData() {
-    this.isLoading = true;
+    this.loading = true;
     let credential = JSON.parse(localStorage.getItem('credential'))
     this.policyService.findByCustomerId(credential.customer.id).then(data => {
+      this.loading = false
       this.policies = data;
-      this.isLoading = false
     });
   }
 

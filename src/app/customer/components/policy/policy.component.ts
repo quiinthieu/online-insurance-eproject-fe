@@ -10,11 +10,10 @@ import { PolicyDetailService } from 'src/app/services/policy-detail.service';
 export class PolicyComponent implements OnInit {
   policyDetailId: number;
   color: string = 'danger';
-  isLoading = false;
+  loading = false;
   policyDetail: any;
   constructor(private commonService: CommonService, private policyDetailService: PolicyDetailService) { }
   ngOnInit(): void {
-    this.isLoading = true;
     this.policyDetailId = this.commonService.passingData['policy-detail'] || null;
     if (this.policyDetailId) {
       this.initData(this.policyDetailId);
@@ -22,9 +21,10 @@ export class PolicyComponent implements OnInit {
   }
 
   initData(policyDetailId: number) {
+    this.loading = true;
     this.policyDetailService.findById(policyDetailId).then(data => {
+      this.loading = false;
       this.policyDetail = data
-      this.isLoading = false;
     })
   }
 }

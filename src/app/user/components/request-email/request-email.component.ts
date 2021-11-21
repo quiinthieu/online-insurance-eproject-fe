@@ -13,7 +13,7 @@ import { APP_CONST } from '../../../constants';
 export class RequestEmailComponent implements OnInit {
   requestType: string = '';
   isDisabled = true;
-  isLoading = false;
+  loading = false;
   formRequest: FormGroup;
 
   constructor(
@@ -64,8 +64,9 @@ export class RequestEmailComponent implements OnInit {
     }
   }
   activateRequest(email: string) {
-    this.isLoading = true;
+    this.loading = true;
     this.credentialService.activateRequest({ email }).then(data => {
+      this.loading = false;
       if (data.hasOwnProperty('error')) {
         this.toastr.error(data.error.detail)
       } else {
@@ -73,14 +74,14 @@ export class RequestEmailComponent implements OnInit {
       }
       this.isDisabled = true;
       window.grecaptcha.reset()
-      this.isLoading = false;
       this.router.navigate(['login'])
     })
   }
 
   resetPasswordRequest(email: string) {
-    this.isLoading = true;
+    this.loading = true;
     this.credentialService.resetPasswordRequest({ email }).then(data => {
+      this.loading = false;
       if (data.hasOwnProperty('error')) {
         this.toastr.error(data.error.detail)
       } else {
@@ -88,7 +89,6 @@ export class RequestEmailComponent implements OnInit {
       }
       this.isDisabled = true;
       window.grecaptcha.reset()
-      this.isLoading = false;
       this.router.navigate(['login'])
     })
   }

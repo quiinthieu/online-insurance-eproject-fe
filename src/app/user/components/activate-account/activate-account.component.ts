@@ -12,7 +12,7 @@ import { APP_CONST } from '../../../constants';
   encapsulation: ViewEncapsulation.None
 })
 export class ActivateAccountComponent implements OnInit {
-  isLoading = false;
+  loading = false;
   isDisabled = true;
   credential = {
     token: '',
@@ -62,7 +62,7 @@ export class ActivateAccountComponent implements OnInit {
 
 
   onSubmit() {
-    this.isLoading = true;
+    this.loading = true;
     let email = atob(this.credential.token);
     const { password } = this.formRequest.value;
     let activationCode = this.credential.activationCode;
@@ -72,19 +72,19 @@ export class ActivateAccountComponent implements OnInit {
       password
     }
     this.credentialService.resetPassword(resetPasswordAccount).then(data => {
+      this.loading = false;
       if (data.hasOwnProperty('error')) {
         this.toastr.error(data.error.detail);
       } else {
         this.toastr.success('Reset Password success');
       }
     })
-    this.isLoading = false;
     this.router.navigate(['login']);
   }
 
 
   verifyTokenAndActivationCode() {
-    this.isLoading = true;
+    this.loading = true;
     let email = atob(this.credential.token);
     let activationCode = this.credential.activationCode;
     let verifyAccount = {
@@ -92,17 +92,15 @@ export class ActivateAccountComponent implements OnInit {
       activationCode
     }
     this.credentialService.verifyActivationCodeAndEmail(verifyAccount).then(data => {
+      this.loading = false;
       if (data.hasOwnProperty('error')) {
         this.toastr.error(data.error.detail);
-        this.isLoading = false;
         this.router.navigate(['login']);
       } else {
         if (data.email == email && data.activationCode == this.credential.activationCode) {
-          this.isLoading = false;
           return true;
         }
         this.toastr.error('Invalid Link');
-        this.isLoading = false;
         this.router.navigate(['login']);
       }
     })
@@ -110,7 +108,7 @@ export class ActivateAccountComponent implements OnInit {
 
 
   verifyActivateAccount() {
-    this.isLoading = true;
+    this.loading = true;
     let email = atob(this.credential.token);
     let activationCode = this.credential.activationCode;
     let activateAccount = {
@@ -118,12 +116,12 @@ export class ActivateAccountComponent implements OnInit {
       activationCode
     }
     this.credentialService.activateAccount(activateAccount).then(data => {
+      this.loading = false;
       if (data.hasOwnProperty('error')) {
         this.toastr.error(data.error.detail);
       } else {
         this.toastr.success('Activate account success');
       }
-      this.isLoading = false;
       this.router.navigate(['login']);
     })
   }

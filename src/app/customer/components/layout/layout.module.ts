@@ -24,6 +24,9 @@ import { LayoutCustomerComponent } from './layout.component';
 import { CustomerModule } from '../../customer.module';
 import { DialogService } from 'primeng/dynamicdialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ShareModule } from 'src/app/share.module';
+import { LayoutRoutingModule } from './layout-routing.module';
+import { CustomerUserInnerComponent } from '../user-inner/user-inner.component';
 
 
 @NgModule({
@@ -40,10 +43,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PageTitleComponent,
     HeaderMenuComponent,
 
+    CustomerUserInnerComponent
+
   ],
   imports: [
     CommonModule,
-    CustomerRoutingModule,
+    // CustomerRoutingModule,
+    LayoutRoutingModule,
     InlineSVGModule,
     NgbDropdownModule,
     NgbProgressbarModule,
@@ -53,8 +59,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DropdownMenusModule,
     NgbTooltipModule,
     TranslateModule,
-    CustomerModule,
-
+    // CustomerModule,
+    ShareModule
   ],
   providers: [
     DialogService

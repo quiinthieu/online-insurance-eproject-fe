@@ -10,32 +10,47 @@ import { InsuranceTypeService } from 'src/app/services/insurance-type.service';
 })
 export class TableInsuranceComponent implements OnInit {
 
-  constructor(private _insuranceTypeService: InsuranceTypeService) {}
+  constructor(private _insuranceTypeService: InsuranceTypeService) { }
   tbInsuntypes: InsuranceType[];
   count: any;
   count1: any;
-
+  loading = false;
   ngOnInit(): void {
     this.countClaim();
-    this. _insuranceTypeService.findAll().then(
+    this.getInsurance();
+  }
+
+  getInsurance() {
+    this.loading = true;
+    this._insuranceTypeService.findAll().then(
       res => {
+        this.loading = false;
         this.tbInsuntypes = res;
       },
-      error =>{
+      error => {
+        this.loading = false;
+
         console.error(error);
       }
-     
-      
+
+
     );
   }
- 
-  countClaim(){
-    this._insuranceTypeService.count().then(res=>{
+
+
+
+  countClaim() {
+    this.loading = true;
+    this._insuranceTypeService.count().then(res => {
+      this.loading = false;
+
       this.count = res;
       this.count1 = this.count.result;
     },
-    error=>{
-    console.log(error);
-    });
+      error => {
+        this.loading = false;
+
+        console.log(error);
+      });
   }
 }

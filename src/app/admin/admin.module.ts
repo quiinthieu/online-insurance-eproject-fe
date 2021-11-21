@@ -23,7 +23,7 @@ import { ScriptsInitComponent } from './_metronic/layout/components/scripts-init
 import { ToolbarComponent } from './_metronic/layout/components/toolbar/toolbar.component';
 import { TopbarComponent } from './_metronic/layout/components/topbar/topbar.component';
 import { LayoutComponent } from './_metronic/layout/layout.component';
-import {DrawersModule, DropdownMenusModule, ExtrasModule, ModalsModule, WidgetsModule} from './_metronic/partials';
+import { DrawersModule, DropdownMenusModule, ExtrasModule, ModalsModule, WidgetsModule } from './_metronic/partials';
 import { AgentComponent } from './components/agent/agent.component';
 import { BranchComponent } from './components/branch/branch.component';
 import { ClaimComponent } from './components/claim/claim.component';
@@ -50,6 +50,7 @@ import { RoleService } from '../services/role.service copy';
 import { SubscriptionService } from '../services/subscription.service';
 import { CustomerPolicyService } from '../services/customer-policy.service';
 import { PolicyDetailService } from '../services/policy-detail.service';
+import { ShareModule } from '../share.module';
 
 
 
@@ -94,6 +95,7 @@ import { PolicyDetailService } from '../services/policy-detail.service';
     NgbTooltipModule,
     TranslateModule,
     WidgetsModule,
+    ShareModule
   ],
   providers: [
     AgentService,

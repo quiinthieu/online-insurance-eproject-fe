@@ -8,6 +8,7 @@ import * as $ from 'jquery';
 })
 export class AboutUsComponent implements OnInit {
 
+  loading = false;
   constructor() {
   }
 
@@ -16,6 +17,7 @@ export class AboutUsComponent implements OnInit {
   }
 
   loadScript() {
+    this.loading = true;
     // -- :: About Us Page
     // Hide Information card
     $('#about-us-page .our-team .item .card-c').fadeOut(0);
@@ -55,6 +57,7 @@ export class AboutUsComponent implements OnInit {
         flag_con.removeClass('open');
       }
     });
+    this.loading = false;
   }
 
 

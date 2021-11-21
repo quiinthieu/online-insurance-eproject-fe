@@ -10,14 +10,15 @@ import { CustomerService } from 'src/app/services/customer.service';
   templateUrl: './claim-table.component.html',
 })
 export class ClaimTableComponent implements OnInit {
-  claims : ClaimExtend[]
-  customer : Customer
+  loading = false;
+  claims: ClaimExtend[]
+  customer: Customer
 
   constructor(
-    private claimService : ClaimService,
-    private customerService : CustomerService,
-    private datePipe : DatePipe
-  ) {}
+    private claimService: ClaimService,
+    private customerService: CustomerService,
+    private datePipe: DatePipe
+  ) { }
 
   ngOnInit(): void {
     this.claims = null;
@@ -25,10 +26,12 @@ export class ClaimTableComponent implements OnInit {
   }
 
   loadClaims() {
+    this.loading = true;
     const credential = JSON.parse(localStorage.getItem("credential"));
     this.customerService.detailsbycredentialid(credential.id).then(
       res => {
-        console.log("Customer id: "+res.id);
+        this.loading = false;
+        console.log("Customer id: " + res.id);
         this.customer = res;
         this.claimService.findByCustomerId(this.customer.id).then(
           res2 => {
@@ -41,6 +44,7 @@ export class ClaimTableComponent implements OnInit {
         )
       },
       error => {
+        this.loading = false;
         console.log(error);
       }
     )

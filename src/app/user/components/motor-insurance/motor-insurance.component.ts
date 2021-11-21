@@ -8,22 +8,25 @@ import { PolicyService } from 'src/app/services/policy.service';
   styleUrls: ['./motor-insurance.component.css']
 })
 export class MotorInsuranceComponent implements OnInit {
-
-  constructor(private _policyService:PolicyService) { }
-  motorPolicy : Policy[];
+  loading = false;
+  constructor(private _policyService: PolicyService) { }
+  motorPolicy: Policy[];
   ngOnInit() {
     this.findAllByInsuranceId(3);
   }
-  findAllByInsuranceId(id:number) {
-    this._policyService.findAllByInsuranceType(id).then (
+  findAllByInsuranceId(id: number) {
+    this.loading = true;
+    this._policyService.findAllByInsuranceType(id).then(
       res => {
+        this.loading = false;
         console.log(res);
-        for(let i =0;i<res.length;i++) {
-          res[i].amount = Math.round(res[i].amount/12);
+        for (let i = 0; i < res.length; i++) {
+          res[i].amount = Math.round(res[i].amount / 12);
         }
         this.motorPolicy = res;
       },
       error => {
+        this.loading = false;
         return null;
       }
     );

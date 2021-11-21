@@ -12,32 +12,44 @@ import { MessageService } from 'src/app/services/message.service';
 })
 export class TableMessComponent implements OnInit {
 
-  constructor(private _messageService: MessageService) {}
+  constructor(private _messageService: MessageService) { }
   tbMess: Messages[];
   count: any;
   count1: any;
-
+  loading = false;
   ngOnInit(): void {
     this.countClaim();
-    this. _messageService.findAlls().then(
+    this.getMess();
+  }
+
+  getMess() {
+    this.loading = true;
+    this._messageService.findAlls().then(
       res => {
+        this.loading = false;
         this.tbMess = res;
       },
-      error =>{
+      error => {
+        this.loading = false;
+
         console.error(error);
       }
-     
-      
+
+
     );
   }
- 
-  countClaim(){
-    this._messageService.count().then(res=>{
+  countClaim() {
+    this.loading = true;
+    this._messageService.count().then(res => {
+      this.loading = false;
+
       this.count = res;
       this.count1 = this.count.result;
     },
-    error=>{
-    console.log(error);
-    });
+      error => {
+        this.loading = false;
+
+        console.log(error);
+      });
   }
 }

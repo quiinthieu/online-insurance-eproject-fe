@@ -14,6 +14,7 @@ import { LayoutInitService } from './core/layout-init.service';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutCustomerComponent implements OnInit, AfterViewInit {
+  loading = false;
   // Public variables
   selfLayout = 'default';
   asideSelfDisplay: true;

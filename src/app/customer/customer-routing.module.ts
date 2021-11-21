@@ -14,52 +14,53 @@ import { UpdateProfileComponent } from './update-profile/settings.component';
 const routes: Routes = [
   {
     path: '',
-    component: LayoutCustomerComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: 'profile',
-        pathMatch: 'full'
-      },
-      {
-        path: 'buy-policy',
-        component: BuyPolicyComponent
-      },
-      {
-        path: 'profile',
-        component: CustomerComponent,
-        children: [
-          {
-            path: '',
-            redirectTo: 'overview-profile',
-            pathMatch: 'full'
-          },
-          {
-            path: 'transaction',
-            component: TransactionTableComponent
-          },
-          {
-            path: 'claim',
-            component: ClaimTableComponent
-          },
-          {
-            path: 'update-profile',
-            component: UpdateProfileComponent
-          },
-          {
-            path: 'overview-profile',
-            component: ProfileComponent
-          },
-        ],
-      },
+    // component: LayoutCustomerComponent,
+    loadChildren: () =>
+      import('./components/layout/layout.module').then(
+        (m) => m.LayoutCustomerModule
+      ),
+    // children: [
+    //   {
+    //     path: '',
+    //     redirectTo: 'customer-policy',
+    //     pathMatch: 'full'
+    //   },
+    //   {
+    //     path: 'buy-policy',
+    //     component: BuyPolicyComponent
+    //   },
+    //   {
+    //     path: 'profile',
+    //     // component: CustomerComponent,
+    //     children: [
+    //       {
+    //         path: '',
+    //         pathMatch: 'full',
+    //         component: ProfileComponent
+    //       },
+    //       {
+    //         path: 'transaction',
+    //         component: TransactionTableComponent
+    //       },
+    //       {
+    //         path: 'claim',
+    //         component: ClaimTableComponent
+    //       },
+    //       {
+    //         path: 'update-profile',
+    //         component: UpdateProfileComponent
+    //       },
 
-      {
-        path: 'customer-policy',
-        component: CustomerPolicyComponent
-      },
-      { path: '', redirectTo: 'overview', pathMatch: 'full' },
-      { path: '**', redirectTo: 'overview', pathMatch: 'full' },
-    ],
+    //     ],
+    //   },
+
+    //   {
+    //     path: 'customer-policy',
+    //     component: CustomerPolicyComponent
+    //   },
+    //   { path: '', redirectTo: 'overview', pathMatch: 'full' },
+    //   { path: '**', redirectTo: 'overview', pathMatch: 'full' },
+    // ],
   }
 ];
 

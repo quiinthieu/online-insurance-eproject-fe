@@ -11,10 +11,14 @@ import { InlineSVGModule } from 'ng-inline-svg';
 import { ClipboardModule } from 'ngx-clipboard';
 import { ToastrModule } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
+import { AdminModule } from './admin/admin.module';
 import { AuthService } from './admin/modules/auth';
 import { FakeAPIService } from './admin/_fake';
+import { LayoutModule } from './admin/_metronic/layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LayoutCustomerModule } from './customer/components/layout';
+import { CustomerModule } from './customer/customer.module';
 import { CredentialService } from './services/credential.service';
 import { CustomerGuard } from './services/guard/customer.guard';
 import { HttpObservablesService } from './services/http-method/http-observables.service';
@@ -33,7 +37,7 @@ function appInitializer(authService: AuthService) {
 }
 
 @NgModule({
-  declarations: [AppComponent, PreloaderComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -67,7 +71,9 @@ function appInitializer(authService: AuthService) {
       easing: 'ease-in',
       easeTime: 300,
     }), // ToastrModule added
+
   ],
+  exports: [],
   providers: [
     HttpObservablesService,
     InsuranceTypeService,
