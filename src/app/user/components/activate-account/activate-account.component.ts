@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -26,7 +26,8 @@ export class ActivateAccountComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private credentialService: CredentialService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private cd: ChangeDetectorRef,
   ) { }
 
   ngOnInit(): void {
@@ -91,17 +92,19 @@ export class ActivateAccountComponent implements OnInit {
       email,
       activationCode
     }
+
     this.credentialService.verifyActivationCodeAndEmail(verifyAccount).then(data => {
       this.loading = false;
+      this.cd.detectChanges();
       if (data.hasOwnProperty('error')) {
         this.toastr.error(data.error.detail);
         this.router.navigate(['login']);
       } else {
         if (data.email == email && data.activationCode == this.credential.activationCode) {
-          return true;
+        } else {
+          this.toastr.error('Invalid Link');
+          this.router.navigate(['login']);
         }
-        this.toastr.error('Invalid Link');
-        this.router.navigate(['login']);
       }
     })
   }
