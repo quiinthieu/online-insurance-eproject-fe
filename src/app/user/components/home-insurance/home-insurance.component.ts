@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Policy } from 'src/app/entities/policy.entity';
 import { PolicyService } from 'src/app/services/policy.service';
 
@@ -9,7 +9,10 @@ import { PolicyService } from 'src/app/services/policy.service';
 })
 export class HomeInsuranceComponent implements OnInit {
   loading = false;
-  constructor(private _policyService: PolicyService) { }
+  constructor(
+    private _policyService: PolicyService,
+    private cd : ChangeDetectorRef
+    ) { }
 
   homePolicy: Policy[];
 
@@ -21,6 +24,7 @@ export class HomeInsuranceComponent implements OnInit {
     this._policyService.findAllByInsuranceType(id).then(
       res => {
         this.loading = false;
+        this.cd.detectChanges();
         console.log(res);
         for (let i = 0; i < res.length; i++) {
           res[i].amount = Math.round(res[i].amount / 12);
