@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       } else {
         const { accessToken, credential } = data;
         const { id, email, roleName, status, customers } = credential
-        const { id: customerId, name: customerName } = customers[0];
+        const { id: customerId, name: customerName } = credential;
         let customer = {
           id: customerId,
           name: customerName
