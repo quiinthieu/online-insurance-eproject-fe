@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -21,6 +21,7 @@ export class RequestEmailComponent implements OnInit {
     private credentialService: CredentialService,
     private router: Router,
     private formBuilder: FormBuilder,
+    private cd : ChangeDetectorRef,
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -67,6 +68,7 @@ export class RequestEmailComponent implements OnInit {
     this.loading = true;
     this.credentialService.activateRequest({ email }).then(data => {
       this.loading = false;
+      this.cd.detectChanges();
       if (data.hasOwnProperty('error')) {
         this.toastr.error(data.error.detail)
       } else {
@@ -82,6 +84,7 @@ export class RequestEmailComponent implements OnInit {
     this.loading = true;
     this.credentialService.resetPasswordRequest({ email }).then(data => {
       this.loading = false;
+      this.cd.detectChanges();
       if (data.hasOwnProperty('error')) {
         this.toastr.error(data.error.detail)
       } else {

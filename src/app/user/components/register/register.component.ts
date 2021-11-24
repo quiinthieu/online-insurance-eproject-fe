@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private credentialService: CredentialService,
     private router: Router,
+    private cd : ChangeDetectorRef,
     private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -40,6 +41,7 @@ export class RegisterComponent implements OnInit {
     this.credentialService.register(registerAccount).then(
       data => {
         this.loading = false;
+        this.cd.detectChanges();
         if (data.hasOwnProperty('error')) {
           this.toastr.error(data.error.detail);
         } else {
