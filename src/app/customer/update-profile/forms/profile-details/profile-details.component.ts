@@ -46,19 +46,16 @@ export class ProfileDetailsComponent implements OnInit {
 
   saveSettings() {
     this.loading = true
-    // setTimeout(() => {
-    //   this.loading = false
-    //   this.cdr.detectChanges();
-    // }, 1500);
     let customerUpdate = this.updateProfile.value;
     let splitBirthday = customerUpdate.birthday.split('/');
+    console.warn(splitBirthday)
     customerUpdate.birthday = `${splitBirthday[2]}-${splitBirthday[1]}-${splitBirthday[0]}`
     this.customerService.updateProfile(this.customerId, customerUpdate).then(
       res => {
         this.loading = false
         this.cdr.detectChanges();
         this.toastr.success("Succeed")
-        this.loadProfile();
+        // this.loadProfile();
       },
       error => {
         this.loading = false
@@ -80,6 +77,8 @@ export class ProfileDetailsComponent implements OnInit {
     this.customerService.detailsbycredentialid(credential.id).then(
       res => {
         this.loading = false;
+        this.cdr.detectChanges();
+
         console.log(res);
         this.customer = res;
         console.log(this.customer);
@@ -99,6 +98,8 @@ export class ProfileDetailsComponent implements OnInit {
       },
       error => {
         this.loading = false;
+        this.cdr.detectChanges();
+
         console.log(error);
       }
     );
