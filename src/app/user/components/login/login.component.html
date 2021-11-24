@@ -39,7 +39,7 @@
             <label class="custom-control-label" for="customCheck1">Remember password</label>
           </div>
           <!-- Submit Button -->
-          <button type="submit" class="sub-btn">sign in</button>
+          <button type="submit" class="sub-btn" [disabled]="!formLogin.valid" >sign in</button>
           <!-- Forget Password -->
           <div style="display:flex;justify-content:space-between">
             <a [routerLink]="['/request-email', {type:'forgot-password'}]" class="forget-pass-link mx-auto">Forget

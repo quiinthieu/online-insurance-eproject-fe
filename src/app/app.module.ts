@@ -27,6 +27,7 @@ import { MessageService } from "./services/message.service";
 import { PolicyService } from './services/policy.service';
 import { SubscriptionService } from "./services/subscription.service";
 import { PreloaderComponent } from './user/elements/preloader/preloader.component';
+import { UserModule } from './user/user.module';
 
 function appInitializer(authService: AuthService) {
   return () => {
@@ -57,7 +58,9 @@ function appInitializer(authService: AuthService) {
     // #fake-end#
     InlineSVGModule.forRoot(),
     NgbModule,
-
+    CustomerModule,
+    UserModule,
+    AdminModule,
     //ngx toast
     ToastrModule.forRoot({
       disableTimeOut: false,

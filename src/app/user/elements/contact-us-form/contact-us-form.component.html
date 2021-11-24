@@ -1,28 +1,31 @@
+<ng-container *ngIf="loading">
+    <preloader></preloader>
+  </ng-container>
 <div class="contact-form-s">
     <div class="container">
         <!-- row -->
         <div class="row justify-content-center">
             <!-- col -->
             <div class="col-lg-7 col-md-9">
-                <form id="contact-sales-form">
+                <form [formGroup]="contactForm" (ngSubmit)="sendFeedback()" id="contact-sales-form">
                     <!-- Input Group -->
                     <div class="input-group">
                         <input class="th-input w-100" id="f-name" type="text" aria-label="f-name"
-                               placeholder="First name" required autocomplete="off">
+                        formControlName="firstname" placeholder="First name" required autocomplete="off">
                     </div>
                     <!-- Input Group -->
                     <div class="input-group">
                         <input class="th-input w-100" id="l-name" type="text" aria-label="l-name"
-                               placeholder="Last Name" required autocomplete="off">
+                        formControlName="lastname" placeholder="Last Name" required autocomplete="off">
                     </div>
                     <!-- Input Group -->
                     <div class="input-group">
                         <input class="th-input w-100" id="email" type="email" aria-label="email"
-                               placeholder="Email" required autocomplete="off">
+                        formControlName="email" placeholder="Email" required autocomplete="off">
                     </div>
                     <!-- Input Group -->
                     <div class="input-group">
-                        <select id="country" name="country" class="form-control th-input">
+                        <select required id="country" name="country" class="form-control th-input" formControlName="country">
                             <option value="Your Country" disabled selected>Your Country</option>
                             <option value="Afghanistan">Afghanistan</option>
                             <option value="Åland Islands">Åland Islands</option>
@@ -290,7 +293,7 @@
                     </div>
                     <!-- Input Group -->
                     <div class="input-group">
-                        <select id="payment" class="th-input w-100" required>
+                        <select id="payment" class="th-input w-100" formControlName="amount" required>
                             <option selected disabled value>Select a monthly amount</option>
                             <option value="l-10000">Less than $10,000</option>
                             <option value="l0-30">$10,000 to $30,000</option>
@@ -299,13 +302,13 @@
                     </div>
                     <!-- Input Group -->
                     <div class="input-group">
-                                <textarea class="th-input w-100" id="message" name="message" placeholder="Message"
+                                <textarea formControlName="message" class="th-input w-100" id="message" name="message" placeholder="Message"
                                           required></textarea>
                     </div>
                     <!-- Input Group -->
                     <div class="input-group justify-content-end mb-0">
-                        <button type="submit" id="contact-sales-form-btn" class="btn-fill-blue text-capitalize">
-                            contact sales
+                        <button type="submit" [disabled]="!contactForm.valid" class="btn btn-primary btn-lg">
+                            <ng-container>Contact Sales</ng-container>
                         </button>
                     </div>
                 </form>

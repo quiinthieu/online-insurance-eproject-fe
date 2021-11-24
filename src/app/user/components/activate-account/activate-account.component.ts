@@ -27,7 +27,7 @@ export class ActivateAccountComponent implements OnInit {
     private formBuilder: FormBuilder,
     private credentialService: CredentialService,
     private toastr: ToastrService,
-    private cd: ChangeDetectorRef,
+    private cd : ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -74,6 +74,7 @@ export class ActivateAccountComponent implements OnInit {
     }
     this.credentialService.resetPassword(resetPasswordAccount).then(data => {
       this.loading = false;
+      this.cd.detectChanges();
       if (data.hasOwnProperty('error')) {
         this.toastr.error(data.error.detail);
       } else {
@@ -92,7 +93,6 @@ export class ActivateAccountComponent implements OnInit {
       email,
       activationCode
     }
-
     this.credentialService.verifyActivationCodeAndEmail(verifyAccount).then(data => {
       this.loading = false;
       this.cd.detectChanges();
@@ -101,10 +101,10 @@ export class ActivateAccountComponent implements OnInit {
         this.router.navigate(['login']);
       } else {
         if (data.email == email && data.activationCode == this.credential.activationCode) {
-        } else {
-          this.toastr.error('Invalid Link');
-          this.router.navigate(['login']);
+          return true;
         }
+        this.toastr.error('Invalid Link');
+        this.router.navigate(['login']);
       }
     })
   }
@@ -120,6 +120,7 @@ export class ActivateAccountComponent implements OnInit {
     }
     this.credentialService.activateAccount(activateAccount).then(data => {
       this.loading = false;
+      this.cd.detectChanges();
       if (data.hasOwnProperty('error')) {
         this.toastr.error(data.error.detail);
       } else {
