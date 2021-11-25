@@ -8,16 +8,12 @@
     <span class="text-muted mt-1 fw-bold fs-7">Pakages {{count1}} Insurance</span>
   </h3>
   <div class="card-toolbar">
-    <!-- begin::Menu -->
-    <button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-      data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
-      <span [inlineSVG]="'./assets/media/icons/duotune/general/gen024.svg'" class="svg-icon svg-icon-2"></span>
-    </button>
-    <!-- begin::Menu 2 -->
-    <app-dropdown-menu2></app-dropdown-menu2>
-    <!-- end::Menu 2 -->
-    <!-- end::Menu -->
+    <a (click)="openDialogCreateInsuranceType()" class="btn btn-sm btn-light-primary">
+      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'" class="svg-icon svg-icon-3"></span>
+      New
+    </a>
   </div>
+
 </div>
 <!-- end::Header -->
 <!-- begin::Body -->
@@ -74,23 +70,13 @@
 
 
             <td class="text-end">
-              <a href="#" class="
-                btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                me-1
-              ">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen019.svg'"
-                  class="svg-icon svg-icon-3"></span>
-              </a>
-              <a href="#" class="
+              <a (click)="openDialogUpdateInsuranceType(insuran)" class="
                 btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                 me-1
               ">
                 <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'" class="svg-icon svg-icon-3"></span>
               </a>
-              <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen027.svg'"
-                  class="svg-icon svg-icon-3"></span>
-              </a>
+
             </td>
 
 

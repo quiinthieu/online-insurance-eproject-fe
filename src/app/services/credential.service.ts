@@ -12,6 +12,9 @@ export class CredentialService {
   constructor(private httpMethod: HttpObservablesService, private router: Router,
     private httpClient: HttpClient) { }
 
+  update(id: any, body: any) {
+    return this.httpMethod.puttUrl(`${this.BASE_URL}update/${id}`, body);
+  }
 
   login(body: any) {
     return this.httpMethod.postUrl(`${this.BASE_URL}login`, body);
@@ -51,14 +54,14 @@ export class CredentialService {
     //   .get(this.BASE_URL + '/find-all')
     //   .toPromise()
     //   .then((res) => res as Credentiall[]);
-    return this.httpMethod.getUrl(`${this.BASE_URL}/verify`);
+    return this.httpMethod.getUrl(`${this.BASE_URL}find-all`);
   }
   count() {
     // return this.httpClient
     //   .get(this.BASE_URL + '/count')
     //   .toPromise()
     //   .then(res => res as number)
-    return this.httpMethod.getUrl(`${this.BASE_URL}/count`);
+    return this.httpMethod.getUrl(`${this.BASE_URL}count`);
   }
 
 }
