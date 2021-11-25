@@ -151,12 +151,7 @@ export class BuyPolicyComponent implements OnInit {
           this.router.navigate(['/customer/customer-policy']);
         }, 1500);
       }
-
-
     })
-
-
-
   }
   ngOnDestroy() {
     if (this.refPolicy) {
@@ -164,5 +159,9 @@ export class BuyPolicyComponent implements OnInit {
     }
   }
 
+  ContinueShopping() {
+    console.log("continue t shop");
+    this.router.navigate(['']);
+  }
 
 }

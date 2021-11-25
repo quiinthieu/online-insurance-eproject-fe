@@ -48,8 +48,7 @@ export class LoginComponent implements OnInit {
         this.toastr.error(data.error.detail);
       } else {
         const { accessToken, credential } = data;
-        const { id, email, roleName, status, customers } = credential
-        const { id: customerId, name: customerName } = credential;
+        const { id, email, roleName, status, customerId, customerName } = credential
         let customer = {
           id: customerId,
           name: customerName
