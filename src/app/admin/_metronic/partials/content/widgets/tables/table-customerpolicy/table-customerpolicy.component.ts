@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CustomerPolicy } from 'src/app/entities/customer-policy.entity';
 import { Customer } from 'src/app/entities/customer.entity';
 import { CustomerPolicyService } from 'src/app/services/customer-policy.service';
@@ -11,11 +11,15 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class TableCustomerPolicyComponent implements OnInit {
 
-  constructor(private _customerPolicyService: CustomerPolicyService) { }
+  constructor(private _customerPolicyService: CustomerPolicyService,
+    private cd : ChangeDetectorRef) { }
   tbCustomerPolis: CustomerPolicy[];
   count: any;
   count1: any;
   loading = false;
+  p: number = 1;
+  counter: number = 8;
+
   ngOnInit(): void {
 
     this.countCustomer();
@@ -27,6 +31,7 @@ export class TableCustomerPolicyComponent implements OnInit {
     this._customerPolicyService.findAll().then(
       res => {
         this.loading = false;
+        this.cd.detectChanges();
         this.tbCustomerPolis = res;
       },
       error => {

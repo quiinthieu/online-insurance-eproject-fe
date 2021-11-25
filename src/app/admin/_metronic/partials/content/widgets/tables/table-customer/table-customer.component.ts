@@ -14,6 +14,8 @@ export class TableCustomerComponent implements OnInit {
   count: any;
   count1: any;
   loading = false;
+  p: number = 1;
+  counter: number = 8;
   ngOnInit(): void {
 
     this.countCustomer();

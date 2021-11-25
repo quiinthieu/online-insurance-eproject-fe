@@ -11,10 +11,7 @@
 
   </h3>
   <div class="card-toolbar">
-    <a href="#" class="btn btn-sm btn-light-primary">
-      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'" class="svg-icon svg-icon-3"></span>
-      New Member
-    </a>
+    
   </div>
 </div>
 <!-- end::Header -->
@@ -45,7 +42,7 @@
       <!-- end::Table head -->
       <!-- begin::Table body -->
       <tbody>
-        <ng-container *ngFor="let customerpoli of tbCustomerPolis">
+        <ng-container *ngFor="let customerpoli of tbCustomerPolis | paginate: { itemsPerPage: counter, currentPage: p }">
           <tr>
             <td>
               <div class="d-flex align-items-center">
@@ -151,6 +148,7 @@
       </tbody>
       <!-- end::Table body -->
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
     <!-- end::Table -->
   </div>
   <!-- end::Table container -->

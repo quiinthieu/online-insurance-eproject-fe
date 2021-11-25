@@ -91,6 +91,7 @@ import { TablePremiumTypeComponent } from './tables/table-premiumtpye/table-prem
 import { TableRoleComponent } from './tables/table-role/table-role.component';
 import { TableSubscriptionComponent } from './tables/table-subscription/table-subscription.component';
 import { ShareModule } from 'src/app/share.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -189,7 +190,8 @@ import { ShareModule } from 'src/app/share.module';
     InlineSVGModule,
     NgApexchartsModule,
     NgbDropdownModule,
-    ShareModule
+    ShareModule,
+    NgxPaginationModule
   ],
   exports: [
     // Advanced Tables

@@ -40,14 +40,14 @@
           <th class="min-w-150px">Id</th>
           <th class="min-w-140px">CustomerPolicyId</th>
           <th class="min-w-120px">Total Amount</th>
-          <th class="min-w-120px">Claim Date</th>
+          <th class="min-w-120px">Status</th>
           <th class="min-w-100px text-end"></th>
         </tr>
       </thead>
       <!-- end::Table head -->
       <!-- begin::Table body -->
       <tbody>
-        <ng-container *ngFor="let claim of tbClaims">
+        <ng-container *ngFor="let claim of tbClaims | paginate: { itemsPerPage: counter, currentPage: p }">
           <tr>
             <td>
               <div class="
@@ -74,36 +74,16 @@
               </a>
               <span class="text-muted fw-bold text-muted d-block fs-7"></span>
             </td>
-
-
-
             <td class="text-end">
-              <a href="#" class="
-                btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                me-1
-              ">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen019.svg'"
-                  class="svg-icon svg-icon-3"></span>
-              </a>
-              <a href="#" class="
-                btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                me-1
-              ">
-                <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'" class="svg-icon svg-icon-3"></span>
-              </a>
-              <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen027.svg'"
-                  class="svg-icon svg-icon-3"></span>
-              </a>
+              <button type="button" class="btn btn-primary active">Pending</button>
             </td>
-
-
           </tr>
           <tr></tr>
         </ng-container>
       </tbody>
       <!-- end::Table body -->
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
     <!-- end::Table -->
   </div>
   <!-- end::Table container -->

@@ -86,6 +86,7 @@ import { UpdateInsuranceTypeComponent } from './components/update-insurance-type
     SubscriptionComponent,
     UpdateCredentialComponent,
     UpdateInsuranceTypeComponent,
+    
   ],
   imports: [
     CommonModule,

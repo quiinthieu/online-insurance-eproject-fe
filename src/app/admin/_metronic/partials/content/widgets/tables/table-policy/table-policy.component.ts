@@ -16,6 +16,8 @@ export class TablePolicyComponent implements OnInit {
   count: any;
   count2: any;
   loading = false;
+  p: number = 1;
+  counter: number = 8;
   ngOnInit(): void {
 
     this.countPolicy();
