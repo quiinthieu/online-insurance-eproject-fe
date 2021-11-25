@@ -51,7 +51,11 @@ import { SubscriptionService } from '../services/subscription.service';
 import { CustomerPolicyService } from '../services/customer-policy.service';
 import { PolicyDetailService } from '../services/policy-detail.service';
 import { ShareModule } from '../share.module';
-
+import { UpdateCredentialComponent } from './components/update-credential/update-credential.component';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonService } from '../services/common.service';
+import { UpdateInsuranceTypeComponent } from './components/update-insurance-type/update-insurance-type.component';
 
 
 @NgModule({
@@ -80,6 +84,8 @@ import { ShareModule } from '../share.module';
     PremiumTypeComponent,
     RoleComponent,
     SubscriptionComponent,
+    UpdateCredentialComponent,
+    UpdateInsuranceTypeComponent,
   ],
   imports: [
     CommonModule,
@@ -95,7 +101,11 @@ import { ShareModule } from '../share.module';
     NgbTooltipModule,
     TranslateModule,
     WidgetsModule,
-    ShareModule
+    ShareModule,
+
+    DynamicDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     AgentService,
@@ -112,6 +122,9 @@ import { ShareModule } from '../share.module';
     PremiumTransactionService,
     RoleService,
     SubscriptionService,
+
+    DialogService,
+    CommonService
   ],
   exports: [RouterModule],
 })

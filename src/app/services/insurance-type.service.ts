@@ -32,4 +32,13 @@ export class InsuranceTypeService {
     return this.httpMethod.getUrl(this.BASE_URL + 'count');
   }
 
+  create(body: any) {
+    return this.httpMethod
+      .postUrl(this.BASE_URL + 'create', body);
+  }
+
+  update(id: any, body: any) {
+    return this.httpMethod
+      .puttUrl(`${this.BASE_URL}update/${id}`, body);
+  }
 }
