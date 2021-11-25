@@ -46,8 +46,10 @@ export class RegisterComponent implements OnInit {
           this.toastr.error(data.error.detail);
         } else {
           this.toastr.success(APP_CONST.REGISTER_SUCCESS);
+          this.router.navigate(['login']);
         }
-        this.router.navigate(['login']);
+        // Register fail thi ko chuyen sang login
+      
       },
 
     )

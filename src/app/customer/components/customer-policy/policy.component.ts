@@ -31,9 +31,8 @@ export class CustomerPolicyComponent implements OnInit {
     console.log("aloalo"+credential.customer.id);
     this.policyService.findByCustomerId(credential.customer.id).then(data => {
       this.cd.detectChanges();
-      console.log("data ne")
-      console.log(data)
       this.loading = false
+      this.cd.detectChanges();
       this.policies = data;
     });
   }

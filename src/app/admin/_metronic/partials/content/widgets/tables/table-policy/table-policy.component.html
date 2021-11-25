@@ -6,14 +6,10 @@
   <h3 class="card-title align-items-start flex-column">
     <span class="card-label fw-bolder fs-3 mb-1">Policy</span>
 
-    <span class="text-muted mt-1 fw-bold fs-7">Over {{count2}} new member</span>
-
+    <span class="text-muted mt-1 fw-bold fs-7">{{count2}} policies is displaying </span>
   </h3>
   <div class="card-toolbar">
-    <a href="#" class="btn btn-sm btn-light-primary">
-      <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'" class="svg-icon svg-icon-3"></span>
-      New Member
-    </a>
+    
   </div>
 </div>
 <!-- end::Header -->
@@ -34,14 +30,12 @@
           <th class="min-w-150px">Total Amount</th>
           <th class="min-w-125px">InterestRate</th>
           <th class="min-w-125px">Description</th>
-
-          <th class="min-w-200px text-end rounded-end"></th>
         </tr>
       </thead>
       <!-- end::Table head -->
       <!-- begin::Table body -->
       <tbody>
-        <ng-container *ngFor="let poli of tbPolis">
+        <ng-container *ngFor="let poli of tbPolis | paginate: { itemsPerPage: counter, currentPage: p }">
           <tr>
             <td>
               <div class="d-flex align-items-center">
@@ -95,35 +89,14 @@
               <div data-kt-element="message-text" ng-reflect-ng-class="p-5 rounded text-dark fw-bold "
                 class="p-5 rounded text-dark fw-bold mw-lg-400px bg-light-info text-start">{{poli.description}} </div>
             </td>
-
-            <td class="text-end">
-              <a href="#" class="
-                btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                me-1
-              ">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen019.svg'"
-                  class="svg-icon svg-icon-3"></span>
-              </a>
-              <a href="#" class="
-                btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                me-1
-              ">
-                <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'" class="svg-icon svg-icon-3"></span>
-              </a>
-              <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen027.svg'"
-                  class="svg-icon svg-icon-3"></span>
-              </a>
-            </td>
-
           <tr>
-
           </tr>
           <tr></tr>
         </ng-container>
       </tbody>
       <!-- end::Table body -->
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
     <!-- end::Table -->
   </div>
   <!-- end::Table container -->

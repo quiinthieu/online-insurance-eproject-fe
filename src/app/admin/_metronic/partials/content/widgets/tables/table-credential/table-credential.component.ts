@@ -25,6 +25,9 @@ export class TableCredentialComponent implements OnInit {
   refCredential: DynamicDialogRef;
 
   loading = false;
+
+  p: number = 1;
+  counter: number = 8;
   ngOnInit(): void {
     this.countCredential();
     this.getCredential();

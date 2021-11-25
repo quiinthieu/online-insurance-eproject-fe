@@ -43,7 +43,7 @@
       <!-- end::Table head -->
       <!-- begin::Table body -->
       <tbody>
-        <ng-container *ngFor="let customer of tbCustomers">
+        <ng-container *ngFor="let customer of tbCustomers | paginate: { itemsPerPage: counter, currentPage: p }">
           <tr>
             <td>
               <div class="d-flex align-items-center">
@@ -145,6 +145,7 @@
       </tbody>
       <!-- end::Table body -->
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
     <!-- end::Table -->
   </div>
   <!-- end::Table container -->

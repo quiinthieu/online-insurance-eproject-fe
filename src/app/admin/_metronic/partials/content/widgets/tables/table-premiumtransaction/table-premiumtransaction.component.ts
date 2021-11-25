@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Claim } from 'src/app/entities/claim.entity';
 import { PremiumTransaction } from 'src/app/entities/premium-transaction.entity';
 import { ClaimService } from 'src/app/services/claim.service';
@@ -12,14 +12,20 @@ import { PremiumTransactionService } from 'src/app/services/premium-transaction.
 })
 export class TablePremiumTransactionComponent implements OnInit {
 
-  constructor(private _premiumTransactionService: PremiumTransactionService) { }
+  constructor(private _premiumTransactionService: PremiumTransactionService,
+    private cd : ChangeDetectorRef) { }
   tbTrans: PremiumTransaction[];
   count: any;
   count1: any;
   loading = false;
+
+  p: number = 1;
+  counter: number = 15;
+
   ngOnInit(): void {
     this.countTran();
     this.getTran();
+
 
   }
 
@@ -29,7 +35,7 @@ export class TablePremiumTransactionComponent implements OnInit {
     this._premiumTransactionService.findAll().then(
       res => {
         this.loading = false;
-
+        this.cd.detectChanges();
         this.tbTrans = res;
       },
       error => {
