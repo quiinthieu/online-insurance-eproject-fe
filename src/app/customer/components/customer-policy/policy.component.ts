@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { CommonService } from 'src/app/services/common.service';
 import { PolicyService } from 'src/app/services/policy.service';
@@ -19,7 +19,7 @@ export class CustomerPolicyComponent implements OnInit {
   refAgent: DynamicDialogRef;
   refTrans: DynamicDialogRef;
   refClaim: DynamicDialogRef;
-  constructor(private policyService: PolicyService, private dialogService: DialogService, private commonService: CommonService) { }
+  constructor(private policyService: PolicyService, private dialogService: DialogService, private commonService: CommonService, private cd : ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.initData();
@@ -28,7 +28,11 @@ export class CustomerPolicyComponent implements OnInit {
   initData() {
     this.loading = true;
     let credential = JSON.parse(localStorage.getItem('credential'))
+    console.log("aloalo"+credential.customer.id);
     this.policyService.findByCustomerId(credential.customer.id).then(data => {
+      this.cd.detectChanges();
+      console.log("data ne")
+      console.log(data)
       this.loading = false
       this.policies = data;
     });
