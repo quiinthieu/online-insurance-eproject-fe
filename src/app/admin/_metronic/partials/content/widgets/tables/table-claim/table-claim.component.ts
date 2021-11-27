@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Claim } from 'src/app/entities/claim.entity';
 import { ClaimService } from 'src/app/services/claim.service';
 
@@ -10,7 +10,7 @@ import { ClaimService } from 'src/app/services/claim.service';
 })
 export class TableClaimComponent implements OnInit {
 
-  constructor(private _claimService: ClaimService) { }
+  constructor(private _claimService: ClaimService, private cd: ChangeDetectorRef) { }
   tbClaims: Claim[];
   count: any;
   count1: any;
@@ -30,12 +30,12 @@ export class TableClaimComponent implements OnInit {
     this._claimService.findAll().then(
       res => {
         this.loading = false;
-
+        this.cd.detectChanges();
         this.tbClaims = res;
       },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.error(error);
       }
 
@@ -48,13 +48,13 @@ export class TableClaimComponent implements OnInit {
 
     this._claimService.count().then(res => {
       this.loading = false;
-
+      this.cd.detectChanges();
       this.count = res;
       this.count1 = this.count.result;
     },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.log(error);
       });
   }

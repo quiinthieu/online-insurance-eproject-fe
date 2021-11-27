@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Claim } from 'src/app/entities/claim.entity';
 import { ClaimService } from 'src/app/services/claim.service';
 import { CommonService } from 'src/app/services/common.service';
@@ -14,7 +14,7 @@ export class ClaimDetailComponent implements OnInit {
   // customerPolicyDetail: any;
   loading = false;
   // branchDetail: any;
-  constructor(private commonService: CommonService, private claimService: ClaimService) { }
+  constructor(private commonService: CommonService, private claimService: ClaimService, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.customerPolicyId = this.commonService.passingData['customer-policy-id'];
@@ -27,6 +27,7 @@ export class ClaimDetailComponent implements OnInit {
     this.loading = true
     this.claimService.findByCustomerPolicyId(this.customerPolicyId).then(data => {
       this.loading = false;
+      this.cd.detectChanges();
       this.claimDetail = data;
     });
   }

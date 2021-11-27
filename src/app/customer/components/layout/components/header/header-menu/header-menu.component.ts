@@ -7,14 +7,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./header-menu.component.scss'],
 })
 export class HeaderMenuComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   calculateMenuItemCssClass(url: string): string {
     return checkIsActive(this.router.url, url) ? 'active' : '';
   }
+  home() {
+    this.router.navigate(['/']);
+  }
 }
+
 
 const getCurrentUrl = (pathname: string): string => {
   return pathname.split(/[?#]/)[0];

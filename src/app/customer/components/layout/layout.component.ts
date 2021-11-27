@@ -4,6 +4,7 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { LayoutService } from './core/layout.service';
 import { LayoutInitService } from './core/layout-init.service';
@@ -14,7 +15,7 @@ import { LayoutInitService } from './core/layout-init.service';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutCustomerComponent implements OnInit, AfterViewInit {
-  loading = false;
+  loading = true;
   // Public variables
   selfLayout = 'default';
   asideSelfDisplay: true;
@@ -46,7 +47,8 @@ export class LayoutCustomerComponent implements OnInit, AfterViewInit {
 
   constructor(
     private initService: LayoutInitService,
-    private layout: LayoutService
+    private layout: LayoutService,
+    private cd: ChangeDetectorRef
   ) {
     this.initService.init();
   }
@@ -70,5 +72,9 @@ export class LayoutCustomerComponent implements OnInit, AfterViewInit {
         }
       }
     }
+    setTimeout(() => {
+      this.loading = false;
+      this.cd.detectChanges();
+    }, 10);
   }
 }

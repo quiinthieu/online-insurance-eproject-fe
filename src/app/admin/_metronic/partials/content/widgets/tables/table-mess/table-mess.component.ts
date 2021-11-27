@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Message } from 'src/app/entities/message.entity';
 import { Messages } from 'src/app/entities/messages.entity';
 import { MessageService } from 'src/app/services/message.service';
@@ -12,7 +12,7 @@ import { MessageService } from 'src/app/services/message.service';
 })
 export class TableMessComponent implements OnInit {
 
-  constructor(private _messageService: MessageService) { }
+  constructor(private _messageService: MessageService, private cd: ChangeDetectorRef) { }
   tbMess: Messages[];
   count: any;
   count1: any;
@@ -27,11 +27,12 @@ export class TableMessComponent implements OnInit {
     this._messageService.findAlls().then(
       res => {
         this.loading = false;
+        this.cd.detectChanges();
         this.tbMess = res;
       },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.error(error);
       }
 
@@ -42,13 +43,13 @@ export class TableMessComponent implements OnInit {
     this.loading = true;
     this._messageService.count().then(res => {
       this.loading = false;
-
+      this.cd.detectChanges();
       this.count = res;
       this.count1 = this.count.result;
     },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.log(error);
       });
   }

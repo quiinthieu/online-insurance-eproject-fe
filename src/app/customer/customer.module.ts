@@ -29,6 +29,7 @@ import { ClaimDetailComponent } from './components/claim-detail/claim-detail.com
 import { PaypalService } from '../services/paypal.service';
 import { ShareModule } from '../share.module';
 import { LayoutCustomerModule } from './components/layout';
+import { ScriptsInitComponent } from './components/layout/components/scripts-init/scripts-init.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { LayoutCustomerModule } from './components/layout';
     PolicyComponent,
     AgentDetailComponent,
     BuyPolicyComponent,
-    ClaimDetailComponent
+    ClaimDetailComponent,
   ],
   imports: [
     CommonModule,

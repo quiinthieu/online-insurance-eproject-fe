@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/entities/customer.entity';
 import { CustomerService } from 'src/app/services/customer.service';
 
@@ -9,7 +9,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class TableCustomerComponent implements OnInit {
 
-  constructor(private _customerService: CustomerService) { }
+  constructor(private _customerService: CustomerService, private cd: ChangeDetectorRef) { }
   tbCustomers: Customer[];
   count: any;
   count1: any;
@@ -29,11 +29,12 @@ export class TableCustomerComponent implements OnInit {
       res => {
 
         this.loading = false;
+        this.cd.detectChanges();
         this.tbCustomers = res;
       },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.error(error);
       }
 
@@ -45,13 +46,13 @@ export class TableCustomerComponent implements OnInit {
     this.loading = true;
     this._customerService.count().then(res => {
       this.loading = false;
-
+      this.cd.detectChanges();
       this.count = res;
       this.count1 = this.count.result;
     },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.log(error);
       });
   }
