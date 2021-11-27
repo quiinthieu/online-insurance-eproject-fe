@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { PremiumType } from 'src/app/entities/premium-type.entity';
 import { PremiumTypeService } from 'src/app/services/premium-type.service';
 
@@ -10,7 +10,7 @@ import { PremiumTypeService } from 'src/app/services/premium-type.service';
 })
 export class TablePremiumTypeComponent implements OnInit {
 
-  constructor(private _premiumService: PremiumTypeService) { }
+  constructor(private _premiumService: PremiumTypeService, private cd: ChangeDetectorRef) { }
   tbTrantys: PremiumType[];
   count: any;
   count1: any;
@@ -25,11 +25,12 @@ export class TablePremiumTypeComponent implements OnInit {
     this._premiumService.findAll().then(
       res => {
         this.loading = false;
+        this.cd.detectChanges();
         this.tbTrantys = res;
       },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.error(error);
       }
 
@@ -40,13 +41,13 @@ export class TablePremiumTypeComponent implements OnInit {
     this.loading = true;
     this._premiumService.count().then(res => {
       this.loading = false;
-
+      this.cd.detectChanges();
       this.count = res;
       this.count1 = this.count.result;
     },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.log(error);
       });
   }

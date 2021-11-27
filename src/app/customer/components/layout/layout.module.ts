@@ -27,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShareModule } from 'src/app/share.module';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { CustomerUserInnerComponent } from '../user-inner/user-inner.component';
+import { AdminModule } from 'src/app/admin/admin.module';
 
 
 @NgModule({
@@ -60,7 +61,7 @@ import { CustomerUserInnerComponent } from '../user-inner/user-inner.component';
     NgbTooltipModule,
     TranslateModule,
     // CustomerModule,
-    ShareModule
+    ShareModule,
   ],
   providers: [
     DialogService

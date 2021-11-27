@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Customer } from 'src/app/entities/customer.entity';
 import { PremiumTransactionExtend } from 'src/app/entities/premium-transaction-extend.entity';
@@ -29,7 +29,8 @@ export class TransactionTableComponent implements OnInit {
     private datePipe: DatePipe,
     private commonService: CommonService,
     private payPalService: PaypalService,
-    private router: Router
+    private router: Router,
+    private cd: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -51,6 +52,7 @@ export class TransactionTableComponent implements OnInit {
     this.loading = true;
     this.premiumTransactionService.findAll().then(data => {
       this.loading = false;
+      this.cd.detectChanges();
       console.log(data);
       this.premiumTransactions = data.transactions;
       this.total = data.total;
@@ -61,6 +63,7 @@ export class TransactionTableComponent implements OnInit {
     this.loading = true;
     this.premiumTransactionService.findByCustomerPolicyId(this.customerPolicyId).then(data => {
       this.loading = false;
+      this.cd.detectChanges();
       console.log(data);
       this.premiumTransactions = data.transactions;
       this.total = data.total;
@@ -96,6 +99,7 @@ export class TransactionTableComponent implements OnInit {
 
     this.payPalService.PayPalCheckout(listRequest).then(data => {
       this.loading = false;
+      this.cd.detectChanges();
       this.router.ngOnDestroy();
       window.location.href = data.path;
       if (data.hasOwnProperty('error')) {

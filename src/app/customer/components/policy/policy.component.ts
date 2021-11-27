@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
 import { PolicyDetailService } from 'src/app/services/policy-detail.service';
 
@@ -12,7 +12,7 @@ export class PolicyComponent implements OnInit {
   color: string = 'danger';
   loading = false;
   policyDetail: any;
-  constructor(private commonService: CommonService, private policyDetailService: PolicyDetailService) { }
+  constructor(private commonService: CommonService, private policyDetailService: PolicyDetailService, private cd: ChangeDetectorRef) { }
   ngOnInit(): void {
     this.policyDetailId = this.commonService.passingData['policy-detail'] || null;
     if (this.policyDetailId) {
@@ -24,6 +24,7 @@ export class PolicyComponent implements OnInit {
     this.loading = true;
     this.policyDetailService.findById(policyDetailId).then(data => {
       this.loading = false;
+      this.cd.detectChanges();
       this.policyDetail = data
     })
   }

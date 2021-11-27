@@ -12,7 +12,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 export class TableCustomerPolicyComponent implements OnInit {
 
   constructor(private _customerPolicyService: CustomerPolicyService,
-    private cd : ChangeDetectorRef) { }
+    private cd: ChangeDetectorRef) { }
   tbCustomerPolis: CustomerPolicy[];
   count: any;
   count1: any;
@@ -36,7 +36,7 @@ export class TableCustomerPolicyComponent implements OnInit {
       },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.error(error);
       }
 
@@ -47,13 +47,13 @@ export class TableCustomerPolicyComponent implements OnInit {
     this.loading = true;
     this._customerPolicyService.count().then(res => {
       this.loading = false;
-
+      this.cd.detectChanges();
       this.count = res;
       this.count1 = this.count.result;
     },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.log(error);
       });
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { CommonService } from 'src/app/services/common.service';
 import { PolicyComponent } from '../policy/policy.component';
@@ -33,7 +33,8 @@ export class BuyPolicyComponent implements OnInit {
     private toastr: ToastrService,
     private premiumTypeService: PremiumTypeService,
     private router: Router,
-    private datePipe: DatePipe) { }
+    private datePipe: DatePipe,
+    private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.initData();
@@ -69,6 +70,7 @@ export class BuyPolicyComponent implements OnInit {
     this.loading = true;
     this.premiumTypeService.findAll().then(data => {
       this.loading = false;
+      this.cd.detectChanges();
       this.premiumType = data
     });
   }
@@ -80,6 +82,7 @@ export class BuyPolicyComponent implements OnInit {
     this.customerService.detailsbycredentialid(this.credential.id).then(
       res => {
         this.loading = false;
+        this.cd.detectChanges();
         let { name, birthday, gender, street, city, state, zipCode, occupation, credentialId, citizenId, id } = res
         birthday = birthday ? this.datePipe.transform(birthday, 'dd/MM/yyyy') : this.datePipe.transform(new Date(), 'dd/MM/yyyy');
         gender = gender ? gender : 'male';
@@ -142,6 +145,7 @@ export class BuyPolicyComponent implements OnInit {
 
     this.customerPolicyService.createCustomerPolicy(buyPolicyItem).then(data => {
       this.loading = false;
+      this.cd.detectChanges();
       if (data.hasOwnProperty('error')) {
         this.toastr.success('error');
       } else {

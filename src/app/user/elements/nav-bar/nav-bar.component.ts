@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { InsuranceType } from "../../../entities/insurance-type.entity";
 import { InsuranceTypeService } from "../../../services/insurance-type.service";
@@ -11,7 +12,7 @@ import { InsuranceTypeService } from "../../../services/insurance-type.service";
 export class NavBarComponent implements OnInit {
   insuranceTypes: InsuranceType[];
 
-  constructor(private insuranceTypeService: InsuranceTypeService) {
+  constructor(private insuranceTypeService: InsuranceTypeService, private router: Router) {
     insuranceTypeService.findAll().then(res => this.insuranceTypes = res);
   }
 
@@ -19,7 +20,9 @@ export class NavBarComponent implements OnInit {
     this.insuranceTypeService.findAll().then(res => this.insuranceTypes = res);
     this.loadScript();
   }
-
+  buy() {
+    this.router.navigate(['/customer/buy-policy'])
+  }
   loadScript() {
     // -- :: Navbar
     $(window).on('scroll', function () {

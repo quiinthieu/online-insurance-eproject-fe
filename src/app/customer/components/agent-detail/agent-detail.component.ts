@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BranchService } from 'src/app/services/branch.service';
 import { CommonService } from 'src/app/services/common.service';
 
@@ -11,7 +11,7 @@ export class AgentDetailComponent implements OnInit {
   customerPolicyDetail: any;
   loading = false;
   branchDetail: any;
-  constructor(private commonService: CommonService, private branchService: BranchService) { }
+  constructor(private commonService: CommonService, private branchService: BranchService, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.customerPolicyDetail = this.commonService.passingData['customer-policy-detail'] || null;
@@ -24,6 +24,7 @@ export class AgentDetailComponent implements OnInit {
     this.loading = true;
     this.branchService.findById(this.customerPolicyDetail.branchId).then(data => {
       this.loading = false;
+      this.cd.detectChanges();
       this.branchDetail = data;
     });
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Customer } from 'src/app/entities/customer.entity';
@@ -15,7 +15,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     private customerService: CustomerService,
     private formBuilder: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private cd: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class ProfileComponent implements OnInit {
     this.customerService.detailsbycredentialid(credential.id).then(
       res => {
         this.loading = false;
+        this.cd.detectChanges();
         console.log(res);
         this.customer = res;
         console.log(this.customer);
@@ -36,6 +38,7 @@ export class ProfileComponent implements OnInit {
       },
       error => {
         this.loading = false;
+        this.cd.detectChanges();
         console.log(error);
       }
     );

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { PremiumType } from 'src/app/entities/premium-type.entity';
 import { Role } from 'src/app/entities/role.entity';
 import { Subscription } from 'src/app/entities/subscription.entity';
@@ -13,7 +13,7 @@ import { SubscriptionService } from 'src/app/services/subscription.service';
 })
 export class TableSubscriptionComponent implements OnInit {
 
-  constructor(private _subscriptionService: SubscriptionService) { }
+  constructor(private _subscriptionService: SubscriptionService, private cd: ChangeDetectorRef) { }
   tbSus: Subscription[];
   count: any;
   count1: any;
@@ -30,12 +30,12 @@ export class TableSubscriptionComponent implements OnInit {
     this._subscriptionService.findAll().then(
       res => {
         this.loading = false;
-
+        this.cd.detectChanges();
         this.tbSus = res;
       },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.error(error);
       }
 
@@ -47,13 +47,13 @@ export class TableSubscriptionComponent implements OnInit {
 
     this._subscriptionService.count().then(res => {
       this.loading = false;
-
+      this.cd.detectChanges();
       this.count = res;
       this.count1 = this.count.result;
     },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.log(error);
       });
   }

@@ -13,7 +13,7 @@ import { PremiumTransactionService } from 'src/app/services/premium-transaction.
 export class TablePremiumTransactionComponent implements OnInit {
 
   constructor(private _premiumTransactionService: PremiumTransactionService,
-    private cd : ChangeDetectorRef) { }
+    private cd: ChangeDetectorRef) { }
   tbTrans: PremiumTransaction[];
   count: any;
   count1: any;
@@ -40,7 +40,7 @@ export class TablePremiumTransactionComponent implements OnInit {
       },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.error(error);
       }
 
@@ -53,13 +53,13 @@ export class TablePremiumTransactionComponent implements OnInit {
 
     this._premiumTransactionService.count().then(res => {
       this.loading = false;
-
+      this.cd.detectChanges();
       this.count = res;
       this.count1 = this.count.result;
     },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.log(error);
       });
   }

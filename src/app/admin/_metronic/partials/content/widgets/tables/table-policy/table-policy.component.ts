@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/entities/customer.entity';
 import { Policy } from 'src/app/entities/policy.entity';
 import { PolicyDetailService } from 'src/app/services/policy-detail.service';
@@ -11,7 +11,7 @@ import { PolicyDetailService } from 'src/app/services/policy-detail.service';
 })
 export class TablePolicyComponent implements OnInit {
 
-  constructor(private _policyService: PolicyDetailService) { }
+  constructor(private _policyService: PolicyDetailService, private cd: ChangeDetectorRef) { }
   tbPolis: Policy[];
   count: any;
   count2: any;
@@ -30,12 +30,12 @@ export class TablePolicyComponent implements OnInit {
     this._policyService.findAll().then(
       res => {
         this.loading = false;
-
+        this.cd.detectChanges();
         this.tbPolis = res;
       },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.error(error);
       }
 
@@ -47,13 +47,13 @@ export class TablePolicyComponent implements OnInit {
 
     this._policyService.count().then(res => {
       this.loading = false;
-
+      this.cd.detectChanges();
       this.count = res;
       this.count2 = this.count.result;
     },
       error => {
         this.loading = false;
-
+        this.cd.detectChanges();
         console.log(error);
       });
   }
